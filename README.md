@@ -5,5 +5,11 @@
     width="100%"
   >
 </p>
-# game-development-portfolio
-Portafolio académico de Game Development con seis videojuegos educativos desarrollados en HTML5, CSS3 y JavaScript, acompañados de documentación, capturas y versiones jugables.
+
+<h1 align="center">Game Development Portfolio</h1>
+
+<p align="center">
+  Portafolio académico con seis videojuegos educativos desarrollados en
+  HTML5, CSS3 y JavaScript, acompañados de documentación, capturas y
+  versiones jugables.
+</p>
