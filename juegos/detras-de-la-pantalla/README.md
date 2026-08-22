@@ -1,255 +1,265 @@
 <p align="center">
   <a href="https://katfipol.github.io/game-development-portfolio/juegos/detras-de-la-pantalla/">
-    <img src="../../assets/capturas/detras-de-la-pantalla.png" alt="Captura de Detrás de la Pantalla: Masteo en el pasillo del colegio" width="100%">
+    <img src="../../assets/capturas/detras-de-la-pantalla/01-inicio.png" alt="Pantalla inicial de Detrás de la pantalla" width="100%">
   </a>
 </p>
 
-<h1 align="center">Detrás de la Pantalla</h1>
+<h1 align="center">Detrás de la pantalla</h1>
+
+<p align="center"><em>Una experiencia narrativa donde cada decisión digital transforma lo que ocurre fuera de la pantalla.</em></p>
 
 <p align="center">
-  <em>Las decisiones digitales también dejan consecuencias fuera de la pantalla.</em>
-</p>
-
-<p align="center">
-  <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5">
-  <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3">
-  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=111111" alt="JavaScript">
-  <img src="https://img.shields.io/badge/Narrativa-Emergente-7957D5?style=for-the-badge" alt="Narrativa emergente">
+  <img src="https://img.shields.io/badge/Práctica-05-7B6CFF?style=for-the-badge" alt="Práctica 05">
+  <img src="https://img.shields.io/badge/Escenas-12-2D9CDB?style=for-the-badge" alt="12 escenas">
+  <img src="https://img.shields.io/badge/Finales-2-20B26B?style=for-the-badge" alt="2 finales">
+  <img src="https://img.shields.io/badge/Narrativa-Emergente-A978E8?style=for-the-badge" alt="Narrativa emergente">
   <img src="https://img.shields.io/badge/Estado-Funcional-20B26B?style=for-the-badge" alt="Estado funcional">
 </p>
 
 <p align="center">
-  <a href="https://katfipol.github.io/game-development-portfolio/juegos/detras-de-la-pantalla/"><strong>JUGAR EN EL NAVEGADOR</strong></a>
-  &nbsp;&nbsp;|&nbsp;&nbsp;
+  <a href="https://katfipol.github.io/game-development-portfolio/juegos/detras-de-la-pantalla/"><strong>JUGAR AHORA</strong></a>
+  &nbsp;·&nbsp;
   <a href="index.html"><strong>VER CÓDIGO</strong></a>
-  &nbsp;&nbsp;|&nbsp;&nbsp;
-  <a href="../../README.md"><strong>VOLVER AL PORTAFOLIO</strong></a>
+  &nbsp;·&nbsp;
+  <a href="../../README.md#videojuegos"><strong>GALERÍA DEL PORTAFOLIO</strong></a>
+</p>
+
+<p align="center">
+  <a href="#experiencia">Experiencia</a> · <a href="#galería">Galería</a> ·
+  <a href="#storytelling">Storytelling</a> · <a href="#mecánicas">Mecánicas</a> ·
+  <a href="#práctica-05">Práctica 05</a> · <a href="#uso-de-inteligencia-artificial">IA</a>
 </p>
 
 ---
 
-## Descripción
+## Experiencia
 
-**Detrás de la Pantalla** es una aventura narrativa 2.5D sobre el ciberbullying y la responsabilidad digital. El jugador controla a **Masteo**, explora su dormitorio y distintos espacios del colegio, consulta mensajes dentro de un teléfono ficticio y toma decisiones que modifican sus relaciones y el desenlace.
+**Detrás de la pantalla** es una aventura narrativa 2.5D sobre ciberbullying, empatía y responsabilidad digital. El jugador acompaña a **Masteo** por su dormitorio y distintos espacios del colegio, consulta una red social ficticia y toma decisiones que modifican sus relaciones, tres indicadores narrativos y el desenlace.
 
-La experiencia no presenta el tema como una charla. Aplica el principio **show, don't tell**: el casillero cerrado, la silla vacía, las conversaciones que desaparecen y la distancia de los compañeros muestran las consecuencias de las acciones de Masteo.
+El proyecto evita convertir el tema en una charla. Aplica **show, don't tell**: un casillero cerrado, una silla vacía, mensajes que coinciden con lo ocurrido y compañeros que se distancian comunican las consecuencias mediante el escenario y las acciones.
 
-## Ficha del proyecto
+> **Nota de contenido:** la historia presenta de forma ficticia situaciones de acoso digital y sus consecuencias sociales. Su enfoque es educativo y no incluye contenido gráfico.
 
-| Elemento | Información |
+| Ficha | Información |
 |---|---|
 | Asignatura | Game Development |
-| Tema de la práctica | Storytelling en videojuegos |
+| Tema académico | Storytelling en videojuegos |
 | Género | Aventura narrativa e historia interactiva |
-| Estructura | Narrativa emergente con decisiones ramificadas |
-| Perspectiva | Escenario lateral 2.5D |
-| Tema central | Ciberbullying, empatía y responsabilidad digital |
 | Público del caso | Adolescentes de 13 a 17 años |
-| Plataforma | Navegador web de escritorio y dispositivos móviles |
+| Perspectiva | Escenario lateral 2.5D |
+| Plataforma | Navegador web, escritorio y móvil |
 | Modalidad | Un jugador |
 | Integrantes | Melani Quintela Aguilar y José Martín Leaño Mercado |
 
-## Problema y propósito
+### Problema y propósito
 
-La práctica parte del caso de **Red Escolar Segura**, una institución que busca que los adolescentes comprendan el impacto del acoso digital mediante una experiencia narrativa y no mediante explicaciones moralizantes.
+La práctica parte del caso de **Red Escolar Segura**, que busca generar identificación y reflexión frente al acoso digital. El juego convierte este problema en una experiencia de causa y consecuencia: el jugador descubre que la sensación de anonimato no elimina el impacto de lo que se publica y decide si Masteo conserva esa distancia o comienza a reparar el daño mediante acciones.
 
-El juego convierte ese problema en una situación interactiva: el jugador observa cómo una conducta anónima afecta la vida escolar de otras personas y decide si Masteo conserva el control que siente detrás de la pantalla o asume responsabilidad y comienza a cambiar mediante acciones.
+---
 
-## Arco de Masteo
+## Galería
 
-### Inicio
+### La historia se descubre al explorar
 
-Masteo utiliza una cuenta anónima para obtener reacciones y sentirse en control. Al principio interpreta las burlas como algo distante, protegido por una pantalla.
-
-### Situación de cambio
-
-La ausencia de su mejor amiga, un casillero cerrado y la coincidencia entre sus publicaciones y los mensajes recibidos revelan que sus acciones digitales tienen consecuencias reales.
-
-### Transformación posible
-
-El jugador decide si Masteo minimiza lo ocurrido o reconoce su responsabilidad. El cambio positivo no se presenta como un perdón inmediato: requiere cerrar la cuenta, hablar con honestidad e intervenir cuando aparece una nueva burla.
-
-## Sistema narrativo
-
-La historia combina exploración, puntos de interacción, mensajes y elecciones. Cada decisión modifica tres indicadores:
-
-| Variable | Lo que representa |
+| Un lugar vacío | La verdad |
 |---|---|
-| Control | La necesidad de Masteo de dominar la situación mediante el anonimato |
-| Confianza | La calidad de sus vínculos con su amiga y sus compañeros |
-| Responsabilidad | Su capacidad de reconocer el daño y actuar de manera diferente |
+| <img src="../../assets/capturas/detras-de-la-pantalla/02-pasillo-casillero.png" alt="Masteo frente al casillero vacío de su amiga" width="100%"> | <img src="../../assets/capturas/detras-de-la-pantalla/03-aula-la-verdad.png" alt="Masteo descubre la relación entre los mensajes y las capturas" width="100%"> |
+| El casillero cerrado y la ausencia de su amiga introducen el conflicto sin explicarlo directamente. | El historial de la cuenta conecta las publicaciones con sus consecuencias y plantea una decisión de responsabilidad. |
 
-Además de los porcentajes visibles, el juego registra acciones importantes como publicar una burla, preguntar por su amiga, cerrar la cuenta, hablar con honestidad y defender a otro compañero.
+### Dos desenlaces, dos lecturas de las decisiones
 
-## Recorrido de la historia
-
-```mermaid
-flowchart TD
-    A[Cuenta anónima en casa] --> B{¿Publicar una burla?}
-    B -->|Sí| C[Las reacciones aumentan]
-    B -->|No| D[Evita participar]
-    C --> E[Amiga ausente en el colegio]
-    D --> E
-    E --> F[Descubre la relación entre los mensajes y su amiga]
-    F --> G{¿Continuar o cerrar la cuenta?}
-    G -->|Continuar| H[Final de aislamiento]
-    G -->|Cerrar y reparar| I{¿Sus acciones demuestran el cambio?}
-    I -->|Sí| J[Final de cambio]
-    I -->|No| H
-```
-
-## Escenarios
-
-- **Casa — dormitorio:** presenta la cuenta anónima, las publicaciones y la sensación inicial de impunidad.
-- **Colegio — pasillo:** muestra la ausencia de su amiga y el distanciamiento de los compañeros.
-- **Colegio — aula:** relaciona las publicaciones con sus consecuencias y plantea nuevas oportunidades de actuar.
-- **Colegio — patio:** concentra la decisión principal y presenta los desenlaces.
-
-Los objetos del entorno —teléfono, computadora, casillero, pupitre y banco— funcionan como recursos narrativos y no solo como decoración.
-
-## Decisiones y consecuencias
-
-- Publicar una burla o no participar.
-- Preguntar por su amiga o seguir de largo.
-- Reconocer lo ocurrido o restarle importancia.
-- Mantener la cuenta anónima o cerrarla.
-- Hablar con honestidad o buscar una solución rápida.
-- Detener y reportar una nueva burla o permanecer en silencio.
-
-Las decisiones modifican las estadísticas y ciertas acciones quedan registradas para evaluar el resultado final.
-
-## Desenlaces
-
-### Final de cambio — *La confianza vuelve poco a poco*
-
-Se obtiene cuando Masteo cierra la cuenta y alcanza al menos **55 % de responsabilidad** y **45 % de confianza**. Su amiga todavía necesita tiempo, pero sus acciones abren una oportunidad para reconstruir vínculos.
-
-### Final de aislamiento — *Detrás de la pantalla, solo*
-
-Ocurre cuando Masteo conserva el anonimato o no asume plenamente sus acciones. El teléfono continúa encendido, mientras sus relaciones reales se debilitan.
-
-## Mecánicas principales
-
-- Exploración libre dentro de cada escenario.
-- Acercamiento a puntos iluminados para desbloquear la escena.
-- Interacción contextual con objetos y personajes.
-- Selección de decisiones desde el panel narrativo.
-- Estadísticas dinámicas entre 0 % y 100 %.
-- Ramificación de escenas mediante decisiones y banderas internas.
-- Dos desenlaces evaluados a partir de acciones y estadísticas.
-- Pausa, reinicio, sonido ambiental y retroalimentación sonora.
-
-## Controles
-
-| Entrada | Acción |
+| Final de cambio | Final de aislamiento |
 |---|---|
-| `W` `A` `S` `D` | Mover a Masteo |
-| `E` o `Espacio` | Interactuar con un punto cercano |
-| Clic o toque | Elegir una decisión narrativa |
-| `Esc` o botón `II` | Pausar o reanudar |
-| Botón musical | Activar o desactivar el sonido |
+| <img src="../../assets/capturas/detras-de-la-pantalla/04-final-cambio.png" alt="Final positivo La confianza vuelve poco a poco" width="100%"> | <img src="../../assets/capturas/detras-de-la-pantalla/05-final-aislamiento.png" alt="Final negativo Detrás de la pantalla solo" width="100%"> |
+| La confianza no regresa de inmediato: Masteo obtiene una oportunidad al reconocer lo ocurrido y demostrar el cambio. | Mantener el anonimato o evitar asumir responsabilidad provoca que los vínculos continúen alejándose. |
 
-En dispositivos móviles se muestran controles táctiles para movimiento e interacción.
+---
 
-## Dirección visual y sonora
+## Storytelling
 
-El prototipo utiliza una estética 2.5D sobria para conservar el tono de la historia. Los escenarios incluyen perspectiva, iluminación, materiales, sombras, mobiliario y personajes con contacto visible con el suelo. La luz y el color cambian entre el dormitorio nocturno y los espacios escolares.
+### Arco de Masteo
 
-El audio se genera con **Web Audio API**: un ambiente grave acompaña la exploración y tonos diferentes distinguen decisiones favorables y desfavorables. No se utilizan archivos musicales externos.
-
-## Tecnologías utilizadas
-
-| Tecnología | Aplicación en el proyecto |
+| Momento | Transformación narrativa |
 |---|---|
-| HTML5 | Estructura de pantallas, interfaz, diálogos y botones |
-| CSS3 | Diseño adaptable, paneles, transiciones, profundidad y estados visuales |
-| JavaScript | Movimiento, decisiones, variables, escenas, finales y control del juego |
-| Canvas 2D | Renderizado de escenarios, personajes, iluminación y elementos interactivos |
-| Web Audio API | Ambiente y efectos sonoros generados en tiempo real |
+| Estado inicial | Utiliza una cuenta anónima para obtener reacciones y sentir control. |
+| Situación de cambio | La ausencia de su amiga y las pruebas de la cuenta conectan sus publicaciones con una consecuencia real. |
+| Conflicto interno | Debe elegir entre proteger su anonimato o reconocer el daño que ayudó a producir. |
+| Cambio posible | Cierra la cuenta, habla con honestidad y actúa cuando aparece una nueva agresión. |
+| Resultado | Sus decisiones conducen a una oportunidad de reconstruir confianza o a un aislamiento progresivo. |
 
-El proyecto se distribuye en un único archivo `index.html`, por lo que puede ejecutarse sin dependencias ni instalación.
+### Mapa narrativo
 
-## Organización técnica
+<p align="center"><img src="../../assets/capturas/detras-de-la-pantalla/ruta-narrativa.svg" alt="Mapa de decisiones de Detrás de la pantalla" width="100%"></p>
 
-```text
-detras-de-la-pantalla/
-├── index.html   # Juego completo: estructura, estilos y lógica
-└── README.md    # Documentación individual del proyecto
-```
+### Recursos narrativos
 
-La lógica se organiza alrededor de un arreglo de escenas. Cada escena define ubicación, objetivo, punto interactivo, contenido del teléfono, texto narrativo, elecciones, modificaciones de estadísticas y siguiente destino.
+- **Narrativa emergente:** el sentido de la historia depende de las decisiones acumuladas.
+- **Narrativa ambiental:** casillero, pupitre, banco y teléfono comunican información sin detener el juego.
+- **Retroalimentación visible:** Control, Confianza y Responsabilidad muestran el efecto inmediato de cada elección.
+- **Consecuencias persistentes:** el resultado no depende de una sola respuesta, sino del recorrido completo.
+- **Reparación gradual:** el final positivo presenta una oportunidad construida con acciones, no un perdón automático.
 
-## Relación con la práctica
+---
 
-| Requerimiento | Evidencia en el proyecto | Estado |
+## Mecánicas
+
+### Bucle principal
+
+1. Explorar el escenario.
+2. Acercarse al punto de interés.
+3. Leer la situación y consultar el teléfono cuando corresponda.
+4. Elegir una respuesta.
+5. Observar el cambio en los indicadores y continuar la historia.
+
+| Sistema | Función dentro del juego |
+|---|---|
+| Movimiento 2.5D | Permite recorrer dormitorio, pasillo, aula y patio. |
+| Interacción por proximidad | Activa objetos y conversaciones cuando Masteo está cerca. |
+| Decisiones ramificadas | Modifican estadísticas, banderas narrativas y escenas posteriores. |
+| Teléfono ficticio | Presenta publicaciones, mensajes e indicios de la historia. |
+| Indicadores | Representan Control, Confianza y Responsabilidad. |
+| Audio reactivo | Añade ambiente y señales sonoras mediante Web Audio API. |
+| Pausa y controles táctiles | Mantienen la experiencia accesible en escritorio y móvil. |
+
+### Controles
+
+| Acción | Teclado | Móvil |
 |---|---|---|
-| Investigar storytelling, narrativa lineal/emergente y *show, don't tell* | Definiciones y ejemplo incluidos en el informe | Cumplido |
-| Construir el arco de personaje | Inicio, situación de cambio y transformación de Masteo | Cumplido |
-| Elegir y justificar la estructura narrativa | Narrativa emergente basada en decisiones | Cumplido |
-| Crear una representación del storytelling | Estructura ramificada desarrollada en la práctica | Cumplido |
-| Producir un prototipo funcional | Escenas, movimiento, interacción, decisiones y desenlaces | Cumplido |
-| Integrar la escena clave | Descubrimiento de la relación entre la cuenta y su amiga | Cumplido |
-| Validar con otros dos equipos | Las tablas del documento todavía no contienen resultados | Pendiente |
-
-## Evolución del prototipo
-
-| Área | Mejora incorporada |
-|---|---|
-| Navegación | Exploración con WASD, interacción contextual y controles táctiles |
-| Narrativa | Más decisiones, consecuencias acumulativas y rutas diferenciadas |
-| Personajes | Proporciones humanas, expresiones, sombras y posición coherente sobre el suelo |
-| Escenarios | Dormitorio, pasillo, aula y patio con mayor profundidad visual |
-| Interfaz | HUD de variables, objetivo actual, progreso, pausa y ayuda inicial |
-| Finales | Evaluación mediante acciones, confianza y responsabilidad |
-| Sonido | Ambiente original generado en el navegador y señales por decisión |
-| Accesibilidad | Etiquetas en botones, soporte táctil y textos de apoyo |
-
-## Uso de inteligencia artificial
-
-La práctica permite utilizar herramientas de IA siempre que el equipo comprenda y pueda defender técnicamente el resultado. **ChatGPT** se utilizó como apoyo principal para estructurar el prototipo, convertir el storytelling en escenas programables, implementar decisiones y mejorar el apartado visual y sonoro.
-
-Las decisiones narrativas, la revisión del mensaje, las pruebas y las correcciones fueron realizadas de forma iterativa por el equipo. La IA se documenta como herramienta de apoyo, no como autora única del proyecto.
+| Moverse | `W` `A` `S` `D` | Control direccional táctil |
+| Interactuar | `E` o `Espacio` | Botón de interacción |
+| Pausar | `Esc` o botón de pausa | Botón de pausa |
 
 <details>
-<summary><strong>Prompt reconstruido del proceso</strong></summary>
+<summary><strong>Ver cómo se determinan los finales — contiene spoilers</strong></summary>
 
-> Desarrolla en un único archivo HTML un prototipo narrativo 2.5D sobre ciberbullying para adolescentes. El protagonista se llama Masteo y utiliza una cuenta anónima para molestar a otros. La historia debe aplicar “show, don't tell”, permitir explorar la casa y el colegio, interactuar con objetos y tomar decisiones con consecuencias. Incluye las variables control, confianza y responsabilidad, rutas de cambio o aislamiento, dos finales, controles WASD, interacción con E, pausa, sonido generado en el navegador y diseño adaptable. Representa visualmente el dormitorio, el pasillo, el aula y el patio con personajes humanos, sombras, profundidad y objetos reconocibles. Evita mensajes moralizantes y muestra el cambio mediante acciones.
+El final de cambio exige que Masteo haya cerrado la cuenta y que el recorrido termine con al menos **55% de Responsabilidad** y **45% de Confianza**. Las elecciones previas —preguntar por su amiga, hablar con honestidad y defender a otra persona— ayudan a alcanzar esas condiciones.
 
-Este texto es una **reconstrucción fiel de las instrucciones y correcciones aplicadas**; no corresponde a una copia literal del prompt original.
+Si no se cumplen, la historia conduce al final de aislamiento. Esto evita que una única respuesta correcta borre las decisiones anteriores.
 
 </details>
 
-## Pruebas recomendadas
+---
 
-- [ ] Recorrer la ruta de cambio y comprobar sus requisitos finales.
-- [ ] Recorrer la ruta de aislamiento.
-- [ ] Verificar que cada elección modifique correctamente las estadísticas.
-- [ ] Confirmar que los valores nunca salgan del rango de 0 % a 100 %.
-- [ ] Probar movimiento, interacción, pausa, reinicio y sonido.
-- [ ] Revisar controles táctiles y adaptación a pantallas pequeñas.
-- [ ] Completar la validación narrativa con otros dos equipos.
+## Diseño visual y sonoro
+
+La dirección artística utiliza azules oscuros, violetas y luz ambiental para transmitir distancia, tensión y reflexión. Los personajes están apoyados sobre el escenario, tienen sombras y proporciones humanas estilizadas; los espacios escolares incorporan profundidad, mobiliario y objetos narrativos reconocibles.
+
+La música ambiental y las señales de elección se generan en tiempo real con **Web Audio API**, por lo que el juego mantiene una identidad sonora propia sin depender de archivos externos.
+
+## Tecnologías
+
+| Tecnología | Aplicación |
+|---|---|
+| HTML5 | Estructura, interfaz y lienzo del juego |
+| CSS3 | Diseño adaptable, iluminación, paneles y controles táctiles |
+| JavaScript | Estados, escenas, decisiones, colisiones e interacción |
+| Canvas 2D | Escenarios, personajes y objetos narrativos |
+| Web Audio API | Ambiente y retroalimentación sonora |
+
+El videojuego se distribuye como un único archivo `index.html` y no necesita instalación, servidor ni dependencias externas.
+
+---
+
+## Práctica 05
+
+El proyecto responde a la práctica **Storytelling en videojuegos** y conserva la esencia de su propuesta académica.
+
+| Etapa solicitada | Evidencia en el proyecto | Estado |
+|---|---|---|
+| Investigación conceptual | Storytelling, narrativa lineal y emergente, arco de personaje y *show, don't tell*. | Cumplida |
+| Construcción del personaje | Estado inicial, situación de cambio y transformación posible de Masteo. | Cumplida |
+| Diseño de la historia | Decisiones ramificadas, indicadores y dos finales coherentes. | Cumplida |
+| Producción del prototipo | Experiencia funcional con exploración, interacción y cierre narrativo. | Cumplida |
+| Validación con otros equipos | El documento incluye tablas, pero no registra respuestas ni observaciones. | Pendiente de documentar |
+
+> El README no presenta una validación como realizada porque las tablas del documento entregado están vacías. Cuando se incorporen comentarios reales, esta sección podrá actualizarse con evidencias y correcciones derivadas de las pruebas.
+
+### Evolución del prototipo
+
+| Antes | Mejora aplicada |
+|---|---|
+| Escenas con poca profundidad visual | Sombras, iluminación, perspectiva y escenarios escolares más detallados |
+| Personajes simples o con sensación de flotar | Figuras humanas estilizadas, pies apoyados y sombras de contacto |
+| Recorrido poco claro | Objetivos por escena, puntos interactivos y progreso de 12 escenas |
+| Consecuencias concentradas en una elección | Estadísticas y decisiones persistentes que determinan el final |
+| Cambio entendido como solución inmediata | Reparación gradual y confianza que vuelve mediante acciones |
+
+---
+
+## Uso de inteligencia artificial
+
+**ChatGPT fue la herramienta de IA principal** durante el desarrollo. Se utilizó como apoyo para estructurar el prototipo, revisar errores, proponer alternativas visuales y refinar el sistema narrativo. Las decisiones temáticas, la selección de mejoras, las pruebas y la integración final fueron responsabilidad del equipo.
+
+| Uso | Aporte de la IA | Decisión del equipo |
+|---|---|---|
+| Ideación | Propuso estructuras de escenas y posibles bifurcaciones. | Se eligió una narrativa emergente con dos desenlaces. |
+| Programación | Sugirió HTML, CSS y JavaScript para movimiento, estados e interacción. | Se probó, corrigió e integró el código funcional. |
+| Diseño visual | Generó alternativas para personajes, escenarios y profundidad. | Se mantuvo una identidad oscura y escolar coherente con el tema. |
+| Revisión | Ayudó a detectar inconsistencias entre decisiones y consecuencias. | Se ajustaron condiciones, estadísticas y mensajes finales. |
+| Documentación | Apoyó la organización del README y la reconstrucción del prompt. | Se verificó la información contra el documento y el juego final. |
+
+<details>
+<summary><strong>Ver prompt reconstruido utilizado como referencia</strong></summary>
+
+> **Nota:** el prompt original no fue conservado. El siguiente texto es una reconstrucción fiel al objetivo y a las funciones implementadas; no se presenta como una transcripción literal.
+
+```text
+Actúa como diseñador y desarrollador de videojuegos educativos. Crea en un solo
+archivo HTML una experiencia narrativa 2.5D llamada "Detrás de la pantalla",
+dirigida a adolescentes y centrada en ciberbullying y responsabilidad digital.
+
+El protagonista, Masteo, utiliza una cuenta anónima y descubre que sus acciones
+afectaron a una amiga. Aplica storytelling, arco de personaje, show don't tell y
+narrativa emergente. Incluye exploración con WASD, interacción por proximidad,
+un teléfono ficticio, decisiones que modifiquen Control, Confianza y
+Responsabilidad, 12 escenas y dos finales coherentes: cambio o aislamiento.
+
+Construye escenarios de casa y colegio con personajes humanos estilizados,
+sombras, profundidad y objetos narrativos. Agrega música ambiental diferente a
+los otros juegos, pausa, controles táctiles y diseño adaptable. El final positivo
+debe exigir acciones sostenidas y no representar un perdón inmediato. Usa HTML5,
+CSS3, JavaScript, Canvas 2D y Web Audio API sin dependencias externas.
+```
+
+</details>
+
+### Criterio de uso responsable
+
+La IA se empleó como herramienta de apoyo, no como sustituto del criterio académico. Cada propuesta fue revisada según tres preguntas: **¿funciona?, ¿es coherente con la historia?, ¿conserva el objetivo educativo de la práctica?**
+
+---
 
 ## Aprendizajes
 
-- Diferenciar una narrativa lineal de una narrativa emergente.
-- Construir un arco de personaje a partir de decisiones jugables.
-- Aplicar *show, don't tell* mediante escenarios, silencios y reacciones.
-- Relacionar variables narrativas con consecuencias visibles.
-- Diseñar rutas y finales sin separar la historia de la interacción.
-- Tratar un tema social con claridad, empatía y responsabilidad.
+- Una consecuencia narrativa puede comunicarse mejor con el entorno que con una explicación extensa.
+- Los indicadores ayudan a comprender el efecto de las elecciones sin revelar toda la lógica interna.
+- Un final coherente debe considerar el historial de acciones y no solamente la última decisión.
+- La mejora visual también mejora la lectura narrativa cuando cada objeto cumple una función.
+- Documentar con transparencia la participación humana y el apoyo de IA fortalece la credibilidad del proyecto.
+
+## Próximas mejoras
+
+- Registrar sesiones reales de validación y resumir sus observaciones.
+- Añadir opciones de accesibilidad para tamaño de texto y contraste.
+- Incorporar subtítulos para todas las señales sonoras.
+- Ampliar las variaciones intermedias sin alterar los dos finales centrales.
 
 ## Ejecución local
 
 1. Descarga o clona el repositorio.
-2. Abre la carpeta `juegos/detras-de-la-pantalla/`.
-3. Ejecuta `index.html` en un navegador moderno.
+2. Abre `juegos/detras-de-la-pantalla/index.html` en un navegador moderno.
+3. Presiona **Iniciar partida** y utiliza los controles indicados.
 
-No requiere instalación, servidor ni paquetes externos.
+No se requiere instalación.
 
 ---
 
 <p align="center">
-  <a href="https://katfipol.github.io/game-development-portfolio/juegos/detras-de-la-pantalla/"><strong>Jugar ahora</strong></a>
-  &nbsp;&nbsp;|&nbsp;&nbsp;
-  <a href="../../README.md"><strong>Explorar los seis videojuegos</strong></a>
+  <a href="../waterfest/README.md">← Anterior: WaterFest</a>
+  &nbsp;&nbsp;·&nbsp;&nbsp;
+  <a href="../../README.md#videojuegos">Galería de videojuegos</a>
+  &nbsp;&nbsp;·&nbsp;&nbsp;
+  <a href="../myeconomy/README.md">Siguiente: MyEconomy →</a>
 </p>
+
+<p align="center"><sub>Proyecto académico de Game Development · José Martín Leaño Mercado</sub></p>
