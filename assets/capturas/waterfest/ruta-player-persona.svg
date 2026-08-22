@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 520" role="img" aria-labelledby="title desc">
+  <title id="title">Del Player Persona a WaterFest</title>
+  <desc id="desc">Mapa visual que conecta necesidades del público joven con decisiones de diseño y el objetivo de ahorro de agua.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#082f49"/><stop offset="1" stop-color="#0e7490"/></linearGradient>
+    <linearGradient id="aqua" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#22d3ee"/><stop offset="1" stop-color="#34d399"/></linearGradient>
+    <filter id="shadow"><feDropShadow dx="0" dy="10" stdDeviation="12" flood-opacity=".22"/></filter>
+  </defs>
+  <rect width="1200" height="520" rx="34" fill="url(#bg)"/>
+  <circle cx="1080" cy="70" r="150" fill="#38bdf8" opacity=".08"/><circle cx="100" cy="470" r="180" fill="#2dd4bf" opacity=".07"/>
+  <text x="600" y="62" fill="#fff" font-family="Arial, sans-serif" font-size="30" font-weight="800" text-anchor="middle">DEL PLAYER PERSONA A LA EXPERIENCIA</text>
+  <text x="600" y="93" fill="#bae6fd" font-family="Arial, sans-serif" font-size="17" text-anchor="middle">Cada decisión de diseño responde a una motivación del público definido en la práctica.</text>
+  <g filter="url(#shadow)"><rect x="55" y="135" width="310" height="300" rx="26" fill="#f8fafc"/><rect x="445" y="135" width="310" height="300" rx="26" fill="#ecfeff"/><rect x="835" y="135" width="310" height="300" rx="26" fill="#ecfdf5"/></g>
+  <circle cx="105" cy="185" r="28" fill="#0ea5e9"/><path d="M94 189c0-12 11-25 11-25s11 13 11 25a11 11 0 1 1-22 0Z" fill="#fff"/>
+  <text x="145" y="183" fill="#0c4a6e" font-family="Arial, sans-serif" font-size="21" font-weight="800">PERSONA</text>
+  <text x="85" y="229" fill="#334155" font-family="Arial, sans-serif" font-size="15" font-weight="700">Jóvenes urbanos · 18 a 25 años</text>
+  <text x="85" y="268" fill="#475569" font-family="Arial, sans-serif" font-size="17">• Retos breves y dinámicos</text><text x="85" y="302" fill="#475569" font-family="Arial, sans-serif" font-size="17">• Progreso visible</text><text x="85" y="336" fill="#475569" font-family="Arial, sans-serif" font-size="17">• Competencia y récords</text><text x="85" y="370" fill="#475569" font-family="Arial, sans-serif" font-size="17">• Recompensas personales</text><text x="85" y="404" fill="#475569" font-family="Arial, sans-serif" font-size="17">• Aprendizaje por acción</text>
+  <circle cx="495" cy="185" r="28" fill="#0891b2"/><path d="M481 181h28v19h-28zM487 174h16v7h-16z" fill="#fff"/>
+  <text x="535" y="183" fill="#164e63" font-family="Arial, sans-serif" font-size="20" font-weight="800">DISEÑO DEL JUEGO</text>
+  <text x="475" y="229" fill="#155e75" font-family="Arial, sans-serif" font-size="16">• 8 rondas de dificultad creciente</text><text x="475" y="263" fill="#155e75" font-family="Arial, sans-serif" font-size="16">• 5 tipos de minijuego</text><text x="475" y="297" fill="#155e75" font-family="Arial, sans-serif" font-size="16">• Puntos, combos y ranking local</text><text x="475" y="331" fill="#155e75" font-family="Arial, sans-serif" font-size="16">• Water Pass de 20 niveles</text><text x="475" y="365" fill="#155e75" font-family="Arial, sans-serif" font-size="16">• Aspectos, efectos y temas</text><text x="475" y="399" fill="#155e75" font-family="Arial, sans-serif" font-size="16">• Retroalimentación inmediata</text>
+  <circle cx="885" cy="185" r="28" fill="#10b981"/><path d="M871 187l9 9 20-25" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="925" y="183" fill="#065f46" font-family="Arial, sans-serif" font-size="20" font-weight="800">RESULTADO</text>
+  <text x="865" y="235" fill="#047857" font-family="Arial, sans-serif" font-size="16" font-weight="700">Reconocer hábitos cotidianos</text><text x="865" y="274" fill="#166534" font-family="Arial, sans-serif" font-size="16">Cerrar grifos y duchas</text><text x="865" y="308" fill="#166534" font-family="Arial, sans-serif" font-size="16">Detectar y reparar fugas</text><text x="865" y="342" fill="#166534" font-family="Arial, sans-serif" font-size="16">Distinguir ahorro y desperdicio</text><text x="865" y="376" fill="#166534" font-family="Arial, sans-serif" font-size="16">Rapidez relacionada con eficiencia</text><rect x="865" y="394" width="245" height="8" rx="4" fill="url(#aqua)"/>
+  <path d="M377 285h52" stroke="#67e8f9" stroke-width="8" stroke-linecap="round"/><path d="m421 270 18 15-18 15" fill="none" stroke="#67e8f9" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/><path d="M767 285h52" stroke="#6ee7b7" stroke-width="8" stroke-linecap="round"/><path d="m811 270 18 15-18 15" fill="none" stroke="#6ee7b7" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <text x="600" y="481" fill="#cffafe" font-family="Arial, sans-serif" font-size="18" font-weight="700" text-anchor="middle">MOTIVACIÓN → INTERACCIÓN → CONCIENCIA SOBRE EL AHORRO DE AGUA</text>
+</svg>

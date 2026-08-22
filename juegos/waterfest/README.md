@@ -1,440 +1,344 @@
 <p align="center">
   <a href="https://katfipol.github.io/game-development-portfolio/juegos/waterfest/">
-    <img src="../../assets/capturas/waterfest.png" width="100%" alt="Captura del videojuego WaterFest">
+    <img src="../../assets/capturas/waterfest/01-inicio.png" width="100%" alt="Pantalla principal de WaterFest">
   </a>
 </p>
 
 <h1 align="center">WaterFest</h1>
 
 <p align="center">
-  <strong>Ahorra agua, supera desafíos y rompe tu propio récord</strong>
+  <strong>Ahorra agua. Sé rápido. Rompe el récord.</strong><br>
+  <sub>Ocho rondas arcade convierten hábitos cotidianos en desafíos de velocidad, clasificación y precisión.</sub>
 </p>
 
 <p align="center">
-  Una colección de minijuegos educativos que convierte los hábitos de ahorro de agua en desafíos breves, progresivos y competitivos.
+  <img src="https://img.shields.io/badge/PRÁCTICA-04-0284C7?style=for-the-badge" alt="Práctica 04">
+  <img src="https://img.shields.io/badge/RONDAS-8-06B6D4?style=for-the-badge" alt="8 rondas">
+  <img src="https://img.shields.io/badge/WATER_PASS-20_NIVELES-10B981?style=for-the-badge" alt="Water Pass de 20 niveles">
+  <img src="https://img.shields.io/badge/ESTADO-FUNCIONAL-20B26B?style=for-the-badge" alt="Estado funcional">
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white" alt="HTML5">
-  <img src="https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white" alt="CSS3">
-  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=111111" alt="JavaScript">
-  <img src="https://img.shields.io/badge/Rondas-8-0284C7?style=flat-square" alt="8 rondas">
-  <img src="https://img.shields.io/badge/Water_Pass-20_niveles-075985?style=flat-square" alt="Water Pass de 20 niveles">
-  <img src="https://img.shields.io/badge/Estado-Funcional-16A34A?style=flat-square" alt="Estado funcional">
+  <a href="https://katfipol.github.io/game-development-portfolio/juegos/waterfest/"><img src="https://img.shields.io/badge/JUGAR_AHORA-10B981?style=for-the-badge" alt="Jugar WaterFest"></a>
+  <a href="https://github.com/katfipol/game-development-portfolio/blob/main/juegos/waterfest/index.html"><img src="https://img.shields.io/badge/VER_CÓDIGO-0C4A6E?style=for-the-badge&logo=github&logoColor=white" alt="Ver código de WaterFest"></a>
+  <a href="https://github.com/katfipol/game-development-portfolio"><img src="https://img.shields.io/badge/PORTAFOLIO-0284C7?style=for-the-badge" alt="Volver al portafolio"></a>
 </p>
 
 <p align="center">
-  <a href="https://katfipol.github.io/game-development-portfolio/juegos/waterfest/">
-    <img src="https://img.shields.io/badge/JUGAR-0284C7?style=for-the-badge" alt="Jugar WaterFest">
-  </a>
-  <a href="index.html">
-    <img src="https://img.shields.io/badge/VER_C%C3%93DIGO-1F2937?style=for-the-badge" alt="Ver código">
-  </a>
-  <a href="../../README.md">
-    <img src="https://img.shields.io/badge/PORTAFOLIO-475569?style=for-the-badge" alt="Volver al portafolio">
-  </a>
+  <a href="#vista-general">Vista general</a> &nbsp;|&nbsp;
+  <a href="#galeria">Galería</a> &nbsp;|&nbsp;
+  <a href="#player-persona">Player Persona</a> &nbsp;|&nbsp;
+  <a href="#mecanicas">Mecánicas</a> &nbsp;|&nbsp;
+  <a href="#progresion">Progresión</a> &nbsp;|&nbsp;
+  <a href="#practica">Práctica</a> &nbsp;|&nbsp;
+  <a href="#ia">Uso de IA</a>
 </p>
 
 ---
 
-## Descripción
+<a id="vista-general"></a>
 
-WaterFest es un videojuego educativo compuesto por minijuegos relacionados con el ahorro y el uso responsable del agua.
+## Vista general
 
-Durante una partida se presentan ocho rondas con desafíos de velocidad, observación, clasificación y reflejos. El jugador obtiene puntos, registra litros ahorrados, mantiene combos y gana experiencia para desbloquear contenido.
+**WaterFest** es una colección de minijuegos educativos sobre el uso responsable del agua. La campaña alterna cinco tipos de reto a lo largo de ocho rondas: cerrar una ducha, apagar grifos, reparar fugas, clasificar hábitos y atrapar gotas. Cada acción correcta suma puntos, litros ahorrados y experiencia; los errores consumen una de las tres vidas.
 
-El proyecto fue diseñado tomando como referencia un Player Persona específico, evitando crear una experiencia genérica para cualquier público.
+> [!TIP]
+> La partida es breve, pero la progresión continúa: la experiencia ganada alimenta un Water Pass local con recompensas cosméticas y anima a mejorar el récord.
 
-## Problema abordado
+<table>
+<tr>
+<td width="20%" align="center"><strong>8</strong><br><sub>rondas</sub></td>
+<td width="20%" align="center"><strong>5</strong><br><sub>tipos de reto</sub></td>
+<td width="20%" align="center"><strong>3</strong><br><sub>vidas iniciales</sub></td>
+<td width="20%" align="center"><strong>20</strong><br><sub>niveles del Pass</sub></td>
+<td width="20%" align="center"><strong>500 XP</strong><br><sub>por nivel</sub></td>
+</tr>
+</table>
 
-La práctica parte de una situación relacionada con campañas de ahorro de agua dirigidas a jóvenes de La Paz.
+### Problema y propósito
 
-El problema identificado fue que los mensajes tradicionales no lograban conectar con jóvenes de 18 a 25 años. Por esta razón, la propuesta transforma las recomendaciones en:
+La práctica parte de una observación concreta: las campañas generales de ahorro de agua no siempre conectan con jóvenes de 18 a 25 años porque suelen ignorar sus motivaciones, hábitos y formas de interacción digital. WaterFest responde con retos cortos, resultados visibles, competencia local y personalización.
 
-- Desafíos cortos.
-- Objetivos medibles.
-- Competencia mediante récords.
-- Recompensas digitales.
-- Progresión constante.
-- Retroalimentación inmediata.
+El objetivo educativo no es memorizar una lista. El jugador **ejecuta** acciones de ahorro, identifica desperdicios y recibe una consecuencia inmediata en puntos, agua, combo y progreso.
 
-## Player Persona
+### Ficha del proyecto
 
-El Player Persona representa a un joven urbano de La Paz con hábitos digitales y poco interés por campañas tradicionales.
-
-| Aspecto | Descripción |
+| Elemento | Información |
 |---|---|
-| Edad | Entre 18 y 25 años |
-| Contexto | Joven de la ciudad de La Paz |
-| Hábitos relacionados | Duchas largas y descuido ocasional al utilizar grifos |
-| Motivaciones | Competencia, progreso, recompensas y superación de récords |
-| Frustraciones | Mensajes genéricos y actividades poco dinámicas |
-| Preferencias | Desafíos breves, visuales y fáciles de comprender |
-| Objetivo personal | Reducir el desperdicio de agua mediante acciones concretas |
-| Formato adecuado | Videojuego web de partidas rápidas |
-
-## Relación entre el jugador y el diseño
-
-| Necesidad del Player Persona | Decisión de diseño |
-|---|---|
-| Prefiere actividades rápidas | Minijuegos de corta duración |
-| Le motiva competir | Puntuación, ranking local y récords |
-| Busca progreso visible | Sistema de experiencia y Water Pass |
-| Ignora mensajes genéricos | Acciones concretas dentro de cada reto |
-| Necesita resultados inmediatos | Puntos, litros ahorrados y feedback visual |
-| Disfruta personalizar | Skins, efectos, rastros, temas y títulos |
-| Busca dificultad creciente | Ocho rondas con cuatro niveles de dificultad |
-
-## Información del proyecto
-
-| Elemento | Descripción |
-|---|---|
-| Nombre | WaterFest |
-| Género | Colección de minijuegos educativos |
-| Público objetivo | Jóvenes de 18 a 25 años |
-| Objetivo | Completar desafíos y ahorrar la mayor cantidad de agua |
-| Rondas | 8 |
-| Vidas iniciales | 3 |
-| Dificultad | Fácil, normal, difícil y extrema |
-| Progresión | Water Pass de 20 niveles |
-| Condición de victoria | Completar las ocho rondas |
-| Condición de derrota | Perder las tres vidas |
+| Asignatura | Game Development |
+| Tema de la práctica | Player Persona |
+| Género | Arcade educativo y colección de minijuegos |
+| Público definido | Jóvenes urbanos de 18 a 25 años |
+| Objetivo | Completar ocho rondas, ahorrar agua y superar el récord |
 | Plataforma | Navegador web |
-| Tecnologías | HTML5, CSS3 y JavaScript |
+| Modalidad | Un jugador |
+| Victoria | Finalizar la campaña con vidas disponibles |
+| Derrota | Perder las tres vidas antes de terminar las rondas |
 
-## Minijuegos
+---
 
-### Ducha contrarreloj
+<a id="galeria"></a>
 
-La ducha permanece abierta y registra el tiempo y los litros desperdiciados. El jugador debe cerrarla lo antes posible.
+## Galería del proyecto
 
-Cuanto más rápido actúa:
+Las evidencias visuales muestran la presentación, las mecánicas principales, el resultado de una partida y el sistema de progreso persistente.
 
-- Más agua ahorra.
-- Mayor puntuación obtiene.
-- Más experiencia recibe.
+### Velocidad y reacción
 
-### Cierre de grifos
+<table><tr>
+<td width="50%" valign="top"><img src="../../assets/capturas/waterfest/02-ducha-speedrun.png" width="100%" alt="Ronda Ducha Speedrun de WaterFest"><p align="center"><strong>Ducha Speedrun</strong><br><sub>Cerrar cuanto antes reduce el desperdicio y mejora puntos, litros y experiencia.</sub></p></td>
+<td width="50%" valign="top"><img src="../../assets/capturas/waterfest/03-cerrar-grifos.png" width="100%" alt="Ronda para cerrar grifos en WaterFest"><p align="center"><strong>Cierra los grifos</strong><br><sub>El estado abierto o cerrado se comunica mediante agua, color y texto.</sub></p></td>
+</tr></table>
 
-Aparecen varios grifos abiertos. El jugador debe hacer clic en todos antes de que termine el tiempo.
+### Decisiones y resultado
 
-Los grifos presentan estados visuales diferentes para indicar claramente si están abiertos o cerrados.
+<table><tr>
+<td width="50%" valign="top"><img src="../../assets/capturas/waterfest/04-clasificar-habitos.png" width="100%" alt="Clasificación de hábitos de ahorro y desperdicio en WaterFest"><p align="center"><strong>Clasifica los hábitos</strong><br><sub>El jugador distingue acciones que ahorran de aquellas que desperdician agua.</sub></p></td>
+<td width="50%" valign="top"><img src="../../assets/capturas/waterfest/05-resultado.png" width="100%" alt="Resultado de una partida de WaterFest"><p align="center"><strong>Resumen de desempeño</strong><br><sub>Puntaje, litros, acciones, combo, XP y ranking hacen visible el resultado.</sub></p></td>
+</tr></table>
 
-### Reparación de fugas
+### Water Pass y recompensas
 
-El jugador debe localizar fugas distribuidas sobre una tubería y repararlas antes de que finalice el temporizador.
+<table><tr>
+<td width="50%" valign="top"><img src="../../assets/capturas/waterfest/06-water-pass-inicial.png" width="100%" alt="Inicio del Water Pass de WaterFest"><p align="center"><strong>Comienzo del recorrido</strong><br><sub>Las recompensas futuras aparecen bloqueadas y explican la meta siguiente.</sub></p></td>
+<td width="50%" valign="top"><img src="../../assets/capturas/waterfest/07-water-pass-progreso.png" width="100%" alt="Progreso avanzado del Water Pass de WaterFest"><p align="center"><strong>Progreso persistente</strong><br><sub>La experiencia desbloquea aspectos, efectos, títulos, insignias y temas.</sub></p></td>
+</tr></table>
 
-Cada fuga utiliza una representación visual con:
+### Tema nocturno y dominio
 
-- Grieta.
-- Orificio.
-- Chorro de agua.
-- Gotas animadas.
-- Profundidad y sombras.
+<p align="center"><img src="../../assets/capturas/waterfest/08-tema-nocturno.png" width="100%" alt="Resultado de WaterFest con el tema nocturno desbloqueado"></p>
+<p align="center"><strong>Leyenda del Agua</strong><br><sub>La interfaz conserva contraste y legibilidad al utilizar un tema desbloqueable.</sub></p>
 
-### Clasificación de hábitos
+---
 
-Se presentan diferentes acciones relacionadas con el consumo de agua. El jugador selecciona una acción y luego la clasifica como:
+<a id="player-persona"></a>
 
-```text
-AHORRA AGUA
-```
+## Diseño guiado por el Player Persona
 
-o:
+<p align="center"><img src="../../assets/capturas/waterfest/ruta-player-persona.svg" width="100%" alt="Relación entre Player Persona, decisiones de WaterFest y ahorro de agua"></p>
 
-```text
-DESPERDICIA AGUA
-```
-
-Al responder se muestra una explicación clara y la categoría correcta en caso de error.
-
-### Reto de reflejos
-
-El jugador debe hacer clic en gotas que aparecen en diferentes posiciones.
-
-En las rondas avanzadas:
-
-- Las gotas son más pequeñas.
-- Aparecen con mayor rapidez.
-- El tiempo disponible disminuye.
-- Mantener el combo requiere más precisión.
-
-## Distribución de las rondas
-
-| Ronda | Minijuego | Dificultad |
-|---|---|---|
-| 1 | Ducha contrarreloj | Fácil |
-| 2 | Cierre de grifos | Fácil |
-| 3 | Reparación de fugas | Normal |
-| 4 | Clasificación de hábitos | Normal |
-| 5 | Reto de reflejos | Difícil |
-| 6 | Ducha contrarreloj avanzada | Difícil |
-| 7 | Cierre de grifos avanzado | Extrema |
-| 8 | Reparación de fugas avanzada | Extrema |
-
-## Hábitos incluidos
-
-| Ahorra agua | Desperdicia agua |
+| Aspecto de la persona | Decisión aplicada en WaterFest |
 |---|---|
-| Tomar una ducha corta | Tomar un baño demasiado largo |
-| Cerrar el grifo | Mantener el grifo abierto |
-| Reutilizar agua | Utilizar agua innecesariamente |
-| Cerrar el grifo al enjabonarse | Mantener la ducha abierta al enjabonarse |
-| Cerrar el grifo al cepillarse | Dejar correr el agua al cepillarse |
-| Regar responsablemente | Regar utilizando más agua de la necesaria |
+| Prefiere experiencias breves | Rondas cortas con instrucciones directas |
+| Busca reto y competencia | Puntuación, combo máximo, títulos y ranking local |
+| Valora el progreso visible | Barra de campaña, XP y Water Pass de 20 niveles |
+| Disfruta personalizar | Aspectos, rastros, efectos, insignias, títulos y temas |
+| Aprende mejor mediante acciones | Cerrar, reparar, clasificar y reaccionar en vez de leer una lección extensa |
+| Puede ignorar mensajes generales | Retroalimentación inmediata vinculada a litros ahorrados |
 
-## Flujo de la partida
+Esta correspondencia mantiene el foco de la práctica: el Player Persona no funciona como adorno descriptivo, sino como criterio para decidir la duración, la dificultad, la recompensa y la presentación del prototipo.
+
+---
+
+<a id="mecanicas"></a>
+
+## Mecánicas y reglas
+
+### Ciclo jugable
 
 ```mermaid
-flowchart TD
-    A[Inicio] --> B[Presentar ronda]
-    B --> C[Completar minijuego]
-    C --> D{Resultado}
-    D -->|Correcto| E[Sumar puntos litros y XP]
-    D -->|Incorrecto| F[Perder una vida]
-    E --> G[Aumentar combo]
-    F --> H{Quedan vidas}
-    G --> I{Ronda 8 completada}
-    H -->|Sí| I
-    H -->|No| J[Final por derrota]
-    I -->|No| B
-    I -->|Sí| K[Resultado final]
+flowchart LR
+    A[Leer el reto] --> B[Actuar con rapidez]
+    B --> C{Resultado}
+    C -->|Correcto| D[Sumar puntos, agua, combo y XP]
+    C -->|Error| E[Perder una vida y reiniciar combo]
+    D --> F[Siguiente ronda]
+    E --> F
+    F --> G{¿Fin de campaña?}
+    G -->|No| A
+    G -->|Sí| H[Resultado, rango y ranking]
 ```
 
-## Sistema de puntuación
+### Los cinco tipos de desafío
 
-Las acciones correctas aumentan:
-
-- La puntuación.
-- Los litros ahorrados.
-- El número de acciones completadas.
-- El combo.
-- La experiencia obtenida.
-
-El combo funciona como multiplicador:
-
-```text
-Multiplicador = 1 + (combo - 1) × 0.15
-```
-
-Las acciones incorrectas:
-
-- Restan una vida.
-- Reinician el combo.
-- Pueden descontar puntos.
-- Producen feedback visual y sonoro.
-
-## Clasificación final
-
-El resultado de la partida depende de la puntuación:
-
-| Puntuación | Clasificación |
-|---|---|
-| Menos de 2800 | Aprendiz del Agua |
-| Desde 2800 | Ahorrador Pro |
-| Desde 4500 | Guardián del Agua |
-| Desde 6500 | Leyenda del Agua |
-
-La pantalla final también presenta:
-
-- Puntos totales.
-- Litros ahorrados.
-- Acciones completadas.
-- Mejor combo.
-- Experiencia obtenida.
-
-## Ranking local
-
-WaterFest guarda las cinco mejores partidas mediante `localStorage`.
-
-Cada registro conserva:
-
-- Posición.
-- Puntuación.
-- Litros ahorrados.
-- Fecha de la partida.
-
-El ranking funciona de manera local y no envía información a servidores externos.
-
-## Water Pass
-
-El Water Pass es un sistema de progresión de veinte niveles. Cada nivel requiere 500 puntos de experiencia.
-
-Las recompensas incluyen:
-
-- Apariencias.
-- Títulos.
-- Efectos.
-- Rastros.
-- Temas.
-- Insignias.
-
-Los elementos desbloqueados pueden reclamarse y equiparse desde la sección de personalización.
-
-No existen compras, pagos ni elementos aleatorios. El contenido se desbloquea únicamente mediante la experiencia obtenida al jugar.
-
-## Personalización
-
-El jugador puede cambiar diferentes elementos visuales:
-
-| Categoría | Ejemplos |
-|---|---|
-| Apariencia | Gota azul, ducha futurista, gafas, corona y robot |
-| Efecto | Partículas de agua, electricidad y agua cristalina |
-| Rastro | Gotas o arcoíris |
-| Tema | Nocturno u océano |
-| Título | Ahorrador Novato o Guardián del Agua |
-| Insignia | Eco Runner o Water Speedrunner |
-
-Los temas oscuros incluyen estilos específicos para mantener legibles las tarjetas, recompensas y textos.
-
-## Interfaz visual
-
-La interfaz utiliza una identidad inspirada en el agua:
-
-- Tonos azules y turquesa.
-- Tarjetas con profundidad.
-- Reflejos y degradados.
-- Animaciones de gotas.
-- Efectos de burbujas.
-- Indicadores claros de éxito y error.
-
-La ducha, los grifos y las fugas fueron rediseñados para representar mejor sus formas y estados.
-
-## Sonido
-
-WaterFest utiliza Web Audio API para generar una ambientación diferente a los demás juegos del portafolio.
-
-Incluye sonidos para:
-
-- Inicio.
-- Acción correcta.
-- Acción incorrecta.
-- Grifos y ducha.
-- Obtención de experiencia.
-- Desbloqueo de nivel.
-- Victoria.
-- Derrota.
-
-El jugador puede activar o silenciar el sonido desde el encabezado.
-
-## Evolución del prototipo
-
-| Versión | Problema identificado | Solución aplicada |
+| Minijuego | Acción del jugador | Regla principal |
 |---|---|---|
-| V1 | El HUD intentaba repetir corazones con valores negativos | Las vidas se limitan siempre entre 0 y 3 |
-| V2 | La clasificación de hábitos no era suficientemente clara | Se añadieron categorías, colores y explicaciones |
-| V3 | Los grifos se veían como elementos genéricos | Se construyeron grifos con base, cuello, manija, boca y agua |
-| V4 | La ducha no representaba claramente su funcionamiento | Se añadieron cabezal, tubería, flujo, desagüe y estado apagado |
-| V5 | Las fugas parecían gotas aisladas | Se incorporaron grieta, orificio y chorro conectado a la tubería |
-| V6 | El modo nocturno tenía poco contraste | Se corrigieron fondos, textos, tarjetas y recompensas |
-| V7 | El Water Pass presentaba textos difíciles de leer | Se mejoró la jerarquía y el contraste de cada recompensa |
-| V8 | Faltaba motivación para repetir la partida | Se añadieron ranking, experiencia, recompensas y personalización |
-| V9 | Los minijuegos tenían una dificultad similar | Se incorporaron cuatro niveles de dificultad progresiva |
+| Ducha Speedrun | Pulsar **Cerrar ducha** | Cuanto menor sea el tiempo, mayor será el ahorro y la puntuación |
+| Cierra los grifos | Pulsar todos los grifos abiertos | Cada grifo cerrado recompensa; dejar alguno abierto penaliza |
+| Repara las fugas | Detectar y pulsar las fugas de una tubería | Repararlas todas antes del tiempo otorga bonificación |
+| Ahorra o desperdicia | Seleccionar una acción y luego su categoría | Una clasificación incorrecta resta puntos y una vida |
+| Reflejos | Pulsar gotas que cambian de posición | En rondas avanzadas son más pequeñas y aparecen con menor demora |
 
-## Organización técnica
+Las ocho rondas recorren estos tipos en orden y vuelven a comenzar la secuencia con mayor dificultad.
 
-WaterFest se encuentra en un único archivo `index.html`, organizado mediante sistemas diferenciados:
+### Controles
 
-| Sistema | Responsabilidad |
+| Entrada | Acción |
 |---|---|
-| Estado de partida | Puntuación, agua, vidas, combo y rondas |
-| Minijuegos | Ducha, grifos, fugas, clasificación y reflejos |
-| Dificultad | Ajusta tiempo, cantidad y velocidad |
-| Audio | Música y efectos mediante Web Audio API |
-| Water Pass | Experiencia, niveles y recompensas |
-| Personalización | Apariencias, efectos, rastros y temas |
-| Persistencia | Ranking, experiencia y equipamiento |
-| Interfaz | Pantallas, HUD, mensajes y modales |
+| Clic o toque | Interactuar con duchas, grifos, fugas, hábitos y gotas |
+| Botón **Comenzar** | Iniciar una campaña nueva |
+| Botón de sonido | Activar o silenciar música y efectos |
+| **Water Pass** | Consultar y reclamar recompensas disponibles |
+| **Personalizar** | Equipar elementos ya reclamados |
 
-## Cumplimiento de la práctica
+> [!IMPORTANT]
+> Las instrucciones cambian con cada ronda. Antes de actuar, conviene identificar el objetivo, el tiempo disponible y el estado visual de los elementos.
 
-| Requisito | Implementación |
+---
+
+<a id="progresion"></a>
+
+## Puntuación, dificultad y progresión
+
+| Rondas | Nivel | Cambio percibido |
+|---:|---|---|
+| 1–2 | Fácil | Introducción a la velocidad y al estado de los objetos |
+| 3–4 | Normal | Más elementos y decisiones de clasificación |
+| 5–6 | Difícil | Menos tiempo, más objetivos y mayor precisión |
+| 7–8 | Extremo | Ritmo máximo y objetivos de reflejos más pequeños |
+
+### Sistema de desempeño
+
+- Una acción correcta suma puntos multiplicados por el combo actual.
+- Cada acierto aumenta el combo y conserva el máximo alcanzado.
+- La experiencia combina la acción, los litros ahorrados y la continuidad del combo.
+- Cada ronda completada añade experiencia adicional.
+- Un error reinicia el combo y consume una vida; la cantidad de vidas nunca puede bajar de cero.
+- El resultado se clasifica como **Aprendiz del Agua**, **Ahorrador Pro**, **Guardián del Agua** o **Leyenda del Agua** según el puntaje.
+- El ranking conserva en el navegador los cinco mejores resultados.
+
+### Water Pass
+
+El Water Pass tiene 20 niveles y requiere 500 XP por nivel. Sus recompensas no alteran la ventaja jugable: personalizan la presentación y refuerzan la motivación de repetir.
+
+| Niveles | Ejemplos de recompensas |
+|---:|---|
+| 1–5 | Gota Azul, Ahorrador Novato, Partículas Aqua, Ducha Futurista y Eco Runner |
+| 6–10 | Rastro de Gotas, Gafas Acuáticas, Tema Nocturno, Grifo Dorado y Guardián del Agua |
+| 11–15 | Efecto Eléctrico, Bañera Retro, Avatar Oceánico, Agua Cristalina y Water Speedrunner |
+| 16–20 | Rastro Arcoíris, Robot Acuático, Tema Océano, Corona de Agua y Leyenda del Agua |
+
+El progreso, las recompensas reclamadas, el equipamiento y el ranking se guardan con `localStorage` en el mismo navegador.
+
+---
+
+## Diseño visual y sonoro
+
+- Paleta acuática con azul, cian y verde para relacionar ahorro, limpieza y progreso.
+- Grifos, ducha y fugas construidos con volumen, reflejos, tuberías, chorros y estados legibles.
+- Categorías de ahorro y desperdicio separadas por color, borde, símbolo y explicación.
+- Tema nocturno con paneles oscuros y texto de alto contraste.
+- Interfaz adaptable para escritorio y dispositivos táctiles.
+- Música y señales sonoras generadas con Web Audio API, incluyendo respuestas distintas para acierto, error y victoria.
+- Partículas, mensajes emergentes y cambios de color como retroalimentación inmediata.
+
+## Tecnologías utilizadas
+
+<p align="center">
+  <img src="https://img.shields.io/badge/HTML5-ESTRUCTURA-E34F26?style=flat-square&logo=html5&logoColor=white" alt="HTML5">
+  <img src="https://img.shields.io/badge/CSS3-INTERFAZ-1572B6?style=flat-square&logo=css3&logoColor=white" alt="CSS3">
+  <img src="https://img.shields.io/badge/JAVASCRIPT-LÓGICA-F7DF1E?style=flat-square&logo=javascript&logoColor=111111" alt="JavaScript">
+  <img src="https://img.shields.io/badge/WEB_AUDIO-SONIDO-8B5CF6?style=flat-square" alt="Web Audio API">
+  <img src="https://img.shields.io/badge/LOCAL_STORAGE-PROGRESO-10B981?style=flat-square" alt="LocalStorage">
+</p>
+
+| Tecnología | Aplicación |
 |---|---|
-| Player Persona específico | Joven urbano de 18 a 25 años |
-| Mecánicas breves | Ocho rondas con desafíos rápidos |
-| Ahorro de agua | Todas las actividades enseñan acciones concretas |
-| Motivación competitiva | Puntuación, combos y ranking |
-| Recompensas digitales | Water Pass y personalización |
-| Condición de victoria | Completar las ocho rondas |
-| Condición de derrota | Perder las tres vidas |
-| Dificultad progresiva | Cuatro niveles de dificultad |
-| Prototipo funcional | Ejecución directa en navegador |
-| Relación persona-diseño | Cada sistema responde a una motivación identificada |
+| HTML5 | Pantallas, HUD, modales, botones y estructura de minijuegos |
+| CSS3 | Diseño adaptable, dispositivos ilustrados, temas, animaciones y profundidad |
+| JavaScript | Estados, temporizadores, puntuación, combos, XP, dificultad y recompensas |
+| Web Audio API | Música ambiental y señales de interacción, acierto, error y victoria |
+| LocalStorage | Water Pass, equipamiento y ranking local |
 
-## Uso de inteligencia artificial
+El proyecto se ejecuta desde un único archivo `index.html` y no necesita instalación ni dependencias externas.
 
-ChatGPT se utilizó como herramienta de apoyo para desarrollar y mejorar el prototipo.
+---
 
-La inteligencia artificial colaboró en:
+<a id="practica"></a>
 
-- La estructura de los minijuegos.
-- El sistema de puntuación y experiencia.
-- La corrección de errores de ejecución.
-- La creación del Water Pass.
-- La persistencia mediante `localStorage`.
-- La mejora visual de duchas, grifos y fugas.
-- La adaptación del modo nocturno.
-- La creación del audio procedural.
+## Relación con la práctica 04
 
-El Player Persona, las decisiones de diseño, la selección de mejoras y la validación final fueron revisados durante el desarrollo.
+| Requisito | Evidencia en el proyecto | Estado |
+|---|---|---|
+| Comprender el Player Persona | Se identifican metas, motivaciones, hábitos y frustraciones del público | Cumplido |
+| Construir una persona específica | Se define a jóvenes urbanos de 18 a 25 años, no a un público genérico | Cumplido |
+| Relacionar prototipo y persona | Retos breves, competencia, progreso, personalización y respuesta inmediata | Cumplido |
+| Promover el ahorro de agua | Las cinco mecánicas representan hábitos y consecuencias de consumo | Cumplido |
+| Definir victoria y derrota | Completar ocho rondas o perder las tres vidas | Cumplido |
+| Probar el prototipo | Dos equipos evaluaron funcionamiento, claridad, relación y motivación | Cumplido |
+| Presentar evidencia visual | Inicio, gameplay, clasificación, resultado, progreso y tema especial | Cumplido |
 
-<details>
-<summary><strong>Prompt principal de desarrollo</strong></summary>
+### Resultado de la validación
 
-<br>
+Los dos equipos revisores marcaron afirmativamente los criterios principales: ausencia de errores técnicos durante la prueba, comprensión de la mecánica, relación con el Player Persona, atención a una meta o frustración, condiciones alcanzables y motivación para ahorrar agua.
 
-Actúa como desarrollador de videojuegos web. Crea un videojuego educativo llamado WaterFest, dirigido a jóvenes de 18 a 25 años de la ciudad de La Paz.
+En la primera tabla se marcó que existía una sugerencia de mejora, pero el espacio de observación quedó vacío; en la segunda se indicó que no existía sugerencia. Por transparencia, no se inventa una recomendación que el documento no registra.
 
-El Player Persona disfruta de los desafíos breves, la competencia, la personalización y las recompensas digitales, pero suele ignorar las campañas tradicionales sobre el ahorro de agua.
+### Evolución del prototipo
 
-Crea una campaña de ocho rondas con minijuegos relacionados con cerrar la ducha rápidamente, apagar grifos, reparar fugas, clasificar hábitos de consumo y atrapar gotas.
+| Iteración | Situación observada | Mejora aplicada |
+|---|---|---|
+| Control de vidas | El HUD intentaba repetir corazones con valores negativos y generaba `RangeError` | Se limitó el valor entre 0 y 3 antes de renderizarlo |
+| Claridad de la clasificación | Algunas acciones y categorías podían confundirse | Se añadieron nombres, ayudas, color y respuesta con la categoría correcta |
+| Dispositivos | Ducha, grifos y fugas se percibían demasiado simbólicos | Se rediseñaron con cuerpo, tubería, brillo, chorro, grieta y estados visibles |
+| Modo nocturno | Ranking y recompensas perdían contraste | Se incorporaron estilos específicos para paneles, bordes y texto oscuro |
+| Motivación | Una campaña aislada ofrecía poca continuidad | Se añadió Water Pass, XP, personalización y progreso persistente |
+| Retroalimentación | El resultado de cada acción necesitaba mayor fuerza | Se integraron mensajes, audio, litros, combo, XP y títulos de desempeño |
 
-Incluye tres vidas, puntuación, litros ahorrados, combos, dificultad progresiva y una evaluación final. Añade un ranking local y un sistema de experiencia llamado Water Pass con veinte niveles y recompensas visuales.
+---
 
-Las duchas, grifos, tuberías y fugas deben ser claramente reconocibles. La clasificación debe diferenciar de forma precisa los hábitos que ahorran agua de los que la desperdician.
+<a id="ia"></a>
 
-Incluye personalización, temas claros y oscuros, música ambiental y efectos de sonido. La interfaz debe ser moderna, dinámica y mantener suficiente contraste en todos sus temas.
+## Uso responsable de inteligencia artificial
 
-Utiliza HTML5, CSS3, JavaScript puro, Web Audio API y `localStorage`. El juego debe ejecutarse directamente desde un único archivo `index.html`.
+ChatGPT fue la herramienta principal de apoyo para generar, revisar y mejorar el prototipo. La IA no sustituyó la toma de decisiones: el juego se probó, los errores se reprodujeron y cada cambio visual o funcional se evaluó antes de conservarlo.
 
-</details>
+| Etapa | Apoyo de la IA | Decisión y revisión humana |
+|---|---|---|
+| Preproducción | Organización del concepto y posibles retos | Elección del tema, público, objetivo y enfoque del Player Persona |
+| Programación | Estructura HTML, CSS y JavaScript; lógica de rondas y progreso | Pruebas de controles, dificultad, victoria y derrota |
+| Corrección | Diagnóstico del `RangeError` y revisión de estados | Reporte del error real y comprobación de que no volviera a ocurrir |
+| Diseño visual | Propuestas para ducha, grifos, fugas, temas y paneles | Solicitud de mayor claridad, realismo, contraste y aprobación final |
+| Documentación | Organización del contenido y las evidencias | Contraste con la práctica, el código corregido y las capturas finales |
 
-## Pruebas realizadas
+### Justificación
 
-Se comprobó que:
+La IA permitió transformar con rapidez los requisitos del Player Persona en una experiencia jugable y facilitó iteraciones sobre problemas concretos. Su aporte fue técnico y creativo; la autoría del proceso se refleja en la selección del problema, las observaciones durante las pruebas, las correcciones solicitadas y la validación del resultado.
 
-- El juego inicia correctamente.
-- Las ocho rondas pueden completarse.
-- Los minijuegos muestran instrucciones.
-- Las acciones correctas suman puntos.
-- Las acciones incorrectas quitan vidas.
-- El HUD nunca recibe valores negativos.
-- La clasificación muestra la respuesta correcta.
-- Los grifos cambian claramente de estado.
-- Las fugas pueden identificarse y repararse.
-- La ducha registra tiempo y litros.
-- El ranking guarda las mejores partidas.
-- La experiencia y recompensas permanecen guardadas.
-- Los temas oscuros mantienen sus textos legibles.
-- El sonido puede activarse o desactivarse.
+### Prompt reconstruido
+
+El prompt original no se conservó. El siguiente texto reconstruye de forma transparente la intención utilizada durante el desarrollo:
+
+> Crea en un único archivo HTML un videojuego educativo llamado WaterFest para jóvenes urbanos de 18 a 25 años. Debe promover el ahorro de agua mediante minijuegos breves sobre duchas, grifos, fugas, clasificación de hábitos y reflejos. Incluye ocho rondas con dificultad progresiva, puntos, tres vidas, combos, litros ahorrados, experiencia, ranking local, un sistema de 20 recompensas, personalización, sonido y diseño adaptable. Las condiciones de victoria y derrota deben ser claras y el juego debe funcionar directamente en el navegador.
+
+> [!NOTE]
+> Se presenta como reconstrucción y no como transcripción literal para mantener honestidad sobre el proceso.
+
+---
 
 ## Aprendizajes
 
-WaterFest permitió comprender cómo el Player Persona puede influir directamente en las decisiones de diseño.
+- Convertir rasgos de un Player Persona en decisiones jugables verificables.
+- Coordinar varios minijuegos bajo una misma campaña, HUD y sistema de resultados.
+- Diseñar progresión extrínseca sin alterar la equidad del gameplay.
+- Guardar XP, recompensas, equipamiento y récords en el navegador.
+- Proteger la interfaz ante estados inválidos como vidas negativas.
+- Mantener contraste y jerarquía visual en temas claros y oscuros.
+- Documentar con claridad qué hizo la IA y qué fue revisado por la persona desarrolladora.
 
-La preferencia por experiencias rápidas dio origen a los minijuegos; la motivación competitiva produjo el ranking y los combos; el interés por recompensas digitales llevó al Water Pass; y la necesidad de recibir resultados inmediatos se reflejó en los puntos y litros ahorrados.
+## Posibles mejoras futuras
 
-También se trabajó con temporizadores, generación dinámica de elementos, persistencia local, sistemas de experiencia, personalización, interfaces responsivas y corrección de errores relacionados con estados negativos.
+- Añadir una explicación breve del impacto estimado de cada hábito.
+- Incorporar opciones de accesibilidad para movimiento reducido y contraste reforzado.
+- Permitir perfiles locales separados para comparar progreso sin mezclar datos.
+- Equilibrar puntos y XP mediante pruebas con más jugadores del público objetivo.
+- Añadir nuevas situaciones domésticas y urbanas relacionadas con el agua.
+- Incluir una opción para borrar únicamente el progreso guardado.
 
 ---
 
+## Ejecución local
+
+1. Descarga la carpeta `juegos/waterfest`.
+2. Abre `index.html` en un navegador moderno.
+3. Pulsa **Comenzar** y permite el audio cuando el navegador solicite una interacción.
+
+No requiere instalación, servidor ni conexión a internet después de descargar el archivo.
+
 <p align="center">
-  <a href="https://katfipol.github.io/game-development-portfolio/juegos/waterfest/">
-    Jugar WaterFest
-  </a>
-  ·
-  <a href="../../README.md">
-    Regresar al portafolio
-  </a>
+  <a href="https://katfipol.github.io/game-development-portfolio/juegos/waterfest/"><strong>Jugar WaterFest</strong></a>
+  &nbsp;·&nbsp;
+  <a href="https://github.com/katfipol/game-development-portfolio/blob/main/juegos/waterfest/index.html">Ver código</a>
+  &nbsp;·&nbsp;
+  <a href="../../README.md">Volver al portafolio</a>
 </p>
