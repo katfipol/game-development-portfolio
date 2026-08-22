@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="330" viewBox="0 0 1400 330" role="img" aria-labelledby="title desc">
+  <title id="title">Ruta de desarrollo de los videojuegos</title>
+  <desc id="desc">Proceso iterativo desde el análisis de la práctica hasta la documentación y publicación.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0a1830"/><stop offset="1" stop-color="#10233f"/></linearGradient>
+    <linearGradient id="track" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#38bdf8"/><stop offset=".5" stop-color="#8b5cf6"/><stop offset="1" stop-color="#f59e0b"/></linearGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="180%"><feDropShadow dx="0" dy="8" stdDeviation="8" flood-color="#020617" flood-opacity=".7"/></filter>
+  </defs>
+  <rect width="1400" height="330" rx="28" fill="url(#bg)"/>
+  <path d="M105 155H1295" stroke="#06101f" stroke-width="22" stroke-linecap="round"/>
+  <path d="M105 155H1295" stroke="url(#track)" stroke-width="6" stroke-linecap="round"/>
+  <text x="700" y="48" text-anchor="middle" fill="#f8fafc" font-family="Segoe UI,Arial" font-size="25" font-weight="800" letter-spacing="2">DEL REQUISITO A UNA EXPERIENCIA PUBLICADA</text>
+  <text x="700" y="76" text-anchor="middle" fill="#9fb5cc" font-family="Segoe UI,Arial" font-size="14">Un ciclo de construcción, prueba y mejora aplicado en los seis proyectos.</text>
+
+  <g font-family="Segoe UI,Arial" text-anchor="middle" filter="url(#shadow)">
+    <g transform="translate(105 155)"><circle r="39" fill="#0f3550" stroke="#38bdf8" stroke-width="4"/><text y="9" fill="#e0f2fe" font-size="24" font-weight="900">01</text><text y="72" fill="#7dd3fc" font-size="15" font-weight="800">ANALIZAR</text><text y="93" fill="#a9bbce" font-size="12">la práctica</text></g>
+    <g transform="translate(303 155)"><circle r="39" fill="#14364b" stroke="#22d3ee" stroke-width="4"/><text y="9" fill="#ecfeff" font-size="24" font-weight="900">02</text><text y="72" fill="#67e8f9" font-size="15" font-weight="800">DISEÑAR</text><text y="93" fill="#a9bbce" font-size="12">objetivo y mecánica</text></g>
+    <g transform="translate(501 155)"><circle r="39" fill="#243052" stroke="#818cf8" stroke-width="4"/><text y="9" fill="#eef2ff" font-size="24" font-weight="900">03</text><text y="72" fill="#a5b4fc" font-size="15" font-weight="800">PROTOTIPAR</text><text y="93" fill="#a9bbce" font-size="12">una versión jugable</text></g>
+    <g transform="translate(700 155)"><circle r="45" fill="#35275a" stroke="#a78bfa" stroke-width="5"/><text y="9" fill="#f5f3ff" font-size="26" font-weight="900">04</text><text y="79" fill="#c4b5fd" font-size="15" font-weight="800">PROBAR</text><text y="100" fill="#a9bbce" font-size="12">funciones y experiencia</text></g>
+    <g transform="translate(899 155)"><circle r="39" fill="#4a254e" stroke="#e879f9" stroke-width="4"/><text y="9" fill="#fdf4ff" font-size="24" font-weight="900">05</text><text y="72" fill="#f0abfc" font-size="15" font-weight="800">CORREGIR</text><text y="93" fill="#a9bbce" font-size="12">errores detectados</text></g>
+    <g transform="translate(1097 155)"><circle r="39" fill="#4a3024" stroke="#fb923c" stroke-width="4"/><text y="9" fill="#fff7ed" font-size="24" font-weight="900">06</text><text y="72" fill="#fdba74" font-size="15" font-weight="800">MEJORAR</text><text y="93" fill="#a9bbce" font-size="12">diseño y claridad</text></g>
+    <g transform="translate(1295 155)"><circle r="39" fill="#4a3b17" stroke="#facc15" stroke-width="4"/><text y="9" fill="#fefce8" font-size="24" font-weight="900">07</text><text y="72" fill="#fde047" font-size="15" font-weight="800">PUBLICAR</text><text y="93" fill="#a9bbce" font-size="12">y documentar</text></g>
+  </g>
+
+  <rect x="320" y="285" width="760" height="2" fill="url(#track)" opacity=".65"/>
+  <text x="700" y="311" text-anchor="middle" fill="#92a9bd" font-family="Segoe UI,Arial" font-size="12" letter-spacing="1.5">ITERAR · COMPROBAR · APRENDER · VOLVER A MEJORAR</text>
+</svg>

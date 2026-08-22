@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="350" viewBox="0 0 1400 350" role="img" aria-labelledby="title desc">
+  <title id="title">Modelo de colaboración entre el equipo y la inteligencia artificial</title>
+  <desc id="desc">El equipo define, prueba y decide; la inteligencia artificial apoya con propuestas, código y análisis.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#08192d"/><stop offset=".52" stop-color="#102840"/><stop offset="1" stop-color="#17203a"/></linearGradient>
+    <linearGradient id="human" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0ea5e9"/><stop offset="1" stop-color="#2563eb"/></linearGradient>
+    <linearGradient id="ai" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#8b5cf6"/><stop offset="1" stop-color="#d946ef"/></linearGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="180%"><feDropShadow dx="0" dy="12" stdDeviation="12" flood-color="#020617" flood-opacity=".7"/></filter>
+    <marker id="arrowBlue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0l10 5-10 5z" fill="#38bdf8"/></marker>
+    <marker id="arrowPurple" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0l10 5-10 5z" fill="#c084fc"/></marker>
+  </defs>
+  <rect width="1400" height="350" rx="28" fill="url(#bg)"/>
+  <text x="700" y="46" text-anchor="middle" fill="#f8fafc" font-family="Segoe UI,Arial" font-size="25" font-weight="800" letter-spacing="2">IA COMO APOYO · DECISIONES BAJO CONTROL HUMANO</text>
+  <text x="700" y="74" text-anchor="middle" fill="#9fb5cc" font-family="Segoe UI,Arial" font-size="14">La herramienta propone; el equipo comprende, prueba, corrige y asume la responsabilidad.</text>
+
+  <g transform="translate(70 105)" filter="url(#shadow)">
+    <rect width="380" height="185" rx="24" fill="#0d2a43" stroke="#38bdf8" stroke-width="3"/>
+    <circle cx="62" cy="57" r="30" fill="url(#human)"/><circle cx="62" cy="49" r="11" fill="#dbeafe"/><path d="M40 79c5-18 39-18 44 0" fill="#dbeafe"/>
+    <text x="112" y="49" fill="#7dd3fc" font-family="Segoe UI,Arial" font-size="19" font-weight="800">EL EQUIPO DEFINE</text>
+    <text x="112" y="75" fill="#e8f2fb" font-family="Segoe UI,Arial" font-size="13">objetivos · reglas · estilo · alcance</text>
+    <path d="M34 112h312" stroke="#29506b"/>
+    <text x="34" y="140" fill="#c7d8e7" font-family="Segoe UI,Arial" font-size="13">Revisa resultados y comprende el código</text>
+    <text x="34" y="165" fill="#c7d8e7" font-family="Segoe UI,Arial" font-size="13">Prueba, corrige y decide la versión final</text>
+  </g>
+
+  <g transform="translate(510 105)" filter="url(#shadow)">
+    <rect width="380" height="185" rx="24" fill="#17233c" stroke="#f59e0b" stroke-width="3"/>
+    <circle cx="190" cy="70" r="45" fill="#4a3412" stroke="#fbbf24" stroke-width="4"/>
+    <path d="M165 70h50M190 45v50" stroke="#fde68a" stroke-width="7" stroke-linecap="round"/>
+    <text x="190" y="137" text-anchor="middle" fill="#fbbf24" font-family="Segoe UI,Arial" font-size="19" font-weight="900">CICLO DE ITERACIÓN</text>
+    <text x="190" y="163" text-anchor="middle" fill="#d7e2ec" font-family="Segoe UI,Arial" font-size="13">solicitar · ejecutar · comprobar · ajustar</text>
+  </g>
+
+  <g transform="translate(950 105)" filter="url(#shadow)">
+    <rect width="380" height="185" rx="24" fill="#2d1d49" stroke="#c084fc" stroke-width="3"/>
+    <circle cx="62" cy="57" r="30" fill="url(#ai)"/><rect x="44" y="42" width="36" height="29" rx="7" fill="#f5f3ff"/><circle cx="55" cy="56" r="3" fill="#7c3aed"/><circle cx="69" cy="56" r="3" fill="#7c3aed"/><path d="M55 65h14" stroke="#7c3aed" stroke-width="3" stroke-linecap="round"/>
+    <text x="112" y="49" fill="#d8b4fe" font-family="Segoe UI,Arial" font-size="19" font-weight="800">LA IA APOYA</text>
+    <text x="112" y="75" fill="#f3e8ff" font-family="Segoe UI,Arial" font-size="13">propuestas · código · análisis · estructura</text>
+    <path d="M34 112h312" stroke="#50356d"/>
+    <text x="34" y="140" fill="#e4d7ef" font-family="Segoe UI,Arial" font-size="13">Sugiere alternativas y detecta causas</text>
+    <text x="34" y="165" fill="#e4d7ef" font-family="Segoe UI,Arial" font-size="13">No reemplaza la validación ni la autoría</text>
+  </g>
+
+  <path d="M450 168h48" stroke="#38bdf8" stroke-width="4" marker-end="url(#arrowBlue)"/>
+  <path d="M902 226h38" stroke="#c084fc" stroke-width="4" marker-end="url(#arrowPurple)"/>
+  <path d="M950 275C820 335 570 335 450 275" fill="none" stroke="#7dd3fc" stroke-width="3" stroke-dasharray="8 8" marker-end="url(#arrowBlue)" opacity=".85"/>
+</svg>

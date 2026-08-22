@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="390" viewBox="0 0 1400 390" role="img" aria-labelledby="title desc">
+  <title id="title">Mapa visual de los seis videojuegos del portafolio</title>
+  <desc id="desc">Seis mundos conectados representan matemáticas, reciclaje, nutrición, agua, convivencia digital y finanzas.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#081528"/><stop offset=".55" stop-color="#102a46"/><stop offset="1" stop-color="#171a35"/></linearGradient>
+    <linearGradient id="line" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#f59e0b"/><stop offset=".2" stop-color="#22c55e"/><stop offset=".4" stop-color="#84cc16"/><stop offset=".6" stop-color="#38bdf8"/><stop offset=".8" stop-color="#818cf8"/><stop offset="1" stop-color="#facc15"/></linearGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="160%" height="170%"><feDropShadow dx="0" dy="12" stdDeviation="10" flood-color="#020617" flood-opacity=".65"/></filter>
+    <filter id="glow"><feGaussianBlur stdDeviation="8" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+    <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse"><path d="M32 0H0V32" fill="none" stroke="#8bd5ff" stroke-opacity=".055"/></pattern>
+  </defs>
+  <rect width="1400" height="390" rx="28" fill="url(#bg)"/>
+  <rect width="1400" height="390" rx="28" fill="url(#grid)"/>
+  <circle cx="120" cy="55" r="90" fill="#f59e0b" opacity=".07"/><circle cx="1270" cy="330" r="130" fill="#38bdf8" opacity=".07"/>
+  <text x="700" y="50" text-anchor="middle" fill="#f8fafc" font-family="Segoe UI,Arial,sans-serif" font-size="25" font-weight="800" letter-spacing="2">UN PORTAFOLIO · SEIS FORMAS DE APRENDER JUGANDO</text>
+  <text x="700" y="78" text-anchor="middle" fill="#9fb5cc" font-family="Segoe UI,Arial,sans-serif" font-size="14">Cada mundo introduce una temática, una mecánica y una decisión de diseño diferente.</text>
+  <path d="M115 215 C220 120 320 300 430 210 S640 115 750 210 S970 305 1080 210 S1240 125 1300 205" fill="none" stroke="#05101e" stroke-width="18" opacity=".8"/>
+  <path d="M115 215 C220 120 320 300 430 210 S640 115 750 210 S970 305 1080 210 S1240 125 1300 205" fill="none" stroke="url(#line)" stroke-width="5" stroke-linecap="round" filter="url(#glow)"/>
+
+  <g transform="translate(48 115)" filter="url(#shadow)">
+    <rect width="185" height="205" rx="22" fill="#15243a" stroke="#f59e0b" stroke-width="3"/>
+    <rect x="14" y="14" width="157" height="82" rx="15" fill="#3b260d"/>
+    <g transform="translate(49 28)"><rect width="40" height="40" rx="7" fill="#fbbf24"/><text x="20" y="28" text-anchor="middle" font-family="Arial" font-size="24" font-weight="900" fill="#5b3200">+</text><rect x="48" y="14" width="40" height="40" rx="7" fill="#fb923c"/><text x="68" y="42" text-anchor="middle" font-family="Arial" font-size="25" font-weight="900" fill="#5b2100">?</text></g>
+    <text x="92.5" y="126" text-anchor="middle" fill="#fbbf24" font-family="Segoe UI,Arial" font-size="19" font-weight="800">EDUMUNDO</text>
+    <text x="92.5" y="151" text-anchor="middle" fill="#e5edf6" font-family="Segoe UI,Arial" font-size="13">Matemáticas</text><text x="92.5" y="173" text-anchor="middle" fill="#9fb5cc" font-family="Segoe UI,Arial" font-size="12">Plataformas</text>
+    <rect x="49" y="187" width="87" height="4" rx="2" fill="#f59e0b"/>
+  </g>
+
+  <g transform="translate(272 115)" filter="url(#shadow)">
+    <rect width="185" height="205" rx="22" fill="#132c2a" stroke="#22c55e" stroke-width="3"/>
+    <rect x="14" y="14" width="157" height="82" rx="15" fill="#123a29"/>
+    <g transform="translate(58 26)" fill="none" stroke="#4ade80" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"><path d="M35 3l17 22-10-2"/><path d="M57 28l-14 26-5-10"/><path d="M31 54H7l7-8"/><path d="M8 41L22 14l5 10"/></g>
+    <text x="92.5" y="126" text-anchor="middle" fill="#4ade80" font-family="Segoe UI,Arial" font-size="19" font-weight="800">ECOFEST</text>
+    <text x="92.5" y="151" text-anchor="middle" fill="#e5edf6" font-family="Segoe UI,Arial" font-size="13">Reciclaje</text><text x="92.5" y="173" text-anchor="middle" fill="#9fb5cc" font-family="Segoe UI,Arial" font-size="12">Clasificación arcade</text>
+    <rect x="49" y="187" width="87" height="4" rx="2" fill="#22c55e"/>
+  </g>
+
+  <g transform="translate(496 115)" filter="url(#shadow)">
+    <rect width="185" height="205" rx="22" fill="#1f3020" stroke="#84cc16" stroke-width="3"/>
+    <rect x="14" y="14" width="157" height="82" rx="15" fill="#263d15"/>
+    <g transform="translate(57 21)"><path d="M35 17C15 5 1 24 6 48c5 23 18 35 29 24 11 11 25-1 30-24 5-24-9-43-30-31z" fill="#a3e635"/><path d="M35 18c2-12 10-18 19-20" fill="none" stroke="#65a30d" stroke-width="6"/><path d="M45 4c12-4 20 1 24 9-12 3-20-1-24-9" fill="#4ade80"/></g>
+    <text x="92.5" y="126" text-anchor="middle" fill="#a3e635" font-family="Segoe UI,Arial" font-size="19" font-weight="800">NUTRIFEST</text>
+    <text x="92.5" y="151" text-anchor="middle" fill="#e5edf6" font-family="Segoe UI,Arial" font-size="13">Alimentación</text><text x="92.5" y="173" text-anchor="middle" fill="#9fb5cc" font-family="Segoe UI,Arial" font-size="12">Auto-runner</text>
+    <rect x="49" y="187" width="87" height="4" rx="2" fill="#84cc16"/>
+  </g>
+
+  <g transform="translate(720 115)" filter="url(#shadow)">
+    <rect width="185" height="205" rx="22" fill="#102b42" stroke="#38bdf8" stroke-width="3"/>
+    <rect x="14" y="14" width="157" height="82" rx="15" fill="#0c3a59"/>
+    <path d="M93 20C76 43 59 60 59 74a34 34 0 0068 0c0-14-17-31-34-54z" fill="#38bdf8"/><path d="M79 78c3 9 10 14 21 15" fill="none" stroke="#d8f4ff" stroke-width="5" stroke-linecap="round" opacity=".8"/>
+    <text x="92.5" y="126" text-anchor="middle" fill="#7dd3fc" font-family="Segoe UI,Arial" font-size="19" font-weight="800">WATERFEST</text>
+    <text x="92.5" y="151" text-anchor="middle" fill="#e5edf6" font-family="Segoe UI,Arial" font-size="13">Cuidado del agua</text><text x="92.5" y="173" text-anchor="middle" fill="#9fb5cc" font-family="Segoe UI,Arial" font-size="12">Minijuegos</text>
+    <rect x="49" y="187" width="87" height="4" rx="2" fill="#38bdf8"/>
+  </g>
+
+  <g transform="translate(944 115)" filter="url(#shadow)">
+    <rect width="185" height="205" rx="22" fill="#202343" stroke="#818cf8" stroke-width="3"/>
+    <rect x="14" y="14" width="157" height="82" rx="15" fill="#29245b"/>
+    <g transform="translate(55 22)"><rect x="11" width="55" height="72" rx="10" fill="#111827" stroke="#a5b4fc" stroke-width="4"/><rect x="18" y="11" width="41" height="40" rx="5" fill="#312e81"/><path d="M24 22h28M24 31h19M24 40h24" stroke="#c7d2fe" stroke-width="4" stroke-linecap="round"/><circle cx="38" cy="61" r="4" fill="#818cf8"/></g>
+    <text x="92.5" y="123" text-anchor="middle" fill="#a5b4fc" font-family="Segoe UI,Arial" font-size="17" font-weight="800">DETRÁS DE LA</text><text x="92.5" y="143" text-anchor="middle" fill="#a5b4fc" font-family="Segoe UI,Arial" font-size="17" font-weight="800">PANTALLA</text>
+    <text x="92.5" y="167" text-anchor="middle" fill="#e5edf6" font-family="Segoe UI,Arial" font-size="12">Narrativa y decisiones</text>
+    <rect x="49" y="187" width="87" height="4" rx="2" fill="#818cf8"/>
+  </g>
+
+  <g transform="translate(1168 115)" filter="url(#shadow)">
+    <rect width="185" height="205" rx="22" fill="#302a12" stroke="#facc15" stroke-width="3"/>
+    <rect x="14" y="14" width="157" height="82" rx="15" fill="#44340d"/>
+    <g transform="translate(52 23)"><circle cx="40" cy="36" r="34" fill="#facc15" stroke="#fef08a" stroke-width="5"/><circle cx="40" cy="36" r="24" fill="#d99a0b"/><text x="40" y="47" text-anchor="middle" font-family="Arial" font-size="30" font-weight="900" fill="#fff7c2">Bs</text></g>
+    <text x="92.5" y="126" text-anchor="middle" fill="#fde047" font-family="Segoe UI,Arial" font-size="19" font-weight="800">MYECONOMY</text>
+    <text x="92.5" y="151" text-anchor="middle" fill="#e5edf6" font-family="Segoe UI,Arial" font-size="13">Finanzas</text><text x="92.5" y="173" text-anchor="middle" fill="#9fb5cc" font-family="Segoe UI,Arial" font-size="12">Simulación</text>
+    <rect x="49" y="187" width="87" height="4" rx="2" fill="#facc15"/>
+  </g>
+
+  <text x="700" y="357" text-anchor="middle" fill="#8ba5bd" font-family="Segoe UI,Arial" font-size="12" letter-spacing="1.6">MECÁNICAS · HISTORIAS · SISTEMAS · EXPERIENCIAS</text>
+</svg>
