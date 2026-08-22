@@ -79,67 +79,95 @@ Los seis proyectos también reflejan diferentes formas de utilizar un videojuego
 
 ---
 
+---
+
 <a id="videojuegos"></a>
 
-## 🎮 Galería de videojuegos
+## Videojuegos
 
-Cada proyecto explora una forma diferente de utilizar el videojuego como herramienta de aprendizaje. Puedes ejecutarlos directamente desde el navegador o consultar su código fuente.
+<p align="center">
+  Selecciona un proyecto para conocerlo o iniciar su versión jugable directamente desde el navegador.
+</p>
+
+<table>
+<tr>
+<td align="center" width="33%">
+<a href="#edumundo"><strong>01</strong><br>EduMundo</a>
+</td>
+<td align="center" width="33%">
+<a href="#ecofest"><strong>02</strong><br>EcoFest</a>
+</td>
+<td align="center" width="33%">
+<a href="#nutrifest"><strong>03</strong><br>NutriFest</a>
+</td>
+</tr>
+<tr>
+<td align="center">
+<a href="#waterfest"><strong>04</strong><br>WaterFest</a>
+</td>
+<td align="center">
+<a href="#detras-de-la-pantalla"><strong>05</strong><br>Detrás de la Pantalla</a>
+</td>
+<td align="center">
+<a href="#myeconomy"><strong>06</strong><br>MyEconomy</a>
+</td>
+</tr>
+</table>
+
+<br>
 
 <table>
 <tr>
 <td width="50%" valign="top">
 
-### 🧮 EduMundo
+<a id="edumundo"></a>
 
-**Aventura matemática de plataformas**
+<h3 align="center">01 | EduMundo</h3>
 
-Supera desafíos, resuelve operaciones y avanza por escenarios que aumentan progresivamente su dificultad.
+<a href="https://katfipol.github.io/game-development-portfolio/juegos/edumundo/">
+  <img src="assets/capturas/edumundo.png" width="100%" alt="Captura del videojuego EduMundo">
+</a>
 
-**Conceptos:** matemáticas, plataformas, niveles y progresión.
+<p align="center"><strong>Aventura matemática de plataformas</strong></p>
 
-[▶️ Jugar ahora](https://katfipol.github.io/game-development-portfolio/juegos/edumundo/) · [💻 Ver código](juegos/edumundo/index.html)
+<p align="center">
+Resuelve operaciones y alcanza el bloque correcto para avanzar por diferentes niveles.
+</p>
 
-</td>
-<td width="50%" valign="top">
-
-### ♻️ EcoFest
-
-**Clasifica y recicla**
-
-Juego arcade donde el jugador debe identificar residuos y atraparlos con el contenedor correspondiente.
-
-**Conceptos:** reciclaje, clasificación, puntuación y reflejos.
-
-[▶️ Jugar ahora](https://katfipol.github.io/game-development-portfolio/juegos/ecofest/) · [💻 Ver código](juegos/ecofest/index.html)
-
-</td>
-</tr>
-
-<tr>
-<td width="50%" valign="top">
-
-### 🥦 NutriFest
-
-**Aventura saludable**
-
-Auto-runner educativo en el que se recolectan alimentos saludables, se evitan obstáculos y se administra la energía.
-
-**Conceptos:** alimentación, movimiento, energía y toma de decisiones.
-
-[▶️ Jugar ahora](https://katfipol.github.io/game-development-portfolio/juegos/nutrifest/) · [💻 Ver código](juegos/nutrifest/index.html)
+<p align="center">
+<a href="https://katfipol.github.io/game-development-portfolio/juegos/edumundo/">
+  <img src="https://img.shields.io/badge/JUGAR-D97706?style=for-the-badge" alt="Jugar EduMundo">
+</a>
+<a href="juegos/edumundo/index.html">
+  <img src="https://img.shields.io/badge/CÓDIGO-1F2937?style=for-the-badge" alt="Ver código de EduMundo">
+</a>
+</p>
 
 </td>
 <td width="50%" valign="top">
 
-### 💧 WaterFest
+<a id="ecofest"></a>
 
-**Desafíos para cuidar el agua**
+<h3 align="center">02 | EcoFest</h3>
 
-Colección de actividades interactivas sobre el ahorro de agua, la identificación de fugas y el consumo responsable.
+<a href="https://katfipol.github.io/game-development-portfolio/juegos/ecofest/">
+  <img src="assets/capturas/ecofest.png" width="100%" alt="Captura del videojuego EcoFest">
+</a>
 
-**Conceptos:** sostenibilidad, minijuegos, progresión y recompensas.
+<p align="center"><strong>Clasificación y reciclaje</strong></p>
 
-[▶️ Jugar ahora](https://katfipol.github.io/game-development-portfolio/juegos/waterfest/) · [💻 Ver código](juegos/waterfest/index.html)
+<p align="center">
+Identifica los residuos y utiliza el contenedor adecuado para mantener tu puntuación.
+</p>
+
+<p align="center">
+<a href="https://katfipol.github.io/game-development-portfolio/juegos/ecofest/">
+  <img src="https://img.shields.io/badge/JUGAR-16A34A?style=for-the-badge" alt="Jugar EcoFest">
+</a>
+<a href="juegos/ecofest/index.html">
+  <img src="https://img.shields.io/badge/CÓDIGO-1F2937?style=for-the-badge" alt="Ver código de EcoFest">
+</a>
+</p>
 
 </td>
 </tr>
@@ -147,33 +175,118 @@ Colección de actividades interactivas sobre el ahorro de agua, la identificaci�
 <tr>
 <td width="50%" valign="top">
 
-### 📱 Detrás de la Pantalla
+<a id="nutrifest"></a>
 
-**Historia interactiva sobre el ciberbullying**
+<h3 align="center">03 | NutriFest</h3>
 
-Experiencia narrativa donde las decisiones del jugador modifican las relaciones, las consecuencias y el desenlace de la historia.
+<a href="https://katfipol.github.io/game-development-portfolio/juegos/nutrifest/">
+  <img src="assets/capturas/nutrifest.png" width="100%" alt="Captura del videojuego NutriFest">
+</a>
 
-**Conceptos:** storytelling, decisiones, convivencia digital y finales alternativos.
+<p align="center"><strong>Aventura de alimentación saludable</strong></p>
 
-[▶️ Jugar ahora](https://katfipol.github.io/game-development-portfolio/juegos/detras-de-la-pantalla/) · [💻 Ver código](juegos/detras-de-la-pantalla/index.html)
+<p align="center">
+Recolecta alimentos saludables, evita obstáculos y completa los cinco niveles.
+</p>
+
+<p align="center">
+<a href="https://katfipol.github.io/game-development-portfolio/juegos/nutrifest/">
+  <img src="https://img.shields.io/badge/JUGAR-65A30D?style=for-the-badge" alt="Jugar NutriFest">
+</a>
+<a href="juegos/nutrifest/index.html">
+  <img src="https://img.shields.io/badge/CÓDIGO-1F2937?style=for-the-badge" alt="Ver código de NutriFest">
+</a>
+</p>
 
 </td>
 <td width="50%" valign="top">
 
-### 🪙 MyEconomy
+<a id="waterfest"></a>
 
-**Semana financiera**
+<h3 align="center">04 | WaterFest</h3>
 
-Simulación de siete días en la que el jugador administra ingresos, gastos obligatorios, ahorro y decisiones personales.
+<a href="https://katfipol.github.io/game-development-portfolio/juegos/waterfest/">
+  <img src="assets/capturas/waterfest.png" width="100%" alt="Captura del videojuego WaterFest">
+</a>
 
-**Conceptos:** educación financiera, economía, administración y evaluación final.
+<p align="center"><strong>Desafíos para cuidar el agua</strong></p>
 
-[▶️ Jugar ahora](https://katfipol.github.io/game-development-portfolio/juegos/myeconomy/) · [💻 Ver código](juegos/myeconomy/index.html)
+<p align="center">
+Completa actividades sobre ahorro, consumo responsable e identificación de desperdicios.
+</p>
+
+<p align="center">
+<a href="https://katfipol.github.io/game-development-portfolio/juegos/waterfest/">
+  <img src="https://img.shields.io/badge/JUGAR-0284C7?style=for-the-badge" alt="Jugar WaterFest">
+</a>
+<a href="juegos/waterfest/index.html">
+  <img src="https://img.shields.io/badge/CÓDIGO-1F2937?style=for-the-badge" alt="Ver código de WaterFest">
+</a>
+</p>
+
+</td>
+</tr>
+
+<tr>
+<td width="50%" valign="top">
+
+<a id="detras-de-la-pantalla"></a>
+
+<h3 align="center">05 | Detrás de la Pantalla</h3>
+
+<a href="https://katfipol.github.io/game-development-portfolio/juegos/detras-de-la-pantalla/">
+  <img src="assets/capturas/detras-de-la-pantalla.png" width="100%" alt="Captura de Detrás de la Pantalla">
+</a>
+
+<p align="center"><strong>Historia interactiva sobre el ciberbullying</strong></p>
+
+<p align="center">
+Toma decisiones que modifican las relaciones, las consecuencias y el final de la historia.
+</p>
+
+<p align="center">
+<a href="https://katfipol.github.io/game-development-portfolio/juegos/detras-de-la-pantalla/">
+  <img src="https://img.shields.io/badge/JUGAR-6366F1?style=for-the-badge" alt="Jugar Detrás de la Pantalla">
+</a>
+<a href="juegos/detras-de-la-pantalla/index.html">
+  <img src="https://img.shields.io/badge/CÓDIGO-1F2937?style=for-the-badge" alt="Ver código de Detrás de la Pantalla">
+</a>
+</p>
+
+</td>
+<td width="50%" valign="top">
+
+<a id="myeconomy"></a>
+
+<h3 align="center">06 | MyEconomy</h3>
+
+<a href="https://katfipol.github.io/game-development-portfolio/juegos/myeconomy/">
+  <img src="assets/capturas/myeconomy.png" width="100%" alt="Captura del videojuego MyEconomy">
+</a>
+
+<p align="center"><strong>Simulación de una semana financiera</strong></p>
+
+<p align="center">
+Administra ingresos, gastos obligatorios, ahorro y decisiones durante siete días.
+</p>
+
+<p align="center">
+<a href="https://katfipol.github.io/game-development-portfolio/juegos/myeconomy/">
+  <img src="https://img.shields.io/badge/JUGAR-CA8A04?style=for-the-badge" alt="Jugar MyEconomy">
+</a>
+<a href="juegos/myeconomy/index.html">
+  <img src="https://img.shields.io/badge/CÓDIGO-1F2937?style=for-the-badge" alt="Ver código de MyEconomy">
+</a>
+</p>
 
 </td>
 </tr>
 </table>
 
 <p align="center">
-  <em>Seis videojuegos, seis formas de transformar el aprendizaje en una experiencia interactiva.</em>
+  <sub>Haz clic sobre una captura o utiliza el botón JUGAR para abrir el videojuego.</sub>
+</p>
+
+<p align="right">
+  <a href="#videojuegos">Volver a la lista de videojuegos</a>
 </p>
