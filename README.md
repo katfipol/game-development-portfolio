@@ -59,7 +59,7 @@ El portafolio no muestra solamente productos terminados. También presenta las d
 | Diseño | Interfaces claras, ambientaciones propias y retroalimentación visual |
 | Aprendizaje | Matemáticas, reciclaje, nutrición, agua, convivencia digital y finanzas |
 | Experiencia | Mecánicas comprensibles, progresión y respuesta inmediata |
-| Documentación | README general, README individual e informes de cada práctica |
+| Documentación | README general, README individual |
 | Mejora continua | Pruebas, corrección de errores y evolución visual de cada versión |
 
 > La intención común de los seis proyectos es convertir un contenido educativo en una acción jugable, evitando que el aprendizaje dependa únicamente de explicaciones teóricas.
