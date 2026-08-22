@@ -297,9 +297,14 @@ La IA permitió transformar con rapidez los requisitos del Player Persona en una
 
 ### Prompt reconstruido
 
-El prompt original no se conservó. El siguiente texto reconstruye de forma transparente la intención utilizada durante el desarrollo:
+El prompt original no se conservó. La flecha permite desplegar una reconstrucción transparente de la intención utilizada durante el desarrollo.
+
+<details>
+<summary><strong>Ver prompt reconstruido</strong></summary>
 
 > Crea en un único archivo HTML un videojuego educativo llamado WaterFest para jóvenes urbanos de 18 a 25 años. Debe promover el ahorro de agua mediante minijuegos breves sobre duchas, grifos, fugas, clasificación de hábitos y reflejos. Incluye ocho rondas con dificultad progresiva, puntos, tres vidas, combos, litros ahorrados, experiencia, ranking local, un sistema de 20 recompensas, personalización, sonido y diseño adaptable. Las condiciones de victoria y derrota deben ser claras y el juego debe funcionar directamente en el navegador.
+
+</details>
 
 > [!NOTE]
 > Se presenta como reconstrucción y no como transcripción literal para mantener honestidad sobre el proceso.
@@ -335,10 +340,26 @@ El prompt original no se conservó. El siguiente texto reconstruye de forma tran
 
 No requiere instalación, servidor ni conexión a internet después de descargar el archivo.
 
+## Continúa explorando
+
+<table>
+<tr>
+<td width="33%" align="center">
+  <a href="../nutrifest/README.md"><strong>Proyecto anterior</strong><br>NutriFest</a>
+</td>
+<td width="34%" align="center">
+  <a href="../../README.md"><strong>Galería principal</strong><br>Todos los videojuegos</a>
+</td>
+<td width="33%" align="center">
+  <a href="../detras-de-la-pantalla/README.md"><strong>Siguiente proyecto</strong><br>Detrás de la pantalla</a>
+</td>
+</tr>
+</table>
+
 <p align="center">
   <a href="https://katfipol.github.io/game-development-portfolio/juegos/waterfest/"><strong>Jugar WaterFest</strong></a>
   &nbsp;·&nbsp;
   <a href="https://github.com/katfipol/game-development-portfolio/blob/main/juegos/waterfest/index.html">Ver código</a>
   &nbsp;·&nbsp;
-  <a href="../../README.md">Volver al portafolio</a>
+  <a href="../detras-de-la-pantalla/README.md">Continuar con Detrás de la pantalla</a>
 </p>
