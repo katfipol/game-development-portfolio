@@ -22,7 +22,7 @@
 <p align="center">
   <a href="#mi-enfoque-como-desarrollador">Mi enfoque</a>
   &nbsp;•&nbsp;
-  <a href="#galería-de-videojuegos">Videojuegos</a>
+  <a href="#videojuegos">Videojuegos</a>
   &nbsp;•&nbsp;
   <a href="#tecnologías-y-herramientas">Tecnologías</a>
   &nbsp;•&nbsp;
@@ -77,44 +77,59 @@ Los seis proyectos también reflejan diferentes formas de utilizar un videojuego
 
 ---
 
----
-
----
-
 <a id="videojuegos"></a>
 
-## Videojuegos
+## Catálogo jugable
 
 <p align="center">
-  Selecciona un proyecto para conocerlo o iniciar su versión jugable directamente desde el navegador.
+  <strong>SEIS PROYECTOS · SEIS EXPERIENCIAS DE APRENDIZAJE</strong>
 </p>
 
-<table>
-<tr>
-<td align="center" width="33%">
-<a href="#edumundo"><strong>01</strong><br>EduMundo</a>
-</td>
-<td align="center" width="33%">
-<a href="#ecofest"><strong>02</strong><br>EcoFest</a>
-</td>
-<td align="center" width="33%">
-<a href="#nutrifest"><strong>03</strong><br>NutriFest</a>
-</td>
-</tr>
-<tr>
-<td align="center">
-<a href="#waterfest"><strong>04</strong><br>WaterFest</a>
-</td>
-<td align="center">
-<a href="#detras-de-la-pantalla"><strong>05</strong><br>Detrás de la Pantalla</a>
-</td>
-<td align="center">
-<a href="#myeconomy"><strong>06</strong><br>MyEconomy</a>
-</td>
-</tr>
-</table>
+<p align="center">
+  Selecciona un videojuego para explorar su propuesta o iniciar directamente su versión jugable.
+</p>
 
 <br>
+
+<p align="center">
+  <a href="#edumundo">
+    <img src="https://img.shields.io/badge/01-EDUMUNDO-D97706?style=for-the-badge&labelColor=172033" height="34" alt="Seleccionar EduMundo">
+  </a>
+  &nbsp;
+  <a href="#ecofest">
+    <img src="https://img.shields.io/badge/02-ECOFEST-16A34A?style=for-the-badge&labelColor=172033" height="34" alt="Seleccionar EcoFest">
+  </a>
+  &nbsp;
+  <a href="#nutrifest">
+    <img src="https://img.shields.io/badge/03-NUTRIFEST-65A30D?style=for-the-badge&labelColor=172033" height="34" alt="Seleccionar NutriFest">
+  </a>
+</p>
+
+<p align="center">
+  <a href="#waterfest">
+    <img src="https://img.shields.io/badge/04-WATERFEST-0284C7?style=for-the-badge&labelColor=172033" height="34" alt="Seleccionar WaterFest">
+  </a>
+  &nbsp;
+  <a href="#detras-de-la-pantalla">
+    <img src="https://img.shields.io/badge/05-DETRÁS_DE_LA_PANTALLA-6366F1?style=for-the-badge&labelColor=172033" height="34" alt="Seleccionar Detrás de la Pantalla">
+  </a>
+  &nbsp;
+  <a href="#myeconomy">
+    <img src="https://img.shields.io/badge/06-MYECONOMY-CA8A04?style=for-the-badge&labelColor=172033" height="34" alt="Seleccionar MyEconomy">
+  </a>
+</p>
+
+<br>
+
+<p align="center">
+  <sub>
+    MATEMÁTICAS · RECICLAJE · ALIMENTACIÓN · CUIDADO DEL AGUA · CONVIVENCIA DIGITAL · FINANZAS
+  </sub>
+</p>
+
+---
+
+### Selecciona una experiencia
 
 <table>
 <tr>
@@ -128,19 +143,21 @@ Los seis proyectos también reflejan diferentes formas de utilizar un videojuego
   <img src="assets/capturas/edumundo.png" width="100%" alt="Captura del videojuego EduMundo">
 </a>
 
-<p align="center"><strong>Aventura matemática de plataformas</strong></p>
-
 <p align="center">
-Resuelve operaciones y alcanza el bloque correcto para avanzar por diferentes niveles.
+  <strong>Aventura matemática de plataformas</strong>
 </p>
 
 <p align="center">
-<a href="https://katfipol.github.io/game-development-portfolio/juegos/edumundo/">
-  <img src="https://img.shields.io/badge/JUGAR-D97706?style=for-the-badge" alt="Jugar EduMundo">
-</a>
-<a href="juegos/edumundo/index.html">
-  <img src="https://img.shields.io/badge/CÓDIGO-1F2937?style=for-the-badge" alt="Ver código de EduMundo">
-</a>
+  Resuelve operaciones y alcanza el bloque correcto para avanzar por diferentes niveles.
+</p>
+
+<p align="center">
+  <a href="https://katfipol.github.io/game-development-portfolio/juegos/edumundo/">
+    <img src="https://img.shields.io/badge/JUGAR-D97706?style=for-the-badge" alt="Jugar EduMundo">
+  </a>
+  <a href="juegos/edumundo/index.html">
+    <img src="https://img.shields.io/badge/C%C3%93DIGO-1F2937?style=for-the-badge" alt="Ver código de EduMundo">
+  </a>
 </p>
 
 </td>
@@ -154,19 +171,21 @@ Resuelve operaciones y alcanza el bloque correcto para avanzar por diferentes ni
   <img src="assets/capturas/ecofest.png" width="100%" alt="Captura del videojuego EcoFest">
 </a>
 
-<p align="center"><strong>Clasificación y reciclaje</strong></p>
-
 <p align="center">
-Identifica los residuos y utiliza el contenedor adecuado para mantener tu puntuación.
+  <strong>Clasificación y reciclaje</strong>
 </p>
 
 <p align="center">
-<a href="https://katfipol.github.io/game-development-portfolio/juegos/ecofest/">
-  <img src="https://img.shields.io/badge/JUGAR-16A34A?style=for-the-badge" alt="Jugar EcoFest">
-</a>
-<a href="juegos/ecofest/index.html">
-  <img src="https://img.shields.io/badge/CÓDIGO-1F2937?style=for-the-badge" alt="Ver código de EcoFest">
-</a>
+  Identifica los residuos y utiliza el contenedor adecuado para mantener tu puntuación.
+</p>
+
+<p align="center">
+  <a href="https://katfipol.github.io/game-development-portfolio/juegos/ecofest/">
+    <img src="https://img.shields.io/badge/JUGAR-16A34A?style=for-the-badge" alt="Jugar EcoFest">
+  </a>
+  <a href="juegos/ecofest/index.html">
+    <img src="https://img.shields.io/badge/C%C3%93DIGO-1F2937?style=for-the-badge" alt="Ver código de EcoFest">
+  </a>
 </p>
 
 </td>
@@ -183,19 +202,21 @@ Identifica los residuos y utiliza el contenedor adecuado para mantener tu puntua
   <img src="assets/capturas/nutrifest.png" width="100%" alt="Captura del videojuego NutriFest">
 </a>
 
-<p align="center"><strong>Aventura de alimentación saludable</strong></p>
-
 <p align="center">
-Recolecta alimentos saludables, evita obstáculos y completa los cinco niveles.
+  <strong>Aventura de alimentación saludable</strong>
 </p>
 
 <p align="center">
-<a href="https://katfipol.github.io/game-development-portfolio/juegos/nutrifest/">
-  <img src="https://img.shields.io/badge/JUGAR-65A30D?style=for-the-badge" alt="Jugar NutriFest">
-</a>
-<a href="juegos/nutrifest/index.html">
-  <img src="https://img.shields.io/badge/CÓDIGO-1F2937?style=for-the-badge" alt="Ver código de NutriFest">
-</a>
+  Recolecta alimentos saludables, evita obstáculos y completa los cinco niveles.
+</p>
+
+<p align="center">
+  <a href="https://katfipol.github.io/game-development-portfolio/juegos/nutrifest/">
+    <img src="https://img.shields.io/badge/JUGAR-65A30D?style=for-the-badge" alt="Jugar NutriFest">
+  </a>
+  <a href="juegos/nutrifest/index.html">
+    <img src="https://img.shields.io/badge/C%C3%93DIGO-1F2937?style=for-the-badge" alt="Ver código de NutriFest">
+  </a>
 </p>
 
 </td>
@@ -209,19 +230,21 @@ Recolecta alimentos saludables, evita obstáculos y completa los cinco niveles.
   <img src="assets/capturas/waterfest.png" width="100%" alt="Captura del videojuego WaterFest">
 </a>
 
-<p align="center"><strong>Desafíos para cuidar el agua</strong></p>
-
 <p align="center">
-Completa actividades sobre ahorro, consumo responsable e identificación de desperdicios.
+  <strong>Desafíos para cuidar el agua</strong>
 </p>
 
 <p align="center">
-<a href="https://katfipol.github.io/game-development-portfolio/juegos/waterfest/">
-  <img src="https://img.shields.io/badge/JUGAR-0284C7?style=for-the-badge" alt="Jugar WaterFest">
-</a>
-<a href="juegos/waterfest/index.html">
-  <img src="https://img.shields.io/badge/CÓDIGO-1F2937?style=for-the-badge" alt="Ver código de WaterFest">
-</a>
+  Completa actividades sobre ahorro, consumo responsable e identificación de desperdicios.
+</p>
+
+<p align="center">
+  <a href="https://katfipol.github.io/game-development-portfolio/juegos/waterfest/">
+    <img src="https://img.shields.io/badge/JUGAR-0284C7?style=for-the-badge" alt="Jugar WaterFest">
+  </a>
+  <a href="juegos/waterfest/index.html">
+    <img src="https://img.shields.io/badge/C%C3%93DIGO-1F2937?style=for-the-badge" alt="Ver código de WaterFest">
+  </a>
 </p>
 
 </td>
@@ -238,19 +261,21 @@ Completa actividades sobre ahorro, consumo responsable e identificación de desp
   <img src="assets/capturas/detras-de-la-pantalla.png" width="100%" alt="Captura de Detrás de la Pantalla">
 </a>
 
-<p align="center"><strong>Historia interactiva sobre el ciberbullying</strong></p>
-
 <p align="center">
-Toma decisiones que modifican las relaciones, las consecuencias y el final de la historia.
+  <strong>Historia interactiva sobre el ciberbullying</strong>
 </p>
 
 <p align="center">
-<a href="https://katfipol.github.io/game-development-portfolio/juegos/detras-de-la-pantalla/">
-  <img src="https://img.shields.io/badge/JUGAR-6366F1?style=for-the-badge" alt="Jugar Detrás de la Pantalla">
-</a>
-<a href="juegos/detras-de-la-pantalla/index.html">
-  <img src="https://img.shields.io/badge/CÓDIGO-1F2937?style=for-the-badge" alt="Ver código de Detrás de la Pantalla">
-</a>
+  Toma decisiones que modifican las relaciones, las consecuencias y el final de la historia.
+</p>
+
+<p align="center">
+  <a href="https://katfipol.github.io/game-development-portfolio/juegos/detras-de-la-pantalla/">
+    <img src="https://img.shields.io/badge/JUGAR-6366F1?style=for-the-badge" alt="Jugar Detrás de la Pantalla">
+  </a>
+  <a href="juegos/detras-de-la-pantalla/index.html">
+    <img src="https://img.shields.io/badge/C%C3%93DIGO-1F2937?style=for-the-badge" alt="Ver código de Detrás de la Pantalla">
+  </a>
 </p>
 
 </td>
@@ -264,19 +289,21 @@ Toma decisiones que modifican las relaciones, las consecuencias y el final de la
   <img src="assets/capturas/myeconomy.png" width="100%" alt="Captura del videojuego MyEconomy">
 </a>
 
-<p align="center"><strong>Simulación de una semana financiera</strong></p>
-
 <p align="center">
-Administra ingresos, gastos obligatorios, ahorro y decisiones durante siete días.
+  <strong>Simulación de una semana financiera</strong>
 </p>
 
 <p align="center">
-<a href="https://katfipol.github.io/game-development-portfolio/juegos/myeconomy/">
-  <img src="https://img.shields.io/badge/JUGAR-CA8A04?style=for-the-badge" alt="Jugar MyEconomy">
-</a>
-<a href="juegos/myeconomy/index.html">
-  <img src="https://img.shields.io/badge/CÓDIGO-1F2937?style=for-the-badge" alt="Ver código de MyEconomy">
-</a>
+  Administra ingresos, gastos obligatorios, ahorro y decisiones durante siete días.
+</p>
+
+<p align="center">
+  <a href="https://katfipol.github.io/game-development-portfolio/juegos/myeconomy/">
+    <img src="https://img.shields.io/badge/JUGAR-CA8A04?style=for-the-badge" alt="Jugar MyEconomy">
+  </a>
+  <a href="juegos/myeconomy/index.html">
+    <img src="https://img.shields.io/badge/C%C3%93DIGO-1F2937?style=for-the-badge" alt="Ver código de MyEconomy">
+  </a>
 </p>
 
 </td>
@@ -284,9 +311,11 @@ Administra ingresos, gastos obligatorios, ahorro y decisiones durante siete día
 </table>
 
 <p align="center">
-  <sub>Haz clic sobre una captura o utiliza el botón JUGAR para abrir el videojuego.</sub>
+  <sub>
+    Haz clic sobre una captura o utiliza el botón JUGAR para abrir el videojuego.
+  </sub>
 </p>
 
 <p align="right">
-  <a href="#videojuegos">Volver a la lista de videojuegos</a>
+  <a href="#videojuegos">Volver al catálogo</a>
 </p>
