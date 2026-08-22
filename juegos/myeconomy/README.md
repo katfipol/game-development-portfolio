@@ -1,88 +1,101 @@
 <p align="center">
   <a href="https://katfipol.github.io/game-development-portfolio/juegos/myeconomy/">
-    <img src="../../assets/capturas/myeconomy.png" alt="Captura de MyEconomy: ciudad financiera con banco, tienda, trabajo, hogar y meta de ahorro" width="100%">
+    <img src="../../assets/capturas/myeconomy/01-ciudad-inicio.png" alt="Ciudad financiera y panel principal de MyEconomy" width="100%">
   </a>
 </p>
 
 <h1 align="center">MyEconomy: Semana Financiera</h1>
 
-<p align="center">
-  <em>Siete días para organizar tus ingresos, cubrir necesidades y construir un ahorro responsable.</em>
-</p>
+<p align="center"><em>Siete días para cubrir necesidades, tomar decisiones y construir un equilibrio financiero.</em></p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5">
-  <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3">
-  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=111111" alt="JavaScript">
-  <img src="https://img.shields.io/badge/Género-Simulación-8758C7?style=for-the-badge" alt="Género simulación">
+  <img src="https://img.shields.io/badge/Práctica-06-D5A62A?style=for-the-badge" alt="Práctica 06">
+  <img src="https://img.shields.io/badge/Duración-7_días-287EA3?style=for-the-badge" alt="Siete días">
+  <img src="https://img.shields.io/badge/Género-Simulación-CB5795?style=for-the-badge" alt="Simulación">
+  <img src="https://img.shields.io/badge/Guardado-LocalStorage-735FD3?style=for-the-badge" alt="Guardado local">
   <img src="https://img.shields.io/badge/Estado-Funcional-20B26B?style=for-the-badge" alt="Estado funcional">
 </p>
 
 <p align="center">
-  <a href="https://katfipol.github.io/game-development-portfolio/juegos/myeconomy/"><strong>JUGAR EN EL NAVEGADOR</strong></a>
-  &nbsp;&nbsp;|&nbsp;&nbsp;
+  <a href="https://katfipol.github.io/game-development-portfolio/juegos/myeconomy/"><strong>JUGAR AHORA</strong></a>
+  &nbsp;·&nbsp;
   <a href="index.html"><strong>VER CÓDIGO</strong></a>
-  &nbsp;&nbsp;|&nbsp;&nbsp;
-  <a href="../../README.md"><strong>VOLVER AL PORTAFOLIO</strong></a>
+  &nbsp;·&nbsp;
+  <a href="../../README.md#videojuegos"><strong>GALERÍA DEL PORTAFOLIO</strong></a>
+</p>
+
+<p align="center">
+  <a href="#experiencia">Experiencia</a> · <a href="#galería">Galería</a> ·
+  <a href="#economía-del-juego">Economía</a> · <a href="#sistemas-y-controles">Sistemas</a> ·
+  <a href="#relación-con-el-gdd">GDD</a> · <a href="#uso-de-inteligencia-artificial">IA</a>
 </p>
 
 ---
 
-## Descripción
+## Experiencia
 
-**MyEconomy: Semana Financiera** es un videojuego educativo de simulación y estrategia casual. El jugador administra la economía de un joven durante siete días: recibe ingresos, paga gastos obligatorios, recoge monedas, utiliza el banco y decide cuánto ahorrar o gastar.
+**MyEconomy: Semana Financiera** es un videojuego educativo de simulación y estrategia casual. El jugador administra la economía de un joven durante siete días: recibe ingresos limitados, paga gastos obligatorios, recoge monedas, utiliza el banco y decide cuánto ahorrar o gastar.
 
-El proyecto transforma conceptos financieros en decisiones jugables. No basta con acumular dinero: el resultado final también considera la salud financiera y la responsabilidad demostrada durante la semana.
+La propuesta no considera que todo gasto personal sea negativo. Su reto consiste en encontrar un equilibrio entre **responsabilidad, ahorro, salud financiera y disfrute**, observando cómo las decisiones pequeñas se acumulan durante la semana.
 
-## Ficha del proyecto
-
-| Elemento | Información |
+| Ficha | Información |
 |---|---|
 | Asignatura | Game Development |
-| Tema de la práctica | Game Design Document (GDD) |
-| Género | Simulación y estrategia casual con elementos de aventura |
-| Tema central | Uso responsable del dinero |
+| Tema académico | Game Design Document (GDD) |
+| Género | Simulación y estrategia casual con exploración |
 | Público objetivo | Jóvenes de 18 a 25 años |
 | Duración | Siete días dentro del juego |
+| Perspectiva | Ciudad 2D con profundidad visual |
 | Plataforma | Navegador web |
 | Modalidad | Un jugador |
-| Perspectiva | Ciudad 2D con profundidad visual |
 | Integrantes | Melani Quintela Aguilar y José Martín Leaño Mercado |
 
-## Problema y propósito
+### Problema y propósito
 
-La práctica plantea el caso de la cooperativa **Ahorro Joven**, cuyas charlas sobre administración del dinero no producen suficiente participación ni aprendizaje duradero. La propuesta consiste en sustituir la explicación pasiva por una experiencia donde cada decisión tenga una consecuencia visible.
+La práctica presenta el caso de la cooperativa **Ahorro Joven**, cuyas charlas sobre administración del dinero no generan suficiente participación ni aprendizaje duradero. MyEconomy transforma esos conceptos en decisiones jugables para practicar tres ideas:
 
-MyEconomy permite practicar tres ideas esenciales:
+- Diferenciar necesidades, gastos útiles y deseos impulsivos.
+- Separar una parte del dinero antes de realizar compras personales.
+- Reconocer que cada decisión afecta los días restantes y la meta semanal.
 
-- Diferenciar necesidades y deseos.
-- Reservar dinero antes de realizar compras personales.
-- Evaluar cómo las decisiones pequeñas afectan una meta de varios días.
+---
 
-## Concepto definido en el GDD
+## Galería
 
-El jugador controla a un joven que atraviesa situaciones económicas cotidianas. Durante el recorrido puede generar ingresos, recolectar monedas, cubrir necesidades, utilizar servicios bancarios y elegir entre compras útiles o impulsivas.
+### La ciudad funciona como tablero financiero
 
-El objetivo es completar la semana con las obligaciones pagadas, una situación financiera estable y la mayor cantidad de ahorro responsable posible.
+<p align="center"><img src="../../assets/capturas/myeconomy/06-nuevo-dia.png" alt="Inicio del segundo día en la ciudad de MyEconomy" width="100%"></p>
 
-## Ciclo principal de juego
+Banco, mercado, trabajo, hogar y meta poseen formas propias y funciones diferenciadas. Las monedas cambian de posición al iniciar cada día y los vehículos permanecen dentro de la avenida.
 
-```mermaid
-flowchart TD
-    A[Comenzar el día] --> B[Cobrar el sueldo]
-    B --> C[Explorar y recoger monedas]
-    C --> D[Pagar gastos obligatorios]
-    D --> E{Administrar el dinero restante}
-    E -->|Ahorrar| F[Depositar en el banco]
-    E -->|Comprar| G[Evaluar utilidad y consecuencias]
-    F --> H[Revisar balance]
-    G --> H
-    H --> I{¿Es el día 7?}
-    I -->|No| A
-    I -->|Sí| J[Evaluación financiera final]
-```
+### Ahorrar o utilizar el dinero
 
-## Economía de la partida
+| Banco | Tienda |
+|---|---|
+| <img src="../../assets/capturas/myeconomy/02-banco.png" alt="Panel del banco para depositar y retirar dinero" width="100%"> | <img src="../../assets/capturas/myeconomy/04-tienda.png" alt="Tienda con cuatro opciones de compra" width="100%"> |
+| Permite proteger una parte del dinero mediante depósitos y recuperarla cuando sea necesario. | Presenta compras impulsivas y opciones con utilidad o valor personal más claro. |
+
+### Las elecciones dejan consecuencias visibles
+
+<p align="center"><img src="../../assets/capturas/myeconomy/03-compra-impulsiva.png" alt="Ciudad después de comprar auriculares premium" width="100%"></p>
+
+La compra de auriculares aumenta el placer, pero reduce el dinero disponible, la salud financiera y el margen para los siguientes días. El pensamiento del personaje explica la consecuencia sin impedir que el jugador continúe decidiendo.
+
+### Primero lo necesario
+
+<p align="center"><img src="../../assets/capturas/myeconomy/05-obligaciones-pagadas.png" alt="Panel de gastos obligatorios pagados y salario diario" width="300"></p>
+
+El avance se habilita únicamente después de pagar vivienda, servicios, alimentación y transporte. Así, la regla principal siempre permanece visible en la interfaz.
+
+---
+
+## Economía del juego
+
+### Ciclo semanal
+
+<p align="center"><img src="../../assets/capturas/myeconomy/ciclo-semanal.svg" alt="Diagrama del ciclo semanal de MyEconomy" width="100%"></p>
+
+### Valores principales
 
 | Concepto | Valor |
 |---|---:|
@@ -106,52 +119,28 @@ flowchart TD
 
 No es posible avanzar al siguiente día mientras exista algún gasto obligatorio pendiente.
 
-## Lugares interactivos
+### Decisiones disponibles en la tienda
 
-| Lugar | Función |
-|---|---|
-| Banco | Depositar dinero en el ahorro o retirar una cantidad guardada |
-| Tienda | Comparar y adquirir compras personales |
-| Trabajo | Cobrar el sueldo una sola vez durante el día |
-| Hogar | Consultar dinero, ahorro, obligaciones, placer, estrés y monedas |
-| Meta | Revisar el progreso hacia el objetivo de Bs 500 |
-
-Los edificios poseen siluetas diferenciadas y accesos visibles. También se puede interactuar mediante los botones laterales para facilitar la navegación.
-
-## Compras y decisiones
-
-| Producto | Precio | Tipo | Consecuencia principal |
+| Producto | Precio | Clasificación | Efecto principal |
 |---|---:|---|---|
-| Auriculares premium | Bs 140 | Impulsiva | Aumenta el placer, pero reduce la salud financiera |
-| Videojuego | Bs 95 | Impulsiva | Aumenta el placer y reduce el margen disponible |
-| Curso corto | Bs 70 | Inteligente | Mejora la salud financiera y la reputación |
-| Regalo sentimental | Bs 60 | Inteligente | Aporta placer con un impacto financiero controlado |
+| Auriculares premium | Bs 140 | Impulsiva | Placer +18; salud financiera −6; estrés +5 |
+| Videojuego | Bs 95 | Impulsiva | Placer +13; salud financiera −4; estrés +3 |
+| Curso corto | Bs 70 | Inteligente | Placer +4; salud financiera +6; estrés −1 |
+| Regalo sentimental | Bs 60 | Inteligente | Placer +10; salud financiera +2 |
 
-El juego no presenta todos los gustos como incorrectos. La evaluación considera el equilibrio entre disfrute, ahorro y cumplimiento de responsabilidades.
+La clasificación representa el efecto dentro de esta simulación. No intenta establecer una regla universal sobre las decisiones financieras de una persona.
 
-## Indicadores
+### Evaluación final
 
-- **Dinero disponible:** recursos que pueden utilizarse inmediatamente.
-- **Ahorro:** dinero separado mediante el banco.
-- **Salud financiera:** estabilidad producida por las decisiones económicas.
-- **Placer:** satisfacción obtenida durante la semana.
-- **Estrés:** presión generada por el paso de los días y algunas compras.
-- **Reputación:** clasificación de A a D según las decisiones tomadas.
-- **Historial:** registro de ingresos, pagos, depósitos y compras.
-
-## Evaluación final
-
-Al cerrar correctamente el séptimo día, el juego calcula una puntuación sobre 100:
+Al completar las obligaciones del séptimo día, el juego calcula una puntuación sobre 100:
 
 | Componente | Peso |
 |---|---:|
-| Cumplimiento de la meta de ahorro | 35 % |
-| Salud financiera | 35 % |
-| Responsabilidad de las decisiones | 30 % |
+| Cumplimiento de la meta de ahorro | 35% |
+| Salud financiera | 35% |
+| Responsabilidad de las decisiones | 30% |
 
-La responsabilidad disminuye con las compras impulsivas y aumenta con las decisiones inteligentes. Todos los valores se limitan a un rango válido antes de calcular el resultado.
-
-| Puntuación | Resultado |
+| Puntuación | Evaluación |
 |---:|---|
 | 85–100 | Semana excelente |
 | 70–84 | Semana responsable |
@@ -159,20 +148,40 @@ La responsabilidad disminuye con las compras impulsivas y aumenta con las decisi
 | 40–54 | Semana complicada |
 | 0–39 | Semana de riesgo |
 
-Además de la calificación, la pantalla final presenta el dinero, el ahorro, la salud financiera, los gastos obligatorios, los gastos personales y la cantidad de decisiones impulsivas.
+<details>
+<summary><strong>Ver fórmula técnica de la evaluación</strong></summary>
 
-## Reglas principales
+```text
+ahorro = limitar((ahorro_actual / meta) × 100, 0, 100)
+responsabilidad = limitar(100 − impulsivas × 10 + inteligentes × 7, 0, 100)
 
-1. La partida comienza con Bs 700.
-2. El sueldo de Bs 80 solo puede cobrarse una vez por día.
-3. Cada jornada genera cinco monedas nuevas en posiciones variables.
-4. Todos los gastos obligatorios deben pagarse antes de avanzar.
-5. El banco separa el ahorro del dinero disponible.
-6. Una compra solo se completa si existe dinero suficiente.
-7. Las decisiones modifican indicadores y quedan registradas.
-8. La evaluación se habilita después de completar las obligaciones del día siete.
+puntuación = redondear(
+  ahorro × 0.35 +
+  salud_financiera × 0.35 +
+  responsabilidad × 0.30
+)
+```
 
-## Controles
+La pantalla final también presenta dinero, ahorro, salud financiera, gastos obligatorios, gastos personales y número de decisiones impulsivas.
+
+</details>
+
+---
+
+## Sistemas y controles
+
+| Sistema | Función |
+|---|---|
+| Ciudad interactiva | Integra banco, tienda, trabajo, hogar y meta en un mismo escenario. |
+| Economía de siete días | Reinicia salario, obligaciones y monedas al comenzar una jornada. |
+| Banco | Permite depositar y retirar cantidades válidas. |
+| Tienda | Aplica efectos diferentes según cada compra. |
+| Indicadores | Muestra dinero, ahorro, salud financiera, placer, estrés y reputación. |
+| Historial | Registra ingresos, depósitos, pagos y compras. |
+| Colisiones | Evita atravesar edificios y la fuente central. |
+| Persistencia | Guarda y recupera el estado mediante LocalStorage. |
+
+### Controles
 
 | Entrada | Acción |
 |---|---|
@@ -182,106 +191,131 @@ Además de la calificación, la pantalla final presenta el dinero, el ahorro, la
 | Clic | Abrir edificios o recoger monedas |
 | Botones de interfaz | Pagar, ahorrar, comprar, guardar y avanzar |
 
-## Diseño de la ciudad
+### Lugares interactivos
 
-La interfaz combina una ciudad colorida con paneles financieros de alto contraste. Cada espacio se reconoce por su arquitectura:
-
-- El banco utiliza fachada institucional, columnas y símbolo monetario.
-- La tienda presenta escaparate, toldo y señalización comercial.
-- El trabajo se representa como un edificio de oficinas.
-- El hogar tiene techo, chimenea, ventanas y jardín.
-- La meta se identifica como un punto independiente de progreso.
-
-La avenida dispone de carriles definidos y los vehículos circulan únicamente por la carretera. El personaje y los edificios cuentan con colisiones para evitar que el jugador atraviese las construcciones.
-
-## Tecnologías utilizadas
-
-| Tecnología | Aplicación en el proyecto |
+| Lugar | Función dentro de la semana |
 |---|---|
-| HTML5 | Estructura de la interfaz, paneles, modales y controles |
-| CSS3 | Diseño adaptable, colores, sombras, tarjetas y jerarquía visual |
-| JavaScript | Economía, reglas, días, compras, indicadores y evaluación |
-| Canvas 2D | Ciudad, edificios, personaje, monedas, vehículos y colisiones |
-| LocalStorage | Guardado y recuperación del progreso de la semana |
+| Banco | Depositar o retirar ahorro |
+| Tienda | Comparar compras personales |
+| Trabajo | Cobrar Bs 80 una vez por día |
+| Hogar | Revisar el estado de la jornada |
+| Meta | Consultar el progreso hacia Bs 500 |
 
-El videojuego se encuentra integrado en un único archivo `index.html` y no requiere dependencias externas.
+---
 
-## Organización técnica
+## Diseño visual
 
-```text
-myeconomy/
-├── index.html   # Juego, estilos, ciudad y sistema económico
-└── README.md    # Documentación individual del proyecto
-```
+La interfaz combina azul petróleo, verde, violeta, rosa y dorado para separar funciones sin perder unidad visual. La información financiera aparece en paneles de alto contraste y la ciudad utiliza edificios reconocibles:
 
-El estado de la partida concentra el día, dinero, ahorro, indicadores, gastos pagados, posición del jugador, monedas, compras, historial y progreso. Las funciones de la interfaz actualizan esos datos y guardan la partida localmente.
+- El banco presenta fachada institucional, columnas y símbolo monetario.
+- La tienda incorpora escaparate, toldo y señalización comercial.
+- El trabajo utiliza una estructura de oficinas.
+- El hogar cuenta con techo, chimenea, ventanas y jardín.
+- La meta se representa como un punto independiente de progreso.
+
+La avenida contiene carriles definidos y los autos circulan únicamente por esa zona. El personaje tiene proporciones humanas estilizadas, animación de movimiento y sombra de contacto.
+
+## Tecnologías
+
+| Tecnología | Aplicación |
+|---|---|
+| HTML5 | Estructura, paneles, modales y controles |
+| CSS3 | Diseño adaptable, tarjetas, colores y jerarquía visual |
+| JavaScript | Economía, reglas, días, compras y evaluación |
+| Canvas 2D | Ciudad, edificios, personaje, monedas, autos y colisiones |
+| LocalStorage | Guardado y recuperación de la semana |
+
+El videojuego se distribuye en un solo archivo `index.html` y no necesita servidor ni dependencias externas.
+
+---
 
 ## Relación con el GDD
 
-| Componente del GDD | Implementación observable | Estado |
+| Componente del documento | Implementación observable | Estado |
 |---|---|---|
 | Concepto y premisa | Administración de ingresos, gastos, ahorro y compras cotidianas | Cumplido |
 | Género | Simulación financiera con exploración y decisiones | Cumplido |
-| Objetivo | Completar siete días con estabilidad y ahorro | Cumplido |
+| Objetivo | Terminar siete días con estabilidad y ahorro | Cumplido |
 | Mecánica principal | Recolectar y decidir entre pagar, ahorrar o gastar | Cumplido |
 | Reglas | Ingresos limitados, obligaciones, banco y consecuencias | Cumplido |
-| Progresión | Jornadas sucesivas con pagos, monedas y presión acumulada | Cumplido |
+| Progresión | Jornadas sucesivas con nuevas monedas y presión acumulada | Cumplido |
 | Personaje | Avatar controlable dentro de la ciudad | Cumplido |
-| Arte y estilo visual | Ciudad 2D moderna, colorida y legible | Cumplido |
+| Arte | Ciudad 2D moderna, colorida y legible | Cumplido |
 | Público objetivo | Situaciones financieras dirigidas a jóvenes | Cumplido |
-| Victoria o resultado negativo | Cinco categorías de evaluación al finalizar la semana | Cumplido |
+| Victoria o resultado negativo | Cinco evaluaciones posibles al terminar la semana | Cumplido |
 
-## Validación de la práctica
+### Diferencias controladas respecto al documento
 
-La tabla entregada registra **“Sí” en todos los criterios de validación**:
+El GDD menciona como posibilidades futuras eventos inesperados y personajes secundarios. El prototipo final se concentra en el núcleo verificable de la propuesta: **administrar siete días, pagar obligaciones, ahorrar y evaluar decisiones**. Esta reducción mantiene el objetivo educativo y evita agregar sistemas incompletos solamente para ampliar el alcance.
 
-- El prototipo funciona sin errores técnicos.
-- La mecánica coincide con la descrita en el GDD.
-- La presentación mantiene la propuesta de la infografía.
-- Es posible alcanzar la condición favorable y el resultado financiero negativo.
-- La experiencia enseña a utilizar el dinero responsablemente.
+### Validación registrada
 
-La observación original fue positiva. Antes de publicar el documento final se reformulará con una redacción académica más precisa.
+La tabla de la Práctica 06 marca **“sí” en los seis criterios**: funcionamiento técnico, coincidencia de la mecánica, correspondencia visual con la infografía, acceso a los resultados favorable y negativo, y enseñanza del uso responsable del dinero.
 
-## Evolución del prototipo
+La única sugerencia escrita fue **“Todo bn”**. Por transparencia, se conserva como una aprobación general, pero no se interpreta como una observación técnica detallada. Las próximas pruebas deberían incluir comentarios específicos y escenarios comprobables.
+
+### Evolución del prototipo
 
 | Área | Mejora incorporada |
 |---|---|
-| Duración | Semana completa de siete días con cierre y evaluación |
-| Balance | Bs 700 iniciales, sueldo diario limitado y gastos obligatorios |
+| Duración | Semana completa de siete días con evaluación final |
+| Balance | Bs 700 iniciales, sueldo limitado y obligaciones diarias |
 | Interacción | Edificios accesibles por proximidad, clic o botones |
-| Ciudad | Construcciones reconocibles, zonas verdes y avenida definida |
+| Ciudad | Construcciones diferenciadas, zona verde y avenida definida |
 | Movimiento | Colisiones con edificios y fuente central |
-| Vehículos | Recorrido restringido a los carriles de la avenida |
-| Aprendizaje | Separación entre necesidades, ahorro y decisiones personales |
-| Persistencia | Guardado del progreso mediante LocalStorage |
-| Resultado | Evaluación ponderada con cinco categorías financieras |
+| Vehículos | Recorrido limitado a los carriles |
+| Aprendizaje | Separación entre necesidades, ahorro y compras personales |
+| Persistencia | Guardado del progreso con LocalStorage |
+
+---
 
 ## Uso de inteligencia artificial
 
-La práctica permite utilizar herramientas de IA siempre que el equipo comprenda y pueda defender técnicamente los resultados. **ChatGPT** fue la herramienta principal de apoyo para convertir el GDD en un prototipo, programar la economía, construir la ciudad y realizar correcciones funcionales y visuales.
+**ChatGPT fue la herramienta de IA principal** para convertir el GDD en un prototipo, estructurar la economía, construir la ciudad y realizar correcciones funcionales y visuales. El equipo definió y revisó los montos, reglas, decisiones, condiciones de avance, arquitectura y evaluación final.
 
-El equipo definió y revisó los montos, reglas, decisiones, condiciones de avance, arquitectura de la ciudad y sistema de evaluación. La IA se presenta como una herramienta de apoyo dentro de un proceso dirigido y validado por los estudiantes.
+| Uso | Apoyo de la IA | Decisión y revisión humana |
+|---|---|---|
+| Planificación | Transformó componentes del GDD en sistemas programables. | Se eligió el ciclo semanal y sus prioridades. |
+| Programación | Propuso estados, funciones, colisiones y persistencia. | Se probaron límites, cobros, pagos y cambios de día. |
+| Balance | Ayudó a organizar ingresos, obligaciones y compras. | El equipo ajustó montos y efectos para conservar el reto. |
+| Diseño visual | Sugirió edificios y paneles diferenciados. | Se solicitaron formas reconocibles, color y profundidad. |
+| Documentación | Apoyó la organización del README y del prompt. | La información se verificó contra el GDD y el código final. |
 
 <details>
-<summary><strong>Prompt reconstruido del proceso</strong></summary>
+<summary><strong>Ver prompt reconstruido utilizado como referencia</strong></summary>
 
-> Desarrolla en un único archivo HTML un videojuego educativo llamado MyEconomy. Debe ser una simulación financiera de siete días en una ciudad 2D colorida. El jugador comienza con Bs 700, cobra un sueldo de Bs 80 una sola vez por día y debe pagar diariamente vivienda, servicios, alimentación y transporte antes de avanzar. Incluye cinco monedas de Bs 5 por jornada, un banco para depositar y retirar ahorro, una meta de Bs 500, una tienda con decisiones útiles e impulsivas, indicadores de dinero, ahorro, salud financiera, placer, estrés y reputación, además de guardado con LocalStorage. Permite moverse con WASD o flechas, interactuar con E o clic y evita que el personaje atraviese edificios. Diseña construcciones reconocibles, una carretera con autos restringidos a sus carriles y una evaluación final ponderada al terminar el día siete.
+> **Nota:** el prompt original no fue conservado. Este texto reconstruye las instrucciones utilizadas a partir del GDD y de las mejoras solicitadas; no es una transcripción literal.
 
-Este texto es una **reconstrucción basada en el GDD y en las mejoras solicitadas**; no corresponde a una copia literal del prompt original.
+```text
+Actúa como diseñador y desarrollador de videojuegos educativos. Crea en un solo
+archivo HTML un videojuego llamado "MyEconomy: Semana Financiera", basado en un
+GDD sobre uso responsable del dinero para jóvenes de 18 a 25 años.
+
+La partida debe durar siete días. El jugador comienza con Bs 700, recibe un
+sueldo de Bs 80 que solo puede cobrar una vez al día y debe pagar diariamente
+vivienda, servicios, alimentación y transporte antes de avanzar. Genera cinco
+monedas de Bs 5 en posiciones variables al comenzar cada jornada.
+
+Incluye una ciudad 2D con banco, tienda, trabajo, hogar y meta de ahorro. Permite
+depositar y retirar dinero, comprar productos útiles o impulsivos y mostrar
+dinero, ahorro, salud financiera, placer, estrés, reputación e historial. La meta
+de ahorro será Bs 500 y al terminar el séptimo día se calculará una evaluación
+ponderada según ahorro, salud financiera y responsabilidad.
+
+Usa WASD o flechas para moverse, E o clic para interactuar, colisiones para que
+el personaje no atraviese edificios y autos que circulen solo por la carretera.
+Agrega guardado con LocalStorage, diseño adaptable, edificios reconocibles y una
+interfaz colorida con sombras y profundidad. Utiliza HTML5, CSS3, JavaScript y
+Canvas 2D sin dependencias externas.
+```
 
 </details>
 
-## Pruebas recomendadas
+### Uso responsable
 
-- [ ] Confirmar que el sueldo solo pueda cobrarse una vez por día.
-- [ ] Intentar avanzar sin pagar las obligaciones.
-- [ ] Depositar y retirar cantidades válidas e inválidas.
-- [ ] Comprobar compras con dinero suficiente e insuficiente.
-- [ ] Recoger las cinco monedas y verificar su regeneración diaria.
-- [ ] Guardar, recargar la página y recuperar el progreso.
-- [ ] Completar una semana responsable y otra de riesgo.
-- [ ] Verificar colisiones y recorrido de los vehículos.
+La IA funcionó como apoyo técnico e iterativo. El equipo mantuvo la responsabilidad de comprender el código, verificar que las reglas fueran coherentes y seleccionar únicamente las mejoras alineadas con el objetivo del GDD.
+
+---
 
 ## Aprendizajes
 
@@ -289,22 +323,34 @@ Este texto es una **reconstrucción basada en el GDD y en las mejoras solicitada
 - Convertir reglas escritas en condiciones verificables.
 - Diseñar un ciclo de juego basado en ingresos, obligaciones y decisiones.
 - Equilibrar varios indicadores en una evaluación final.
-- Implementar persistencia mediante LocalStorage.
+- Implementar persistencia con LocalStorage.
 - Construir una ciudad interactiva y sus colisiones con Canvas 2D.
 - Comunicar educación financiera mediante consecuencias jugables.
+
+## Próximas mejoras
+
+- Registrar validaciones con observaciones más específicas.
+- Incorporar eventos imprevistos descritos inicialmente en el GDD.
+- Añadir personajes secundarios con funciones económicas claras.
+- Incluir opciones de accesibilidad y controles táctiles completos.
+- Agregar una captura oficial de cada categoría de evaluación final.
 
 ## Ejecución local
 
 1. Descarga o clona el repositorio.
-2. Abre la carpeta `juegos/myeconomy/`.
-3. Ejecuta `index.html` en un navegador moderno.
+2. Abre `juegos/myeconomy/index.html` en un navegador moderno.
+3. Recorre la ciudad o utiliza los botones del panel de acciones.
 
-No requiere instalación, servidor ni paquetes externos.
+No se requiere instalación.
 
 ---
 
 <p align="center">
-  <a href="https://katfipol.github.io/game-development-portfolio/juegos/myeconomy/"><strong>Jugar ahora</strong></a>
-  &nbsp;&nbsp;|&nbsp;&nbsp;
-  <a href="../../README.md"><strong>Explorar los seis videojuegos</strong></a>
+  <a href="../detras-de-la-pantalla/README.md">← Anterior: Detrás de la pantalla</a>
+  &nbsp;&nbsp;·&nbsp;&nbsp;
+  <a href="../../README.md#videojuegos">Galería de videojuegos</a>
+  &nbsp;&nbsp;·&nbsp;&nbsp;
+  <a href="../edumundo/README.md">Inicio del recorrido: EduMundo →</a>
 </p>
+
+<p align="center"><sub>Proyecto académico de Game Development · José Martín Leaño Mercado</sub></p>
