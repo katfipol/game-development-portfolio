@@ -1,352 +1,381 @@
 <p align="center">
   <a href="https://katfipol.github.io/game-development-portfolio/juegos/ecofest/">
-    <img src="../../assets/capturas/ecofest.png" width="100%" alt="Captura del videojuego EcoFest">
+    <img src="../../assets/capturas/ecofest/01-inicio.png" width="100%" alt="Pantalla de instrucciones de EcoFest">
   </a>
 </p>
 
 <h1 align="center">EcoFest</h1>
 
 <p align="center">
-  <strong>Clasifica, recicla y supera tu mejor puntuación</strong>
+  <strong>Clasifica y recicla</strong><br>
+  <sub>Reconoce cada residuo, cambia el contenedor y protege tu racha ecológica.</sub>
 </p>
 
 <p align="center">
-  Un videojuego arcade educativo que transforma la clasificación de residuos en un desafío de reflejos, memoria visual y toma rápida de decisiones.
+  <img src="https://img.shields.io/badge/PRÁCTICA-02-157A4B?style=for-the-badge" alt="Práctica 02">
+  <img src="https://img.shields.io/badge/CATEGORÍAS-4-2F80ED?style=for-the-badge" alt="4 categorías">
+  <img src="https://img.shields.io/badge/NIVELES-8-D39A32?style=for-the-badge" alt="8 niveles">
+  <img src="https://img.shields.io/badge/ESTADO-FUNCIONAL-20B26B?style=for-the-badge" alt="Estado funcional">
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white" alt="HTML5">
-  <img src="https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white" alt="CSS3">
-  <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=111111" alt="JavaScript">
-  <img src="https://img.shields.io/badge/Canvas_API-0F766E?style=flat-square" alt="Canvas API">
-  <img src="https://img.shields.io/badge/Estado-Funcional-16A34A?style=flat-square" alt="Estado funcional">
+  <a href="https://katfipol.github.io/game-development-portfolio/juegos/ecofest/"><img src="https://img.shields.io/badge/JUGAR_AHORA-159447?style=for-the-badge" alt="Jugar EcoFest"></a>
+  <a href="https://github.com/katfipol/game-development-portfolio/blob/main/juegos/ecofest/index.html"><img src="https://img.shields.io/badge/VER_CÓDIGO-173B32?style=for-the-badge&logo=github&logoColor=white" alt="Ver código de EcoFest"></a>
+  <a href="https://github.com/katfipol/game-development-portfolio"><img src="https://img.shields.io/badge/PORTAFOLIO-2F80ED?style=for-the-badge" alt="Volver al portafolio"></a>
 </p>
 
 <p align="center">
-  <a href="https://katfipol.github.io/game-development-portfolio/juegos/ecofest/">
-    <img src="https://img.shields.io/badge/JUGAR-16A34A?style=for-the-badge" alt="Jugar EcoFest">
-  </a>
-  <a href="index.html">
-    <img src="https://img.shields.io/badge/VER_C%C3%93DIGO-1F2937?style=for-the-badge" alt="Ver código">
-  </a>
-  <a href="../../README.md">
-    <img src="https://img.shields.io/badge/PORTAFOLIO-475569?style=for-the-badge" alt="Volver al portafolio">
-  </a>
+  <a href="#vista-general">Vista general</a>
+  &nbsp;|&nbsp;
+  <a href="#galeria">Galería</a>
+  &nbsp;|&nbsp;
+  <a href="#mecanicas">Mecánicas</a>
+  &nbsp;|&nbsp;
+  <a href="#progresion">Progresión</a>
+  &nbsp;|&nbsp;
+  <a href="#practica">Práctica</a>
+  &nbsp;|&nbsp;
+  <a href="#ia">Uso de IA</a>
 </p>
 
 ---
 
-## Descripción
+<a id="vista-general"></a>
 
-EcoFest es un videojuego casual de clasificación de residuos dirigido a jugadores de seis años en adelante. El jugador controla un contenedor que puede desplazarse horizontalmente y cambiar de categoría.
+## Vista general
 
-Desde la parte superior de la pantalla caen diferentes residuos. Antes de atraparlos, el jugador debe reconocer el objeto, identificar su material y seleccionar la categoría correspondiente.
+**EcoFest** es un videojuego casual y educativo de clasificación de residuos. El jugador desplaza un contenedor por la parte inferior de la pantalla, selecciona una de cuatro categorías y decide qué objetos debe atrapar. La partida combina observación, reacción y memoria visual para reforzar hábitos de reciclaje.
 
-El objetivo es conseguir la puntuación más alta posible, conservar las tres vidas y avanzar por niveles progresivamente más rápidos.
+> [!TIP]
+> El reto no consiste únicamente en alcanzar un objeto: antes de atraparlo hay que reconocer su material y comprobar que el contenedor activo sea el correcto.
 
-## Propósito educativo
+<table>
+<tr>
+<td width="25%" align="center"><strong>4</strong><br><sub>categorías</sub></td>
+<td width="25%" align="center"><strong>12</strong><br><sub>tipos de residuo</sub></td>
+<td width="25%" align="center"><strong>3</strong><br><sub>vidas iniciales</sub></td>
+<td width="25%" align="center"><strong>8</strong><br><sub>niveles de dificultad</sub></td>
+</tr>
+</table>
 
-El videojuego busca reforzar la clasificación de residuos mediante repetición, asociación visual y respuesta inmediata.
+### Propósito
 
-Cada objeto presenta:
+Separar residuos puede parecer una tarea cotidiana, pero exige reconocer materiales y relacionarlos con su destino correcto. EcoFest transforma ese aprendizaje en una experiencia arcade de decisiones rápidas, retroalimentación inmediata y dificultad progresiva.
 
-- Una representación visual diferenciada.
-- El nombre del residuo.
-- Su material correspondiente.
-- Un color relacionado con su categoría.
-- Retroalimentación cuando se clasifica incorrectamente.
+### Ficha del proyecto
 
-La mecánica permite aprender mientras se juega, sin separar la actividad educativa del desafío arcade.
-
-## Información del proyecto
-
-| Elemento | Descripción |
+| Elemento | Información |
 |---|---|
-| Nombre | EcoFest |
-| Género | Arcade casual educativo |
-| Público objetivo | Jugadores de 6 años en adelante |
-| Objetivo | Clasificar correctamente la mayor cantidad de residuos |
-| Modalidad | Un jugador |
-| Vidas iniciales | 3 |
-| Niveles | 8 niveles de dificultad |
-| Condición de derrota | Perder las tres vidas |
-| Condición de victoria | Superar la puntuación anterior |
+| Asignatura | Game Development |
+| Tema | Proceso formal de desarrollo de videojuegos |
+| Género | Casual, arcade educativo |
+| Público objetivo | Personas de 6 años en adelante |
+| Objetivo | Conseguir la mayor puntuación clasificando residuos correctamente |
+| Mecánica principal | Mover el contenedor, cambiar su categoría y atrapar objetos |
 | Plataforma | Navegador web |
-| Tecnologías | HTML5, CSS3, JavaScript y Canvas API |
+| Modalidad | Un jugador |
+| Condición de cierre | La partida termina al perder las tres vidas |
+| Sistema de logro | Récord de puntuación guardado localmente |
 
-## Mecánica principal
+---
 
-El jugador realiza dos acciones principales:
+<a id="galeria"></a>
 
-1. Mover el contenedor hacia la izquierda o la derecha.
-2. Cambiar la categoría activa del contenedor.
+## Galería del proyecto
 
-Cuando un residuo entra en el contenedor:
+Las capturas muestran el ciclo completo del juego: instrucciones, clasificación, retroalimentación, aumento de dificultad y resultado final.
 
-- Si la categoría coincide, se suman puntos y aumenta el combo.
-- Si la categoría es incorrecta, el combo se reinicia y se pierde una vida.
-- Si el residuo llega al suelo sin ser atrapado, desaparece y reinicia el combo, pero no quita una vida.
-- La partida termina cuando las tres vidas llegan a cero.
+### Gameplay y clasificación correcta
 
-Esta corrección permite que el sistema de vidas dependa de una decisión equivocada del jugador y no de objetos que simplemente no pudo alcanzar.
+<table>
+<tr>
+<td width="50%" valign="top">
+  <img src="../../assets/capturas/ecofest/02-gameplay.png" width="100%" alt="Gameplay de EcoFest con residuos de diferentes categorías">
+  <p align="center"><strong>Decisión en movimiento</strong><br><sub>El contenedor activo y la categoría de cada residuo permanecen visibles.</sub></p>
+</td>
+<td width="50%" valign="top">
+  <img src="../../assets/capturas/ecofest/03-clasificacion-correcta.png" width="100%" alt="Clasificación correcta de papel en EcoFest">
+  <p align="center"><strong>Clasificación correcta</strong><br><sub>El acierto suma puntos y genera una confirmación visual sobre el contenedor.</sub></p>
+</td>
+</tr>
+</table>
 
-## Categorías de reciclaje
+### Error y dificultad progresiva
 
-| Categoría | Color identificador | Ejemplos incluidos |
+<table>
+<tr>
+<td width="50%" valign="top">
+  <img src="../../assets/capturas/ecofest/04-clasificacion-incorrecta.png" width="100%" alt="Clasificación incorrecta y pérdida de vida en EcoFest">
+  <p align="center"><strong>Corrección inmediata</strong><br><sub>El mensaje indica la categoría correcta y una vida se descuenta.</sub></p>
+</td>
+<td width="50%" valign="top">
+  <img src="../../assets/capturas/ecofest/05-dificultad.png" width="100%" alt="Varios residuos simultáneos durante una partida de EcoFest">
+  <p align="center"><strong>Mayor presión</strong><br><sub>Más objetos en pantalla exigen priorizar y cambiar de categoría con rapidez.</sub></p>
+</td>
+</tr>
+</table>
+
+### Categorías y resultado
+
+<table>
+<tr>
+<td width="50%" valign="top">
+  <img src="../../assets/capturas/ecofest/07-categorias.png" width="100%" alt="Contenedor orgánico y residuos de varias categorías en EcoFest">
+  <p align="center"><strong>Cuatro materiales</strong><br><sub>El color, el nombre y el dibujo ayudan a reconocer cada clasificación.</sub></p>
+</td>
+<td width="50%" valign="top">
+  <img src="../../assets/capturas/ecofest/06-resultado-final.png" width="100%" alt="Pantalla de resultado final de EcoFest">
+  <p align="center"><strong>Cierre de partida</strong><br><sub>Puntaje, récord local, nivel alcanzado y opción de volver a jugar.</sub></p>
+</td>
+</tr>
+</table>
+
+> [!NOTE]
+> Dejar que un residuo llegue al suelo no quita una vida; únicamente rompe el combo. La vida disminuye cuando el jugador atrapa un residuo con la categoría equivocada.
+
+---
+
+<a id="mecanicas"></a>
+
+## Mecánicas y reglas
+
+### Ciclo jugable
+
+```mermaid
+flowchart LR
+    A[Observar el residuo] --> B[Reconocer su material]
+    B --> C[Cambiar el contenedor]
+    C --> D[Moverse para atraparlo]
+    D --> E{¿Categoría correcta?}
+    E -->|Sí| F[Sumar puntos y combo]
+    E -->|No| G[Perder una vida]
+    F --> A
+    G --> A
+```
+
+### Sistema de clasificación
+
+<p align="center">
+  <img src="../../assets/capturas/ecofest/sistema-clasificacion.svg" width="100%" alt="Categorías de clasificación de EcoFest">
+</p>
+
+| Categoría | Color del contenedor | Residuos representados |
 |---|---|---|
 | Plástico | Amarillo | Botella, envase y bolsa |
-| Papel | Azul | Hoja, cartón y periódico |
+| Papel | Azul | Papel, cartón y periódico |
 | Vidrio | Verde | Frasco, botella y vaso |
 | Orgánico | Marrón | Cáscara, manzana y hoja |
 
-Los residuos se dibujan individualmente para que su apariencia coincida con el objeto indicado y no sean figuras genéricas.
+### Reglas principales
 
-## Controles
+1. Los residuos aparecen desde la parte superior y avanzan hacia el suelo.
+2. El jugador puede mover el contenedor horizontalmente en cualquier momento.
+3. Antes de atrapar un objeto debe seleccionar una de las cuatro categorías.
+4. Una clasificación correcta suma puntos y aumenta el combo.
+5. Cada cinco aciertos consecutivos aumenta el valor del siguiente tramo de la racha.
+6. Una clasificación incorrecta reinicia el combo y resta una vida.
+7. Un residuo no atrapado desaparece y reinicia el combo, pero no resta vidas.
+8. La partida termina cuando las tres vidas llegan a cero.
 
-| Acción | Controles |
+### Controles
+
+| Entrada | Acción |
 |---|---|
-| Mover a la izquierda | `A` o flecha izquierda |
-| Mover a la derecha | `D` o flecha derecha |
-| Categoría anterior | Flecha arriba |
-| Categoría siguiente | Flecha abajo |
-| Elegir plástico | Tecla `1` |
-| Elegir papel | Tecla `2` |
-| Elegir vidrio | Tecla `3` |
-| Elegir orgánico | Tecla `4` |
-| Pausar o reanudar | Barra espaciadora |
-| Reiniciar | Tecla `R` o botón de reinicio |
+| `A` o `←` | Mover el contenedor hacia la izquierda |
+| `D` o `→` | Mover el contenedor hacia la derecha |
+| `↑` o `↓` | Recorrer las categorías |
+| `1`, `2`, `3` o `4` | Seleccionar una categoría directamente |
+| `Espacio` | Pausar o reanudar |
+| `R` | Reiniciar la partida |
+| Botón de sonido | Activar o silenciar música y efectos |
+| Controles inferiores | Mover, cambiar categoría y pausar en pantalla táctil |
 
-El juego también incluye controles táctiles para desplazarse, cambiar de categoría y pausar desde dispositivos móviles.
+---
 
-## Flujo de juego
+<a id="progresion"></a>
 
-```mermaid
-flowchart TD
-    A[Inicio de la partida] --> B[Seleccionar categoría]
-    B --> C[Mover el contenedor]
-    C --> D[Caída de un residuo]
-    D --> E{El residuo fue atrapado}
-    E -->|No| F[Reiniciar combo]
-    E -->|Sí| G{Categoría correcta}
-    G -->|Sí| H[Sumar puntos y combo]
-    G -->|No| I[Perder una vida]
-    F --> D
-    H --> J[Aumentar dificultad]
-    I --> K{Quedan vidas}
-    J --> D
-    K -->|Sí| D
-    K -->|No| L[Mostrar resultado]
-```
+## Progresión y puntuación
 
-## Sistema de puntuación
+La puntuación controla la dificultad. El nivel aumenta cada **12 puntos**, hasta llegar al nivel 8. Con cada nivel se reduce el intervalo entre apariciones y aumenta la velocidad de caída.
 
-Cada clasificación correcta otorga puntos. Mantener una racha permite conseguir una bonificación:
+| Elemento | Funcionamiento |
+|---|---|
+| Nivel inicial | Nivel 1 |
+| Nivel máximo | Nivel 8 |
+| Cambio de nivel | Cada 12 puntos |
+| Frecuencia | Aumenta gradualmente hasta un límite jugable |
+| Velocidad | Se incrementa de acuerdo con el nivel |
+| Récord | Se conserva en `localStorage` |
 
-```text
-Puntos obtenidos = 1 + parte entera del combo / 5
-```
+### Combo y recompensa
 
-Esto significa que el jugador recibe una recompensa adicional cada cinco clasificaciones correctas consecutivas.
+| Aciertos consecutivos | Puntos por clasificación |
+|---:|---:|
+| 1–4 | +1 |
+| 5–9 | +2 |
+| 10–14 | +3 |
+| 15–19 | +4 |
 
-El mejor puntaje se guarda mediante `localStorage`, por lo que permanece registrado en el navegador después de cerrar o reiniciar la página.
+El patrón continúa mientras se mantenga la racha. Esta recompensa anima a clasificar con precisión, no solo a sobrevivir.
 
-## Dificultad progresiva
+### Mensajes de resultado
 
-El nivel aumenta cada doce puntos hasta alcanzar un máximo de ocho niveles.
+| Puntaje final | Retroalimentación |
+|---:|---|
+| 0–14 | Buen comienzo y reconocimiento inicial de residuos |
+| 15–34 | Buen dominio de varias categorías |
+| 35 o más | Gran racha ecológica |
 
-A medida que el jugador progresa:
+---
 
-- Los residuos aparecen con mayor frecuencia.
-- La velocidad de caída aumenta.
-- Hay menos tiempo para reconocer el material.
-- Se vuelve más importante anticipar el cambio de categoría.
-- Mantener combos largos requiere mayor precisión.
+## Diseño visual y sonoro
 
-La progresión mantiene la partida activa sin cambiar las reglas principales.
+- Escenario claro con naturaleza, colinas, árboles, nubes y una zona de juego delimitada.
+- Contenedores diferenciados por color, rótulo y símbolo para evitar depender de una sola señal visual.
+- Doce residuos dibujados de acuerdo con el objeto que representan.
+- Etiquetas visibles bajo cada residuo para reforzar la asociación entre objeto y material.
+- Partículas, textos flotantes y cambios de color como retroalimentación inmediata.
+- Interfaz con puntuación, nivel, vidas, categoría activa, pausa, sonido y reinicio.
+- Música ambiental y efectos sintetizados mediante Web Audio API, sin archivos externos.
+- Diseño adaptable y controles en pantalla para equipos táctiles.
 
-## Interfaz y retroalimentación
+---
 
-La interfaz presenta permanentemente:
+## Tecnologías utilizadas
 
-- Puntuación actual.
-- Nivel alcanzado.
-- Vidas restantes.
-- Categoría seleccionada.
-- Nombre y ejemplos de la categoría.
-- Combo conseguido.
-- Mejor puntuación registrada.
+<p align="center">
+  <img src="https://img.shields.io/badge/HTML5-ESTRUCTURA-E34F26?style=flat-square&logo=html5&logoColor=white" alt="HTML5">
+  <img src="https://img.shields.io/badge/CSS3-INTERFAZ-1572B6?style=flat-square&logo=css3&logoColor=white" alt="CSS3">
+  <img src="https://img.shields.io/badge/JAVASCRIPT-LÓGICA-F7DF1E?style=flat-square&logo=javascript&logoColor=111111" alt="JavaScript">
+  <img src="https://img.shields.io/badge/CANVAS_2D-GRÁFICOS-0EA5E9?style=flat-square" alt="Canvas 2D">
+  <img src="https://img.shields.io/badge/WEB_AUDIO-SONIDO-8B5CF6?style=flat-square" alt="Web Audio API">
+  <img src="https://img.shields.io/badge/LOCAL_STORAGE-RÉCORD-159447?style=flat-square" alt="LocalStorage">
+</p>
 
-Cuando se comete un error, aparece un mensaje indicando la categoría correcta del residuo. De esta forma, el error también funciona como una oportunidad de aprendizaje.
+| Tecnología | Aplicación |
+|---|---|
+| HTML5 | Estructura, canvas, paneles, overlays y controles |
+| CSS3 | Diseño adaptable, colores, botones, indicadores y profundidad visual |
+| JavaScript | Estados, entradas, colisiones, categorías, puntuación y niveles |
+| Canvas 2D | Escenario, residuos, contenedor, partículas y animación |
+| Web Audio API | Música y efectos de acierto, error y final |
+| LocalStorage | Conservación del mejor puntaje en el navegador |
 
-## Sonido
+Todo el videojuego se ejecuta desde un único archivo `index.html`; no necesita instalación, servidor ni bibliotecas externas.
 
-EcoFest utiliza Web Audio API para generar el sonido directamente desde JavaScript.
+---
 
-Incluye:
+<a id="practica"></a>
 
-- Música ambiental.
-- Sonido de clasificación correcta.
-- Sonido de clasificación incorrecta.
-- Sonido de finalización.
-- Control para activar o silenciar el audio.
+## Relación con la práctica 02
 
-No necesita archivos musicales externos para funcionar.
+La actividad abordó las cuatro fases del proceso formal de desarrollo: **preproducción, producción, testeo y lanzamiento**. EcoFest funcionó como prototipo para aplicar esa secuencia a un problema educativo relacionado con el reciclaje.
 
-## Proceso de desarrollo
-
-La práctica aplicó cuatro fases del proceso formal de creación de videojuegos.
-
-### 1. Preproducción
-
-Durante esta fase se definieron:
-
-- La temática del reciclaje.
-- El público objetivo.
-- El género casual.
-- La mecánica de residuos descendentes.
-- Las cuatro categorías.
-- El sistema de vidas.
-- La puntuación sin límite fijo.
-
-### 2. Producción
-
-Se desarrollaron:
-
-- El movimiento del contenedor.
-- La generación aleatoria de residuos.
-- La selección de categorías.
-- Las colisiones.
-- El sistema de puntos, vidas y combo.
-- Los objetos dibujados mediante Canvas.
-- La interfaz, los sonidos y los controles táctiles.
-
-### 3. Testeo
-
-Se comprobaron:
-
-- El inicio y reinicio de la partida.
-- La claridad de las categorías.
-- La pérdida correcta de vidas.
-- El funcionamiento de las colisiones.
-- La representación visual de los residuos.
-- La progresión de dificultad.
-- Los controles de teclado y dispositivos táctiles.
-
-### 4. Lanzamiento
-
-La versión final fue organizada en el portafolio y publicada mediante GitHub Pages para ejecutarse directamente desde un navegador.
-
-## Evolución del prototipo
-
-| Versión | Problema identificado | Solución aplicada |
+| Requisito | Evidencia | Estado |
 |---|---|---|
-| V1 | Los residuos tenían poca variedad visual | Se incorporaron diferentes objetos para cada categoría |
-| V2 | Algunos residuos no se parecían al objeto indicado | Se rediseñaron con formas, colores, etiquetas y detalles propios |
-| V3 | Un error de JavaScript impedía dibujar los residuos | Se corrigió la referencia no definida en `drawTrashIcon` |
-| V4 | Perder vidas por objetos no atrapados resultaba injusto | La vida ahora se pierde únicamente al atrapar una categoría incorrecta |
-| V5 | La clasificación no era suficientemente clara | Se añadieron nombres, colores, ejemplos y mensajes correctivos |
-| V6 | La partida se volvía repetitiva | Se incorporaron niveles, aumento de velocidad y sistema de combos |
-| V7 | Faltaban opciones para diferentes dispositivos | Se añadieron controles táctiles y teclado alternativo |
-| V8 | No existía seguimiento del progreso | Se incorporó un récord local mediante `localStorage` |
+| Investigación conceptual | Definición y actividades de las cuatro fases | Cumplido |
+| Visualización de la secuencia | Infografía del proceso de desarrollo | Cumplido |
+| Preproducción original | Nombre, género, objetivo, reglas y público definidos | Cumplido |
+| Mecánica principal | Movimiento lateral y clasificación de residuos | Cumplido |
+| Producción con IA | Prototipo web funcional generado e iterado desde requisitos | Cumplido |
+| Condición de derrota | Tres clasificaciones incorrectas consumen las vidas | Cumplido |
+| Aprendizaje del reciclaje | Asociación repetida entre objeto, color y categoría | Cumplido |
+| Validación con otro equipo | Todos los criterios fueron marcados como “Sí” | Cumplido |
+| Evidencia visual | Inicio, gameplay, mecánica, error, dificultad y resultado | Cumplido |
 
-## Organización técnica
+### Resultado de la validación
 
-El videojuego está contenido en un único archivo `index.html`, dividido internamente en secciones funcionales:
+El equipo revisor confirmó que el juego:
 
-| Componente | Responsabilidad |
-|---|---|
-| `CATEGORIES` | Define nombres, colores, ejemplos y residuos |
-| Estado del juego | Gestiona puntuación, vidas, combo y nivel |
-| Sistema de entrada | Procesa teclado y controles táctiles |
-| Audio | Genera música y efectos mediante Web Audio API |
-| Generación de residuos | Crea objetos, posiciones y variantes |
-| Actualización | Controla movimiento, colisiones y dificultad |
-| Renderizado | Dibuja escenario, contenedor, residuos y efectos |
-| Almacenamiento | Conserva el mejor puntaje con `localStorage` |
+- Funcionaba sin errores técnicos.
+- Presentaba una mecánica clara.
+- Permitía alcanzar las condiciones previstas.
+- Enseñaba a clasificar residuos.
+- Era comprensible para el público objetivo.
 
-## Cumplimiento de la práctica
+La tabla de validación no registró sugerencias de mejora. Aun así, el prototipo continuó evolucionando mediante pruebas propias y revisión visual.
 
-| Requisito | Implementación |
-|---|---|
-| Videojuego funcional | Se ejecuta directamente en el navegador |
-| Temática de reciclaje | Toda la mecánica se basa en clasificar residuos |
-| Movimiento horizontal | El contenedor se desplaza en ambas direcciones |
-| Objetos descendentes | Los residuos aparecen desde la parte superior |
-| Categorías diferenciadas | Plástico, papel, vidrio y orgánico |
-| Tres vidas | Se pierden al cometer clasificaciones incorrectas |
-| Dificultad progresiva | La velocidad y frecuencia aumentan por nivel |
-| Aprendizaje por repetición | Los objetos y categorías aparecen continuamente |
-| Condición de derrota | La partida termina al perder las tres vidas |
-| Validación | Se probaron las funciones principales y las correcciones |
+### Del planteamiento inicial a la versión final
 
-## Uso de inteligencia artificial
+| Momento | Situación observada | Decisión aplicada |
+|---|---|---|
+| Preproducción | Todo residuo perdido se consideraba un error | Se reservó la pérdida de vida para una clasificación equivocada |
+| Primera versión | Algunos objetos no parecían el residuo indicado | Se rediseñaron con siluetas y detalles reconocibles |
+| Corrección técnica | Una referencia inexistente detenía el renderizado | Se eliminó el acceso inválido y se volvió a probar el ciclo de animación |
+| Ajuste de experiencia | La categoría podía confundirse durante la acción | Se reforzaron color, nombre, leyenda y etiqueta del objeto |
+| Versión final | Faltaba sensación de progreso | Se añadieron niveles, mayor frecuencia, velocidad, combos y récord local |
 
-ChatGPT fue utilizado como herramienta principal de apoyo para generar y mejorar el prototipo.
+> [!IMPORTANT]
+> El cambio en la penalización mantiene el objetivo del documento —aprender a clasificar correctamente— y mejora la justicia de la interacción: no alcanzar un objeto rompe la racha, mientras que tomar una decisión equivocada sí consume una vida.
 
-La inteligencia artificial colaboró en:
+---
 
-- La estructura inicial de HTML, CSS y JavaScript.
-- La generación de la mecánica arcade.
-- La corrección de errores de ejecución.
-- La ampliación de categorías y residuos.
-- El diseño visual de los objetos.
-- El ajuste del sistema de vidas.
-- La incorporación de dificultad, audio y controles táctiles.
+<a id="ia"></a>
 
-Las decisiones sobre la temática, las reglas, las mejoras y la validación final fueron revisadas durante el desarrollo del proyecto.
+## Uso responsable de inteligencia artificial
+
+ChatGPT se utilizó como herramienta principal de apoyo para convertir los requisitos académicos en un prototipo funcional y para acompañar sus iteraciones posteriores.
+
+| Etapa | Participación de la IA | Decisión humana |
+|---|---|---|
+| Conceptualización | Organización de requisitos y propuesta de estructura | Definición de EcoFest, su propósito y público |
+| Programación | Generación y ajuste de HTML, CSS y JavaScript | Pruebas de controles, reglas y dificultad |
+| Corrección | Localización de fallos y propuestas de solución | Identificación del error real y aceptación del cambio |
+| Diseño visual | Alternativas para residuos, contenedores y escenario | Selección de una apariencia clara y coherente |
+| Documentación | Estructura y redacción inicial del README | Verificación contra el informe y la versión jugable |
+
+### Justificación
+
+La IA aceleró la construcción del prototipo y permitió realizar ciclos cortos de **idea, prueba, observación y mejora**. No sustituyó la validación: cada cambio se revisó dentro del navegador para confirmar que los controles, colisiones, vidas, categorías y mensajes funcionaran de acuerdo con la intención del proyecto.
 
 <details>
-<summary><strong>Prompt reconstruido del desarrollo</strong></summary>
+<summary><strong>Ver prompt base reconstruido</strong></summary>
 
-<br>
+> Actúa como desarrollador de videojuegos web. Crea un juego casual educativo llamado EcoFest con HTML5, CSS3 y JavaScript puro. Los residuos deben caer desde la parte superior y el jugador controlará un contenedor que se mueve horizontalmente. Debe poder cambiar entre plástico, papel, vidrio y orgánico; cada objeto tiene que verse y etiquetarse de acuerdo con su material. Una clasificación correcta suma puntos y aumenta el combo; una clasificación incorrecta resta una de tres vidas. Los objetos no atrapados deben desaparecer y reiniciar la racha sin quitar vida. Añade dificultad progresiva, ocho niveles, récord local, instrucciones, pausa, reinicio, controles táctiles, música ambiental y efectos mediante Web Audio API. El juego debe funcionar en un único archivo HTML sin dependencias externas.
 
-Actúa como desarrollador de videojuegos web. Crea un videojuego educativo y funcional llamado EcoFest, dirigido a jugadores de seis años en adelante y centrado en enseñar la clasificación correcta de residuos.
-
-El jugador debe controlar un contenedor que pueda moverse horizontalmente mientras diferentes residuos caen desde la parte superior. El contenedor debe cambiar entre cuatro categorías: plástico, papel, vidrio y orgánico.
-
-Cada categoría debe incluir varios objetos claramente reconocibles. Los residuos no deben representarse mediante figuras genéricas: una botella debe parecer una botella, un periódico debe parecer un periódico y una manzana debe distinguirse visualmente.
-
-Si el jugador atrapa un residuo con la categoría correcta, debe recibir puntos y aumentar su combo. Si lo atrapa con una categoría equivocada, debe perder una vida. Los residuos que lleguen al suelo sin ser atrapados deben desaparecer y reiniciar el combo, pero no quitar vidas.
-
-La partida debe comenzar con tres vidas. Debe aumentar progresivamente la velocidad y frecuencia de aparición de los residuos. Incluye niveles, mejor puntuación, pausa, reinicio, música, efectos de sonido, mensajes de corrección y controles para teclado y dispositivos táctiles.
-
-Utiliza HTML5, CSS3, JavaScript puro, Canvas API, Web Audio API y `localStorage`. El juego debe ejecutarse directamente en un navegador y mantenerse en un solo archivo `index.html`.
+Este texto reconstruye el prompt a partir de la tabla de preproducción, la versión final y las correcciones realizadas. Se presenta como registro transparente porque el prompt original no fue conservado literalmente.
 
 </details>
 
-## Pruebas realizadas
+### Verificación humana
 
-Durante la validación se comprobó que:
+Se comprobaron el inicio, el movimiento, el cambio de categorías, la clasificación correcta e incorrecta, la regla de vidas, el combo, el aumento de nivel, la pausa, el reinicio, el sonido, el récord y el cierre de partida.
 
-- El juego inicia sin errores.
-- El contenedor responde al teclado.
-- Los controles táctiles funcionan.
-- Las cuatro categorías pueden seleccionarse.
-- Los residuos son reconocibles.
-- Las clasificaciones correctas suman puntos.
-- Las clasificaciones incorrectas quitan una vida.
-- Los objetos perdidos no quitan vidas.
-- El combo aumenta correctamente.
-- La dificultad cambia según el puntaje.
-- La partida termina después de perder las tres vidas.
-- La mejor puntuación permanece guardada.
+---
 
 ## Aprendizajes
 
-El desarrollo de EcoFest permitió comprender cómo una mecánica sencilla puede comunicar una idea educativa mediante repetición y retroalimentación inmediata.
+- Traducir un problema ambiental en una mecánica jugable concreta.
+- Aplicar preproducción, producción, pruebas y preparación para publicación.
+- Diseñar retroalimentación que explique un error sin interrumpir el ritmo.
+- Gestionar estados, colisiones, puntuación, combos, vidas y dificultad.
+- Mejorar la reconocibilidad de objetos dibujados en Canvas 2D.
+- Diferenciar una propuesta generada con IA de una solución validada por el desarrollador.
+- Documentar cambios cuando una decisión de usabilidad modifica una regla inicial.
 
-También permitió aplicar generación de objetos, colisiones, dificultad progresiva, controles táctiles, persistencia local, sonido procedural y organización de estados dentro de un videojuego web.
+## Posibles mejoras futuras
 
-La principal mejora de diseño fue diferenciar una acción incorrecta de una oportunidad perdida: solamente una clasificación equivocada quita una vida. Esto hace que las reglas sean más coherentes y justas para el jugador.
+- Incluir una ficha educativa breve después de cada clasificación.
+- Añadir residuos electrónicos y materiales especiales en un modo avanzado.
+- Incorporar opciones de contraste, reducción de movimiento y tamaño de texto.
+- Crear una tabla local de récords por jugador.
+- Añadir desafíos diarios o partidas con tiempo limitado.
+- Realizar una nueva validación con personas de distintas edades.
+
+## Ejecución local
+
+1. Descarga o clona el repositorio.
+2. Abre la carpeta `juegos/ecofest/`.
+3. Ejecuta `index.html` en un navegador moderno.
+
+No requiere instalación ni conexión después de descargar el archivo.
 
 ---
 
 <p align="center">
-  <a href="https://katfipol.github.io/game-development-portfolio/juegos/ecofest/">
-    Jugar EcoFest
-  </a>
-  ·
-  <a href="../../README.md">
-    Regresar al portafolio
-  </a>
+  <a href="https://github.com/katfipol/game-development-portfolio"><strong>Portafolio principal</strong></a>
+  &nbsp;|&nbsp;
+  <a href="https://katfipol.github.io/game-development-portfolio/juegos/ecofest/"><strong>Jugar EcoFest</strong></a>
+  &nbsp;|&nbsp;
+  <a href="https://github.com/katfipol/game-development-portfolio/blob/main/juegos/nutrifest/README.md"><strong>Siguiente proyecto: NutriFest</strong></a>
 </p>
