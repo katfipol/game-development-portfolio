@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Detrás de la pantalla — Prototipo 2.5D</title>
+<style>
+:root{
+ --bg:#05070c;--panel:rgba(8,13,22,.91);--line:#34465f;--text:#f5f7fb;
+ --muted:#a6b4c7;--violet:#8b6cff;--cyan:#55d8cc;--good:#76d477;--bad:#e76d76;
+}
+*{box-sizing:border-box}
+html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#05070c;color:var(--text);font-family:Inter,Segoe UI,Arial,sans-serif}
+button{font:inherit}
+#game{position:fixed;inset:0;background:#05070c}
+canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.topbar{position:absolute;top:0;left:0;right:0;height:64px;z-index:20;display:flex;align-items:center;justify-content:space-between;
+padding:0 20px;background:linear-gradient(180deg,rgba(4,7,13,.95),rgba(4,7,13,.68));border-bottom:1px solid rgba(90,112,142,.32);backdrop-filter:blur(12px)}
+.brand{display:flex;align-items:center;gap:10px;font-weight:900}.mark{width:37px;height:37px;border-radius:11px;display:grid;place-items:center;background:linear-gradient(135deg,#8d61ff,#4b92ff);box-shadow:0 8px 30px #0009}
+.topRight{display:flex;gap:8px;align-items:center}.pill,.pauseBtn{border:1px solid #34465f;background:#0d1725d9;color:#c9d5e4;border-radius:12px;padding:9px 12px;font-size:11px}
+.pauseBtn{width:43px;height:43px;padding:0;font-size:18px;cursor:pointer}.pauseBtn:hover{border-color:#8b6cff}
+.hudLeft{position:absolute;top:82px;left:20px;z-index:15;width:220px;padding:13px 14px;border-radius:15px;border:1px solid #304159;background:#07101bdd;box-shadow:0 12px 40px #0007}
+.hudTitle{font-size:10px;text-transform:uppercase;letter-spacing:1.5px;color:#94a5bb;margin-bottom:9px}.barRow{font-size:10px;color:#aab7c8;display:flex;justify-content:space-between;margin:4px 0}.bar{height:5px;background:#1b2839;border-radius:10px;overflow:hidden;margin-bottom:7px}.bar i{display:block;height:100%;transition:.35s}.c{background:#9b76ff}.t{background:#54b9df}.r{background:#76d477}
+.sceneInfo{position:absolute;top:82px;right:20px;z-index:15;width:260px;padding:13px 14px;border:1px solid #304159;border-radius:15px;background:#07101bdd;box-shadow:0 12px 40px #0007}
+.sceneInfo .small{font-size:9px;letter-spacing:1.4px;text-transform:uppercase;color:#93a3b7}.sceneInfo strong{display:block;font-size:15px;margin-top:4px}.sceneInfo p{margin:6px 0 0;color:#b5c2d2;font-size:11px;line-height:1.45}
+.controls{position:absolute;bottom:22px;left:20px;z-index:15;display:flex;gap:5px;align-items:center}.key{width:35px;height:35px;display:grid;place-items:center;border:1px solid #40526a;background:#091321dc;border-radius:9px;font-size:11px;color:#dce5f0;box-shadow:0 5px 18px #0007}.key.active{background:#7d5ce5;border-color:#b29cff;transform:translateY(-2px)}
+.interact{position:absolute;bottom:24px;right:20px;z-index:15;padding:9px 12px;border-radius:11px;border:1px solid #3d536f;background:#091321df;color:#d6e2ef;font-size:10px;display:none}
+.interact.show{display:block}
+.dialogue{position:absolute;z-index:25;left:5%;right:5%;bottom:22px;display:grid;grid-template-columns:90px 1fr;gap:12px;align-items:end;pointer-events:none}
+.avatar{height:90px;border-radius:17px;border:1px solid #42546e;background:linear-gradient(180deg,#1c2a3f,#0d1522);position:relative;overflow:hidden;box-shadow:0 12px 35px #0009}
+.avatar:after{content:"";position:absolute;inset:0;background:linear-gradient(135deg,#ffffff08,transparent 45%,#0004)}
+.aHead{position:absolute;width:44px;height:49px;left:23px;top:20px;border-radius:45%;background:#c88768}.aHair{position:absolute;width:55px;height:39px;left:18px;top:10px;border-radius:50% 50% 25% 25%;background:#17141b;z-index:2}.aBody{position:absolute;width:72px;height:55px;left:9px;bottom:-2px;border-radius:32px 32px 0 0;background:#304761}
+.dialog{pointer-events:auto;background:rgba(7,12,20,.95);border:1px solid #3d506a;border-radius:18px;padding:14px 16px;box-shadow:0 18px 60px #000a}
+.speaker{font-size:11px;font-weight:900;color:#c8b8ff;margin-bottom:5px}.dialogText{font-size:14px;line-height:1.52;min-height:42px;color:#edf2f8}
+.choices{display:flex;gap:7px;flex-wrap:wrap;margin-top:9px}.choice{border:1px solid #3b4d66;background:#17263a;color:#fff;border-radius:10px;padding:9px 12px;font-size:11px;cursor:pointer;text-align:left;transition:.15s}.choice:hover{border-color:#a084ff;transform:translateY(-1px);background:#213650}.choice small{display:block;color:#9facbd;margin-top:3px}
+.phone{position:absolute;right:25px;bottom:95px;width:175px;height:305px;z-index:18;border:5px solid #6e7b90;border-radius:25px;background:#060a10;box-shadow:0 20px 55px #000a;transform:translateY(20px) rotate(2deg);opacity:0;pointer-events:none;transition:.25s}
+.phone.show{opacity:1;transform:translateY(0) rotate(2deg)}.phoneScreen{height:100%;margin:10px;border-radius:14px;background:linear-gradient(180deg,#142236,#0d1725);padding:9px;font-size:10px;overflow:hidden}.pTop{display:flex;align-items:center;gap:6px;padding-bottom:8px;border-bottom:1px solid #2b3b51}.pIcon{width:24px;height:24px;border-radius:50%;background:#7657b4;display:grid;place-items:center}.post{margin-top:10px;background:#1b2b40;border-radius:9px;padding:9px;line-height:1.4}.react{color:#91a0b4;margin-top:8px}
+.pause,.start,.ending{position:fixed;inset:0;z-index:100;background:rgba(2,4,9,.79);backdrop-filter:blur(10px);display:grid;place-items:center;padding:25px}
+.pause.hidden,.start.hidden,.ending.hidden{display:none}
+.card{width:min(490px,92vw);padding:30px;border:1px solid #40536d;border-radius:23px;background:linear-gradient(180deg,#121d2d,#0a111c);box-shadow:0 25px 100px #000b;text-align:center}
+.card h2{font-size:40px;margin:6px 0 10px}.card p{color:#aab7c8;line-height:1.65;font-size:13px}.btn{border:0;border-radius:12px;padding:12px 18px;margin:5px;background:linear-gradient(135deg,#8b5cf6,#536dff);color:white;font-weight:850;cursor:pointer;box-shadow:0 10px 25px #0005}.btn.secondary{background:#17263a;border:1px solid #3a4d67}.btn:hover{filter:brightness(1.12);transform:translateY(-1px)}
+.startCard{width:min(1050px,95vw);display:grid;grid-template-columns:1.1fr .9fr;gap:35px;align-items:center}.tag{font-size:10px;letter-spacing:1.6px;text-transform:uppercase;color:#bdaeff}.startCard h1{font-size:clamp(48px,7vw,86px);line-height:.88;letter-spacing:-5px;margin:14px 0;background:linear-gradient(110deg,#fff,#bcaaff,#70ded2);color:transparent;background-clip:text}.startCard p{max-width:650px;color:#aab7c8;line-height:1.7}
+.hero{height:490px;border:1px solid #304159;border-radius:26px;position:relative;overflow:hidden;background:radial-gradient(circle at 70% 25%,#403466,#141d2e 50%,#080c13)}
+.hero:before{content:"";position:absolute;inset:0;background:linear-gradient(145deg,#ffffff0c,transparent 35%,#0006)}.heroFloor{position:absolute;left:-10%;right:-10%;bottom:-5%;height:46%;background:linear-gradient(170deg,#344254,#151c27);clip-path:polygon(0 20%,100% 0,100% 100%,0 100%)}
+.bigPerson{position:absolute;left:50%;bottom:20px;transform:translateX(-50%);width:230px;height:420px}.bigHead{position:absolute;left:68px;top:34px;width:94px;height:115px;border-radius:46%;background:#c88768;z-index:2}.bigHair{position:absolute;left:55px;top:14px;width:122px;height:132px;border-radius:53% 47% 45% 55%;background:#15131a;z-index:4}.bigBody{position:absolute;left:30px;top:140px;width:170px;height:245px;border-radius:55px 55px 15px 15px;background:linear-gradient(135deg,#3e5772,#25374d)}.bigArm{position:absolute;top:196px;width:55px;height:160px;background:#2f465f;border-radius:40px}.ba1{left:20px;transform:rotate(13deg)}.ba2{right:20px;transform:rotate(-13deg)}.bigPhone{position:absolute;left:77px;top:218px;width:76px;height:125px;background:#080b11;border:3px solid #64748a;border-radius:14px;z-index:6}.bigNeck{position:absolute;left:102px;top:132px;width:28px;height:30px;background:#b9785f}
+.endCard{width:min(850px,94vw);text-align:center}.endArt{height:260px;border-radius:20px;border:1px solid #33465f;position:relative;overflow:hidden;background:linear-gradient(180deg,#111c2c,#070b11);margin-bottom:18px}
+.endTitle{font-size:46px;margin:7px 0}.endText{color:#b0bdce;line-height:1.7;font-size:13px}
+.endPerson{position:absolute;bottom:-155px;left:50%;transform:translateX(-50%) scale(.55);transform-origin:bottom}
+.friend{position:absolute;bottom:-155px;left:64%;transform:scale(.55);transform-origin:bottom;width:230px;height:420px}.friend .bigHead{background:#d29a79}.friend .bigHair{background:#6a3a25}.friend .bigBody{background:#315a52}.friend .bigArm{background:#315a52}
+.endArt .heart{position:absolute;left:57%;top:38px;font-size:44px}
+/* Mejora visual y jugable */
+.topbar{height:68px;border-bottom:1px solid #647a9a66;background:linear-gradient(180deg,#050914f2,#08111ed8)}
+.mark{position:relative;overflow:hidden}.mark::after{content:"";position:absolute;width:18px;height:12px;border:2px solid #fff;border-radius:3px;transform:rotate(-7deg);opacity:.9}
+.hudLeft,.sceneInfo{border-color:#536986;background:linear-gradient(145deg,#081321ee,#0d1b2dee);box-shadow:0 16px 48px #0009,inset 0 1px #ffffff0c}
+.sceneProgress{display:flex;gap:4px;margin-top:10px}.sceneProgress i{height:3px;flex:1;border-radius:9px;background:#324158}.sceneProgress i.done{background:#65d8d0;box-shadow:0 0 7px #65d8d088}
+.objectiveHint{display:inline-flex;gap:7px;align-items:center;margin-top:8px;padding:6px 8px;border-radius:8px;background:#131f31;color:#9fb1c6;font-size:9px}
+.objectiveHint::before{content:"◆";color:#5bd7cc}
+.soundBtn{width:43px;height:43px;border:1px solid #34465f;background:#0d1725d9;color:#dce8f5;border-radius:12px;cursor:pointer;font-size:16px}.soundBtn:hover{border-color:#55d8cc}
+.controls{bottom:20px}.interact{bottom:22px;padding:11px 15px;border-color:#63d9ce;background:#0a302fdc;color:#d8fffb;font-weight:800;animation:hintPulse 1.2s ease-in-out infinite alternate}
+@keyframes hintPulse{to{box-shadow:0 0 20px #55d8cc66;transform:translateY(-2px)}}
+.dialogue.locked .dialog{opacity:.48;filter:saturate(.45)}.dialogue.locked .choices{display:none}
+.dialogue.locked .dialogText::after{content:"  Acércate al punto iluminado y presiona E.";color:#69dcd2}
+.choice.good{border-color:#47765d;background:#153629}.choice.bad{border-color:#774853;background:#351b26}.choice.neutral{border-color:#556983;background:#1b2a3e}
+.choice:hover{box-shadow:0 8px 24px #0007}
+.phone{width:205px;height:350px;border:7px solid #77879a;border-radius:31px;background:linear-gradient(145deg,#202936,#05070b);box-shadow:0 26px 70px #000c,0 0 0 2px #1b2531;overflow:visible}
+.phone::before{content:"";position:absolute;top:8px;left:50%;transform:translateX(-50%);width:62px;height:7px;border-radius:9px;background:#05070b;z-index:4}
+.phone::after{content:"";position:absolute;right:-10px;top:80px;width:3px;height:46px;border-radius:0 4px 4px 0;background:#69798c}
+.phoneScreen{margin:9px;height:calc(100% - 18px);padding:18px 9px 9px;background:linear-gradient(180deg,#18283e,#0a1422)}
+.post{white-space:pre-line;border:1px solid #33465d;background:linear-gradient(145deg,#20344e,#17263b);box-shadow:0 8px 18px #0005}
+.phoneMeta{display:flex;justify-content:space-between;margin-top:8px;color:#74879d;font-size:8px}.onlineDot{display:inline-block;width:6px;height:6px;border-radius:50%;background:#5cda83;box-shadow:0 0 7px #5cda83;margin-right:4px}
+.toast{position:absolute;left:50%;top:82px;z-index:40;transform:translate(-50%,-15px);padding:10px 15px;border:1px solid #526884;border-radius:12px;background:#091522e8;color:#eaf3fb;font-size:11px;opacity:0;pointer-events:none;transition:.25s;box-shadow:0 14px 35px #0009}.toast.show{opacity:1;transform:translate(-50%,0)}
+.transition{position:fixed;inset:0;z-index:80;pointer-events:none;background:#050812;opacity:0;transition:opacity .3s}.transition.show{opacity:1}
+.mobilePad{display:none;position:absolute;left:12px;bottom:12px;z-index:30;width:136px;height:136px}.mobilePad button,.mobileInteract{touch-action:none;border:1px solid #536780;background:#0b1726dd;color:white;border-radius:12px;font-weight:900}.mobilePad button{position:absolute;width:42px;height:42px}.mobilePad .up{left:47px;top:0}.mobilePad .left{left:0;top:47px}.mobilePad .down{left:47px;top:94px}.mobilePad .right{right:0;top:47px}.mobileInteract{display:none;position:absolute;right:16px;bottom:30px;z-index:31;width:68px;height:68px;border-color:#55d8cc;background:#12423fd9}
+.endStats{display:flex;justify-content:center;gap:9px;flex-wrap:wrap;margin:12px 0}.endStats span{padding:7px 10px;border:1px solid #3b506b;border-radius:9px;background:#101c2c;color:#b9c7d8;font-size:10px}
+.endCard.good .endArt{background:linear-gradient(180deg,#163829,#09150f);border-color:#4a8f64}.endCard.bad .endArt{background:linear-gradient(180deg,#2b1924,#09090e);border-color:#734756}
+.endCard.good .endTitle{color:#8fe39c}.endCard.bad .endTitle{color:#ef8d96}
+.start{background:radial-gradient(circle at 70% 30%,#26325e99,transparent 34%),linear-gradient(135deg,#02050bea,#090d18ed)}
+.startCard{padding:32px;border:1px solid #7184aa66;border-radius:30px;background:linear-gradient(145deg,#111a2be8,#070c15ee);box-shadow:0 45px 110px #000d,inset 0 1px 0 #ffffff18}
+.hero{border-color:#536889;background:radial-gradient(circle at 68% 22%,#6f5fa377 0,#25304b 26%,#0b101b 72%);box-shadow:inset 0 1px 0 #ffffff1c,inset 0 -45px 80px #0008,0 28px 60px #0009}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(115deg,#ffffff0c,transparent 28%,transparent 68%,#0007);pointer-events:none}
+.bigHead{background:linear-gradient(100deg,#9d5f4d,#d89875 45%,#bd755d);box-shadow:inset 10px 0 13px #7a423344,inset -8px 0 12px #f6c09b35}
+.bigHair{background:linear-gradient(120deg,#08080d,#28212a 55%,#100f15);box-shadow:inset 10px 8px 17px #4d405044,0 8px 12px #0005}
+.bigBody{background:linear-gradient(105deg,#1e3045,#48627e 45%,#263b54);box-shadow:inset 18px 0 25px #0a16244d,inset -12px 0 18px #87a3c12b,0 22px 35px #0007}
+.bigArm{background:linear-gradient(90deg,#1e3044,#405a76 48%,#24384f);box-shadow:inset 8px 0 10px #101e2d88}
+.bigPhone{background:linear-gradient(145deg,#263448,#030508 28%);box-shadow:inset 0 0 0 2px #0f1722,0 12px 20px #0009}
+.bigPerson::after,.friend::after{content:"";position:absolute;left:49px;bottom:0;width:132px;height:82px;background:linear-gradient(90deg,transparent 0 8%,#172433 8% 36%,transparent 36% 64%,#172433 64% 92%,transparent 92%);border-radius:0 0 24px 24px;filter:drop-shadow(0 13px 8px #0008);z-index:0}
+.bigHead::before{content:"";position:absolute;left:24px;top:50px;width:9px;height:6px;border-radius:50%;background:#1a1720;box-shadow:37px 0 #1a1720,2px -2px 0 1px #ffffff55,39px -2px 0 1px #ffffff55}
+.bigHead::after{content:"";position:absolute;left:37px;top:78px;width:25px;height:9px;border-bottom:3px solid #743f3e;border-radius:0 0 50% 50%;box-shadow:7px -15px 0 -5px #945344}
+.bigBody::before{content:"";position:absolute;left:27px;top:112px;width:116px;height:62px;border:2px solid #8398ad35;border-radius:15px 15px 30px 30px;background:#101d2b22;box-shadow:inset 0 8px 12px #0003}
+.bigBody::after{content:"";position:absolute;left:84px;top:12px;width:3px;height:204px;background:linear-gradient(#9fb2c333,#101b2700)}
+.endArt .bigPerson::before,.endArt .friend::before{content:"";position:absolute;left:37px;bottom:3px;width:156px;height:28px;border-radius:50%;background:#0008;filter:blur(5px);z-index:-1}
+.dialog{background:linear-gradient(145deg,#101b2bf5,#060b13f7);box-shadow:0 24px 70px #000c,inset 0 1px 0 #ffffff13}
+.choice{box-shadow:inset 0 1px 0 #ffffff12,0 5px 15px #0004}
+@media(max-width:850px){.startCard{grid-template-columns:1fr}.hero{display:none}.hudLeft{left:10px;top:74px;width:165px}.sceneInfo{right:10px;top:74px;width:182px}.sceneInfo p,.sceneProgress{display:none}.phone{right:6px;bottom:178px;transform:scale(.69) rotate(2deg);transform-origin:bottom right}.dialogue{left:2%;right:2%;bottom:7px;grid-template-columns:58px 1fr}.avatar{height:65px}.aHead{transform:scale(.72);transform-origin:top left;left:15px}.aHair{transform:scale(.72);transform-origin:top left;left:12px}.aBody{transform:scale(.72);transform-origin:bottom left;left:7px}.dialogText{font-size:11px}.controls,.interact{display:none!important}.topbar{padding:0 8px}.pill{display:none}.mobilePad,.mobileInteract{display:block}.dialog{padding:10px 12px}.choices{max-height:90px;overflow:auto}.choice{padding:7px 9px}.endTitle{font-size:34px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div id="game">
+<canvas id="world"></canvas>
+
+<header class="topbar">
+ <div class="brand"><div class="mark">D</div><div>Detrás de la pantalla</div></div>
+ <div class="topRight"><div class="pill">Narrativa emergente · 2.5D</div><button id="soundButton" class="soundBtn" type="button" aria-label="Activar o desactivar sonido">♪</button><button id="pauseButton" class="pauseBtn" type="button" aria-label="Pausar">Ⅱ</button></div>
+</header>
+
+<div class="hudLeft">
+ <div class="hudTitle">Estado de Masteo</div>
+ <div class="barRow"><span>Control</span><b id="control">80%</b></div><div class="bar"><i id="controlBar" class="c" style="width:80%"></i></div>
+ <div class="barRow"><span>Confianza</span><b id="trust">50%</b></div><div class="bar"><i id="trustBar" class="t" style="width:50%"></i></div>
+ <div class="barRow"><span>Responsabilidad</span><b id="resp">10%</b></div><div class="bar"><i id="respBar" class="r" style="width:10%"></i></div>
+</div>
+
+<div class="sceneInfo"><div class="small" id="location">Casa · Dormitorio</div><strong id="sceneTitle">La cuenta anónima</strong><p id="objective">Explora la habitación y revisa el teléfono.</p><div id="sceneProgress" class="sceneProgress"></div><div class="objectiveHint">Las acciones cambian la historia</div></div>
+
+<div id="controls" class="controls">
+ <div class="key" data-key="w">W</div><div class="key" data-key="a">A</div><div class="key" data-key="s">S</div><div class="key" data-key="d">D</div>
+</div>
+<div id="interact" class="interact">E · Interactuar</div>
+<div id="toast" class="toast"></div><div id="transition" class="transition"></div>
+<div id="mobilePad" class="mobilePad"><button class="up" data-move="w">W</button><button class="left" data-move="a">A</button><button class="down" data-move="s">S</button><button class="right" data-move="d">D</button></div><button id="mobileInteract" class="mobileInteract" type="button">E</button>
+
+<div id="phone" class="phone">
+ <div class="phoneScreen"><div class="pTop"><div class="pIcon">M</div><div><b>Red Escolar</b><div style="font-size:8px;color:#8092a8"><span class="onlineDot"></span>sesión anónima</div></div></div><div class="post" id="phoneText">Cuenta anónima activa.</div><div class="react" id="reactions">♡ 18 &nbsp; ◯ 6 &nbsp; ↗ 2</div><div class="phoneMeta"><span>Privacidad: oculta</span><span id="phoneTime">22:14</span></div></div>
+</div>
+
+<div class="dialogue">
+ <div class="avatar"><div class="aHair"></div><div class="aHead"></div><div class="aBody"></div></div>
+ <div class="dialog"><div class="speaker">MASTEO</div><div id="dialogText" class="dialogText"></div><div id="choices" class="choices"></div></div>
+</div>
+
+<div id="start" class="start">
+ <div class="startCard">
+  <div>
+   <div class="tag">EXPERIENCIA NARRATIVA · 2.5D</div>
+   <h1>Detrás de<br>la pantalla</h1>
+   <p>Explora la casa y el colegio como Masteo. Usa WASD para desplazarte, acércate a los puntos interactivos y toma decisiones que cambian el rumbo de la historia.</p>
+   <button id="startButton" class="btn" type="button">▶ Iniciar partida</button>
+   <button id="helpButton" class="btn secondary" type="button">¿Cómo jugar?</button>
+   <p id="help" style="display:none;font-size:11px">WASD mueve a Masteo. E interactúa cuando aparece el aviso. ESC o Ⅱ pausa. Las decisiones se realizan desde el panel inferior.</p>
+  </div>
+  <div class="hero"><div class="heroFloor"></div>
+   <div class="bigPerson"><div class="bigHair"></div><div class="bigHead"></div><div class="bigNeck"></div><div class="bigBody"></div><div class="bigArm ba1"></div><div class="bigArm ba2"></div><div class="bigPhone"></div></div>
+  </div>
+ </div>
+</div>
+
+<div id="pause" class="pause hidden">
+ <div class="card">
+  <div class="tag">MENÚ DEL JUEGO</div><h2>Juego pausado</h2>
+  <p>La simulación está detenida. El personaje y las interacciones se reanudarán exactamente donde quedaron.</p>
+  <button id="resumeButton" class="btn" type="button">▶ Continuar</button>
+  <button id="restartPause" class="btn secondary" type="button">↻ Reiniciar</button>
+ </div>
+</div>
+
+<div id="ending" class="ending hidden">
+ <div class="endCard">
+  <div id="endArt" class="endArt"></div>
+  <div class="tag" id="endTag"></div><div id="endTitle" class="endTitle"></div>
+  <p id="endText" class="endText"></p><p id="endText2" class="endText"></p><div id="endStats" class="endStats"></div>
+  <button id="restartEnd" class="btn" type="button">↻ Jugar de nuevo</button>
+ </div>
+</div>
+
+<script type="text/plain" id="legacyPrototype">
+"use strict";
+const canvas=document.getElementById("world"),ctx=canvas.getContext("2d");
+let W=innerWidth,H=innerHeight,dpr=1;
+let gameStarted=false,isPaused=false,sceneIndex=0,dialogOpen=true;
+let keys=new Set(),lastTime=performance.now(),moveTime=0;
+let player={x:.50,y:.63,speed:.34,dir:1,bob:0};
+let stats={control:80,trust:50,responsibility:10};
+let scene;
+const scenes=[
+ {key:"home",loc:"Casa · Dormitorio",title:"La cuenta anónima",obj:"Muévete por la habitación y revisa el teléfono.",phone:"Cuenta anónima activa.\\n\\n“Nadie sabe que soy yo.”",text:"Es de noche. Masteo está en su habitación. La computadora está encendida y el teléfono muestra una nueva conversación.",choices:[["Explorar el teléfono","Revisar la cuenta anónima.",()=>next(1,{control:4})]]},
+ {key:"home",loc:"Casa · Dormitorio",title:"Una oportunidad para molestar",obj:"Decide qué hacer con la conversación.",phone:"Grupo 2°B · Nueva conversación",text:"Algunos compañeros hablan de una persona del curso. Masteo reconoce una oportunidad para sentirse poderoso detrás del anonimato.",choices:[["Publicar una burla","Buscar las reacciones.",()=>next(2,{control:8,responsibility:-5})],["Solo observar","No publicar, pero tampoco intervenir.",()=>next(2,{responsibility:3})]]},
+ {key:"home",loc:"Casa · Dormitorio",title:"La burla",obj:"Continúa cuando estés listo.",phone:"“Jajaja, qué fácil hacerlos reaccionar.”",text:"Masteo publica el comentario. En segundos aparecen reacciones. Para él solamente fue otra broma.",choices:[["Cerrar el teléfono","Continuar con la noche.",()=>next(3,{control:7,responsibility:-5,trust:-4})]]},
+ {key:"school",loc:"Colegio · Pasillo",title:"Algo está cambiando",obj:"Explora el pasillo con WASD.",phone:"“¿Alguien sabe por qué ella no vino?”",text:"Al día siguiente, Masteo llega al colegio. Su mejor amiga no está. El pasillo se siente distinto.",choices:[["Preguntar qué ocurre","Intentar averiguar por qué falta.",()=>next(4,{responsibility:8})],["Ignorarlo","Seguir con el día.",()=>next(4,{control:5,responsibility:-4})]]},
+ {key:"school",loc:"Colegio · Aula",title:"La publicación",obj:"Mira el teléfono y continúa.",phone:"Fotografía publicada · 16 reacciones",text:"Durante el recreo, Masteo revisa su teléfono. Entre las publicaciones aparece una fotografía que reconoce.",choices:[["Abrir la publicación","Algo no encaja.",()=>next(5,{responsibility:10})]]},
+ {key:"school",loc:"Colegio · Aula",title:"La verdad",obj:"Enfréntate a lo que descubriste.",phone:"“Es ella...”",text:"Masteo reconoce a su mejor amiga. Comprende que la cuenta anónima que ha estado acosándola es la suya.",choices:[["Aceptar lo que hizo","El anonimato deja de parecer una protección.",()=>next(6,{responsibility:18,control:-12,trust:-5})]]},
+ {key:"school",loc:"Colegio · Patio",title:"Punto de decisión",obj:"Elige el camino de Masteo.",phone:"Dos caminos. Una decisión.",text:"Masteo mira su teléfono. Puede seguir buscando control o enfrentarse a lo que hizo.",choices:[["Continuar con las burlas","Mantener el anonimato.",()=>next(7,{control:18,responsibility:-12,trust:-15})],["Intentar cambiar","Asumir sus acciones.",()=>next(9,{control:-20,responsibility:22,trust:12})]]},
+ {key:"school",loc:"Colegio · Pasillo",title:"El daño aumenta",obj:"Observa las consecuencias.",phone:"“Mejor no me meto...”",text:"Masteo decide continuar. Las personas que lo rodean comienzan a desconfiar de él.",choices:[["Seguir adelante","Las relaciones empiezan a romperse.",()=>next(8,{control:8,responsibility:-8,trust:-20})]]},
+ {key:"school",loc:"Colegio · Patio",title:"Las personas se alejan",obj:"Observa el resultado.",phone:"0 mensajes nuevos.",text:"Su mejor amiga ya no confía en él. Otros compañeros también se distancian. La cuenta sigue allí, pero sus conversaciones reales desaparecieron.",choices:[["Ver el resultado","Masteo queda aislado.",()=>finish(false)]]},
+ {key:"school",loc:"Colegio · Aula",title:"Una oportunidad para reparar",obj:"Asume la responsabilidad.",phone:"“No puedo cambiar lo que hice.”",text:"Masteo cierra la cuenta. Una disculpa no borra lo ocurrido, pero decide reconocer su responsabilidad.",choices:[["Hablar con honestidad","Dar el primer paso.",()=>next(10,{responsibility:18,trust:10})]]},
+ {key:"school",loc:"Colegio · Patio",title:"Reparar con acciones",obj:"Demuestra que el cambio es real.",phone:"Cuenta anónima · Cerrada",text:"Masteo deja de utilizar las redes para molestar y actúa de otra manera cuando presencia una burla.",choices:[["Continuar","El cambio empieza a ser visible.",()=>next(11,{responsibility:12,trust:14})]]},
+ {key:"school",loc:"Colegio · Patio",title:"Una nueva amistad",obj:"Acepta o rechaza la invitación.",phone:"“¿Quieres venir con nosotros?”",text:"Un compañero se acerca. “¿Quieres sentarte con nosotros?” Por primera vez Masteo no necesita una pantalla para sentirse importante.",choices:[["Aceptar la invitación","Construir una relación basada en confianza.",()=>finish(true)]]}
+];
+
+function resize(){dpr=Math.min(devicePixelRatio||1,2);W=innerWidth;H=innerHeight;canvas.width=W*dpr;canvas.height=H*dpr;canvas.style.width=W+"px";canvas.style.height=H+"px";ctx.setTransform(dpr,0,0,dpr,0,0)}
+addEventListener("resize",resize);
+resize();
+
+function startGame(){
+ document.getElementById("start").classList.add("hidden");
+ gameStarted=true;isPaused=false;sceneIndex=0;player={x:.50,y:.63,speed:.34,dir:1,bob:0};stats={control:80,trust:50,responsibility:10};
+ renderScene();lastTime=performance.now();requestAnimationFrame(loop);
+}
+function restart(){location.reload()}
+function setPause(v){
+ if(!gameStarted)return;
+ isPaused=Boolean(v);
+ document.getElementById("pause").classList.toggle("hidden",!isPaused);
+}
+function togglePause(){setPause(!isPaused)}
+document.getElementById("startButton").addEventListener("click",startGame);
+document.getElementById("pauseButton").addEventListener("click",togglePause);
+document.getElementById("resumeButton").addEventListener("click",()=>setPause(false));
+document.getElementById("restartPause").addEventListener("click",restart);
+document.getElementById("restartEnd").addEventListener("click",restart);
+document.getElementById("helpButton").addEventListener("click",()=>{const h=document.getElementById("help");h.style.display=h.style.display==="none"?"block":"none"});
+document.addEventListener("keydown",e=>{
+ if(["w","a","s","d","W","A","S","D","Escape","e","E"].includes(e.key))e.preventDefault();
+ if(e.key==="Escape"&&gameStarted){togglePause();return}
+ if(!gameStarted||isPaused)return;
+ const k=e.key.toLowerCase();if(["w","a","s","d"].includes(k)){keys.add(k);document.querySelector(`[data-key="${k}"]`).classList.add("active")}
+ if(k==="e")interact();
+});
+document.addEventListener("keyup",e=>{const k=e.key.toLowerCase();if(keys.has(k))keys.delete(k);const el=document.querySelector(`[data-key="${k}"]`);if(el)el.classList.remove("active")});
+function interact(){if(!gameStarted||isPaused)return;dialogOpen=true;document.getElementById("phone").classList.add("show")}
+function next(i,delta){
+ if(!gameStarted)return;
+ for(const k in delta)stats[k]=Math.max(0,Math.min(100,stats[k]+delta[k]));
+ sceneIndex=i;player.x=.50;player.y=.63;renderScene();
+}
+function renderScene(){
+ scene=scenes[sceneIndex];
+ document.getElementById("location").textContent=scene.loc;
+ document.getElementById("sceneTitle").textContent=scene.title;
+ document.getElementById("objective").textContent=scene.obj;
+ document.getElementById("dialogText").textContent=scene.text;
+ document.getElementById("phoneText").textContent=scene.phone.replaceAll("\\n","\n");
+ const choices=document.getElementById("choices");choices.innerHTML="";
+ scene.choices.forEach((c,i)=>{
+  const b=document.createElement("button");b.className="choice";b.type="button";
+  b.innerHTML="<b>"+c[0]+"</b><small>"+c[1]+"</small>";
+  b.addEventListener("click",c[2]);choices.appendChild(b);
+ });
+ updateStats();
+}
+function updateStats(){
+ const vals=[["control","controlBar"],["trust","trustBar"],["responsibility","respBar"]];
+ vals.forEach(([a,b])=>{document.getElementById(a==="responsibility"?"resp":a).textContent=stats[a]+"%";document.getElementById(b).style.width=stats[a]+"%"});
+}
+function loop(now){
+ const dt=Math.min((now-lastTime)/1000,.05);lastTime=now;
+ if(gameStarted&&!isPaused)update(dt);
+ draw();
+ requestAnimationFrame(loop);
+}
+function update(dt){
+ let dx=0,dy=0;
+ if(keys.has("w"))dy-=1;if(keys.has("s"))dy+=1;if(keys.has("a"))dx-=1;if(keys.has("d"))dx+=1;
+ if(dx||dy){
+  const len=Math.hypot(dx,dy);dx/=len;dy/=len;
+  player.x+=dx*player.speed*dt;player.y+=dy*player.speed*dt;
+  player.x=Math.max(.18,Math.min(.82,player.x));player.y=Math.max(.35,Math.min(.79,player.y));
+  player.dir=dx<0?-1:dx>0?1:player.dir;player.bob+=dt*10;
+ }else player.bob*=.92;
+ // When moving, keep the story interface but give the player a tangible exploration loop.
+ const interact=document.getElementById("interact");
+ const near=(sceneIndex<3 && Math.hypot(player.x-.67,player.y-.58)<.13) || (sceneIndex>=3 && Math.hypot(player.x-.50,player.y-.48)<.13);
+ interact.classList.toggle("show",near);
+}
+function draw(){
+ ctx.clearRect(0,0,W,H);
+ const isHome=scene.key==="home";
+ if(isHome)drawHomeWorld();else drawSchoolWorld();
+ drawPlayer();
+ drawLighting(isHome);
+}
+function grad(y0,y1,a,b){const g=ctx.createLinearGradient(0,y0,0,y1);g.addColorStop(0,a);g.addColorStop(1,b);return g}
+function poly(p,fill){ctx.fillStyle=fill;ctx.beginPath();p.forEach((q,i)=>i?ctx.lineTo(q[0],q[1]):ctx.moveTo(q[0],q[1]));ctx.closePath();ctx.fill()}
+function rect(x,y,w,h,f){ctx.fillStyle=f;ctx.fillRect(x,y,w,h)}
+function ln(x1,y1,x2,y2,f,w=1){ctx.strokeStyle=f;ctx.lineWidth=w;ctx.beginPath();ctx.moveTo(x1,y1);ctx.lineTo(x2,y2);ctx.stroke()}
+function txt(s,x,y,z,f="#fff",align="left"){ctx.fillStyle=f;ctx.font=`${z}px Segoe UI,Arial`;ctx.textAlign=align;ctx.fillText(s,x,y)}
+function drawHomeWorld(){
+ rect(0,0,W,H,grad(0,H,"#111b2b","#080c14"));
+ // ceiling and wall depth
+ poly([[0,H*.08],[W,H*.08],[W,H*.60],[0,H*.60]],"#17243a");
+ ln(0,H*.60,W,H*.60,"#3b4b60",2);
+ // window
+ const wx=W*.09,wy=H*.16,ww=W*.25,wh=H*.25;
+ rect(wx-7,wy-7,ww+14,wh+14,"#27384f");rect(wx,wy,ww,wh,"#081321");
+ rect(wx+ww*.49,wy,4,wh,"#35465c");rect(wx,wy+wh*.49,ww,4,"#35465c");
+ ctx.fillStyle="#d9e3f5";ctx.beginPath();ctx.arc(wx+ww*.73,wy+wh*.30,18,0,Math.PI*2);ctx.fill();
+ // subtle city lights
+ for(let i=0;i<15;i++){rect(wx+10+(i*37)%ww,wy+wh*.72-(i%3)*10,5,5,"#b8c6d055")}
+ // desk with perspective
+ poly([[W*.12,H*.58],[W*.64,H*.58],[W*.76,H*.69],[W*.20,H*.69]],"#6a4a35");
+ poly([[W*.18,H*.69],[W*.23,H*.69],[W*.20,H*.91],[W*.17,H*.91]],"#3d2b21");
+ poly([[W*.66,H*.69],[W*.71,H*.69],[W*.74,H*.91],[W*.70,H*.91]],"#3d2b21");
+ // monitor
+ rect(W*.39,H*.38,W*.23,H*.18,"#080b10");rect(W*.405,H*.395,W*.20,H*.15,"#223956");
+ // monitor glow
+ const glow=ctx.createRadialGradient(W*.505,H*.47,4,W*.505,H*.47,W*.24);glow.addColorStop(0,"#536fa055");glow.addColorStop(1,"transparent");ctx.fillStyle=glow;ctx.fillRect(W*.25,H*.22,W*.5,H*.45);
+ rect(W*.49,H*.56,W*.03,H*.05,"#37485d");rect(W*.45,H*.61,W*.11,H*.02,"#3e5067");
+ // keyboard
+ poly([[W*.39,H*.61],[W*.60,H*.61],[W*.57,H*.65],[W*.42,H*.65]],"#252f3c");
+ for(let i=0;i<7;i++)ln(W*(.42+i*.022),H*.625,W*(.43+i*.022),H*.625,"#66758a",1);
+ // bed
+ rect(W*.73,H*.45,W*.19,H*.18,"#27374d");rect(W*.71,H*.41,W*.22,H*.07,"#43556d");rect(W*.74,H*.39,W*.08,H*.06,"#7a8496");
+ // floor perspective
+ poly([[0,H*.60],[W,H*.60],[W,H],[0,H]],"#1b2532");
+ for(let i=0;i<8;i++){const yy=H*.62+i*i*6;ln(0,yy,W,yy,"#2a3746",1)}
+ // lamp
+ ln(W*.79,H*.29,W*.79,H*.42,"#73849a",5);ctx.fillStyle="#e5c966";ctx.beginPath();ctx.arc(W*.79,H*.27,23,0,Math.PI*2);ctx.fill();
+ txt("CASA · DORMITORIO",W*.04,H*.93,11,"#8393a8");
+}
+function drawSchoolWorld(){
+ rect(0,0,W,H,grad(0,H,"#9aaebb","#303944"));
+ // ceiling
+ rect(0,0,W,H*.13,"#d2d8da");
+ for(let x=0;x<W;x+=170){rect(x+25,H*.04,95,13,"#f5f6f4");}
+ // back wall
+ rect(0,H*.13,W,H*.49,"#aeb9bc");
+ // windows
+ for(let i=0;i<3;i++){const x=W*(.12+i*.29);rect(x,H*.19,W*.16,H*.23,"#415e72");rect(x+7,H*.19,W*.145,H*.215,"#7897a9");ln(x+W*.08,H*.19,x+W*.08,H*.405,"#c0c9cc",3)}
+ // lockers
+ for(let i=0;i<7;i++){const x=W*.03+i*W*.075;rect(x,H*.43,W*.058,H*.16,i%2?"#536779":"#607486");ln(x+W*.029,H*.44,x+W*.029,H*.585,"#8191a1",1)}
+ // floor
+ poly([[0,H*.62],[W,H*.62],[W,H],[0,H]],"#3a454e");
+ for(let i=0;i<10;i++){const y=H*.63+i*i*6;ln(0,y,W,y,"#4c5964",1)}
+ for(let i=0;i<7;i++){ln(W*.5,H*.62,(i/6)*W,H,"#59656f",1)}
+ // benches
+ for(let i=0;i<2;i++){const x=W*(.13+i*.43);rect(x,H*.67,W*.25,H*.045,"#6e5039");rect(x+W*.02,H*.715,W*.03,H*.10,"#4d3828");rect(x+W*.20,H*.715,W*.03,H*.10,"#4d3828")}
+ // poster
+ rect(W*.40,H*.19,W*.18,H*.11,"#263b52");txt("RESPETO",W*.49,H*.24,14,"#e5edf5","center");txt("Y CONVIVENCIA",W*.49,H*.265,8,"#a9bacb","center");
+ txt("COLEGIO · PASILLO / PATIO",W*.04,H*.93,11,"#d8e1e8");
+}
+function drawPlayer(){
+ const x=player.x*W,y=player.y*H,scale=Math.min(W/1200,H/700),bob=Math.sin(player.bob)*2*scale;
+ // shadow
+ ctx.fillStyle="#0008";ctx.beginPath();ctx.ellipse(x,y+64*scale,47*scale,12*scale,0,0,Math.PI*2);ctx.fill();
+ ctx.save();ctx.translate(x,y+bob);ctx.scale(player.dir,1);
+ // legs
+ rect(-29*scale,30*scale,20*scale,64*scale,"#1a2533");rect(9*scale,30*scale,20*scale,64*scale,"#1a2533");
+ // shoes
+ rect(-34*scale,88*scale,27*scale,10*scale,"#080b10");rect(7*scale,88*scale,29*scale,10*scale,"#080b10");
+ // body with highlight
+ ctx.fillStyle="#304760";ctx.beginPath();ctx.roundRect(-55*scale,-22*scale,110*scale,88*scale,28*scale);ctx.fill();
+ ctx.fillStyle="#405b77";ctx.beginPath();ctx.roundRect(-46*scale,-15*scale,20*scale,66*scale,12*scale);ctx.fill();
+ // arms
+ ctx.fillStyle="#314863";ctx.beginPath();ctx.roundRect(-64*scale,-5*scale,20*scale,72*scale,13*scale);ctx.fill();ctx.beginPath();ctx.roundRect(44*scale,-5*scale,20*scale,72*scale,13*scale);ctx.fill();
+ // neck
+ rect(-12*scale,-53*scale,24*scale,22*scale,"#b9785f");
+ // face
+ ctx.fillStyle="#c88768";ctx.beginPath();ctx.ellipse(0,-76*scale,36*scale,44*scale,0,0,Math.PI*2);ctx.fill();
+ // ear
+ ctx.fillStyle="#b9785f";ctx.beginPath();ctx.ellipse(-36*scale,-75*scale,9*scale,13*scale,0,0,Math.PI*2);ctx.ellipse(36*scale,-75*scale,9*scale,13*scale,0,0,Math.PI*2);ctx.fill();
+ // hair
+ ctx.fillStyle="#15131a";ctx.beginPath();ctx.ellipse(0,-102*scale,45*scale,38*scale,0,0,Math.PI*2);ctx.fill();poly([[-40*scale,-104*scale],[-24*scale,-132*scale],[0,-115*scale],[20*scale,-134*scale],[42*scale,-104*scale]],"#15131a");
+ // eyes and mouth
+ ctx.fillStyle="#171722";ctx.beginPath();ctx.ellipse(-14*scale,-76*scale,3.5*scale,2.5*scale,0,0,Math.PI*2);ctx.ellipse(14*scale,-76*scale,3.5*scale,2.5*scale,0,0,Math.PI*2);ctx.fill();
+ // phone
+ ctx.fillStyle="#080b11";ctx.strokeStyle="#718198";ctx.lineWidth=2;ctx.beginPath();ctx.roundRect(-18*scale,8*scale,36*scale,60*scale,7*scale);ctx.fill();ctx.stroke();rect(-13*scale,17*scale,26*scale,35*scale,"#20334b");
+ ctx.restore();
+}
+function drawLighting(home){
+ const x=player.x*W,y=player.y*H;
+ const g=ctx.createRadialGradient(x,y,25,x,y,Math.max(W,H)*.65);g.addColorStop(0,"transparent");g.addColorStop(.62,"#00000005");g.addColorStop(1,"#0000009e");ctx.fillStyle=g;ctx.fillRect(0,0,W,H);
+ // subtle color bloom around monitor / windows
+ if(home){const b=ctx.createRadialGradient(W*.5,H*.45,5,W*.5,H*.45,W*.32);b.addColorStop(0,"#536fa01c");b.addColorStop(1,"transparent");ctx.fillStyle=b;ctx.fillRect(0,0,W,H)}
+}
+function finish(good){
+ document.getElementById("ending").classList.remove("hidden");
+ document.getElementById("endTag").textContent=good?"FINAL POSITIVO":"FINAL NEGATIVO";
+ document.getElementById("endTitle").textContent=good?"Una nueva amistad 🤝":"Detrás de la pantalla, solo";
+ document.getElementById("endText").textContent=good?"Masteo dejó de usar el anonimato como una forma de sentirse superior. Reconoció sus acciones y comenzó a reparar el daño.":"Masteo continuó utilizando el anonimato para sentirse superior. Las personas dejaron de confiar en él y sus amistades se fueron alejando.";
+ document.getElementById("endText2").textContent=good?"Un compañero decidió darle una oportunidad. Masteo gana un nuevo amigo y descubre que la confianza se construye con acciones.":"Frente a la pantalla todavía tiene su teléfono, pero ya no tiene a sus amigos. Sus propias decisiones terminaron aislándolo.";
+ const art=document.getElementById("endArt");art.innerHTML="";
+ const p=document.createElement("div");p.className="bigPerson endPerson";p.innerHTML='<div class="bigHair"></div><div class="bigHead"></div><div class="bigNeck"></div><div class="bigBody"></div><div class="bigArm ba1"></div><div class="bigArm ba2"></div><div class="bigPhone"></div>';art.appendChild(p);
+ if(good){const f=document.createElement("div");f.className="friend";f.innerHTML='<div class="bigHair"></div><div class="bigHead"></div><div class="bigNeck"></div><div class="bigBody"></div><div class="bigArm ba1"></div><div class="bigArm ba2"></div>';art.appendChild(f);art.insertAdjacentHTML("beforeend",'<div class="heart">♥</div>')}
+}
+</script>
+<script>
+"use strict";
+const $=id=>document.getElementById(id);
+const canvas=$("world"),ctx=canvas.getContext("2d");
+let W=innerWidth,H=innerHeight,dpr=1,raf=0,lastTime=performance.now();
+let started=false,paused=false,ended=false,sceneIndex=0,scene=null,unlocked=false,nearTarget=false;
+let keys=new Set(),player={x:.30,y:.69,speed:.34,dir:1,bob:0};
+let stats={control:80,trust:50,responsibility:10};
+let flags={posted:false,asked:false,closed:false,spoke:false,defended:false};
+
+const sound={
+ ctx:null,master:null,on:true,amb:null,
+ ensure(){if(!this.ctx){this.ctx=new (window.AudioContext||window.webkitAudioContext)();this.master=this.ctx.createGain();this.master.gain.value=.16;this.master.connect(this.ctx.destination)}if(this.ctx.state==="suspended")this.ctx.resume()},
+ tone(freq,dur=.12,type="sine",vol=.18){if(!this.on)return;this.ensure();const o=this.ctx.createOscillator(),g=this.ctx.createGain();o.type=type;o.frequency.value=freq;g.gain.setValueAtTime(vol,this.ctx.currentTime);g.gain.exponentialRampToValueAtTime(.001,this.ctx.currentTime+dur);o.connect(g);g.connect(this.master);o.start();o.stop(this.ctx.currentTime+dur)},
+ click(){this.tone(540,.07,"triangle",.14)},
+ choice(good){this.tone(good?620:210,.14,good?"sine":"sawtooth",.13);setTimeout(()=>this.tone(good?820:170,.18,"triangle",.10),90)},
+ startAmbient(){if(!this.on||this.amb)return;this.ensure();const o=this.ctx.createOscillator(),g=this.ctx.createGain(),f=this.ctx.createBiquadFilter();o.type="sine";o.frequency.value=92;f.type="lowpass";f.frequency.value=240;g.gain.value=.025;o.connect(f);f.connect(g);g.connect(this.master);o.start();this.amb={o,g}},
+ stopAmbient(){if(this.amb){this.amb.o.stop();this.amb=null}},
+ toggle(){this.on=!this.on;$("soundButton").textContent=this.on?"♪":"×";if(this.on){this.startAmbient();this.click()}else this.stopAmbient()}
+};
+
+const target=(x,y,label,kind="phone")=>({x,y,label,kind});
+const scenes=[
+ {key:"bedroom",loc:"Casa · Dormitorio",title:"La cuenta anónima",obj:"Acércate al escritorio y revisa el teléfono.",target:target(.67,.57,"Revisar teléfono"),phone:"@sin_nombre_2B\nCuenta anónima activa.\n“Nadie sabe que soy yo.”",text:"La luz del monitor llena la habitación. En la pantalla se acumulan notificaciones de una cuenta que nadie relaciona con Masteo.",choices:[{t:"Abrir la cuenta",s:"Revisar las publicaciones recientes.",tone:"neutral",go:1,d:{control:3}}]},
+ {key:"bedroom",loc:"Casa · Dormitorio",title:"Una conversación del curso",obj:"Decide cómo responder desde la cuenta anónima.",target:target(.67,.57,"Abrir conversación"),phone:"GRUPO 2°B · 22:16\nHablan de una compañera que hoy expuso en clase.",text:"El cursor parpadea debajo de la conversación. Varias personas están conectadas y esperan nuevas respuestas.",choices:[
+  {t:"Publicar una burla",s:"Buscar reacciones desde el anonimato.",tone:"bad",go:2,d:{control:10,trust:-8,responsibility:-8},flag:"posted"},
+  {t:"No participar",s:"Cerrar el chat sin publicar.",tone:"good",go:3,d:{control:-5,trust:3,responsibility:9}}
+ ]},
+ {key:"bedroom",loc:"Casa · Dormitorio",title:"Las reacciones",obj:"Observa lo que ocurre y guarda el teléfono.",target:target(.67,.57,"Leer reacciones"),phone:"♡ 27  ◯ 14  ↗ 8\nLas reacciones aumentan. La compañera abandona el grupo.",text:"Los números crecen en la pantalla. Masteo sonríe por un instante; después nota que un nombre desapareció de la conversación.",choices:[{t:"Guardar el teléfono",s:"Continuar hasta el día siguiente.",tone:"neutral",go:3,d:{control:5,trust:-5,responsibility:-3}}]},
+ {key:"corridor",loc:"Colegio · Pasillo",title:"Un lugar vacío",obj:"Acércate al casillero de su amiga.",target:target(.54,.48,"Revisar casillero","locker"),phone:()=>flags.posted?"GRUPO 2°B · 08:05\n“¿Alguien sabe por qué ella no vino?”":"GRUPO 2°B · 08:05\nSu mejor amiga no se conectó ni llegó a clases.",text:()=>flags.posted?"El casillero sigue cerrado. Dos compañeros bajan la voz cuando Masteo pasa cerca; en el grupo preguntan por su amiga ausente.":"El casillero sigue cerrado. Su amiga no llegó a clases y tampoco respondió los mensajes de la mañana.",choices:[
+  {t:"Preguntar por ella",s:"Buscar información entre sus compañeros.",tone:"good",go:4,d:{trust:5,responsibility:9},flag:"asked"},
+  {t:"Seguir de largo",s:"Evitar involucrarse por ahora.",tone:"neutral",go:4,d:{control:4,responsibility:-3}}
+ ]},
+ {key:"classroom",loc:"Colegio · Aula",title:"La publicación",obj:"Acércate al pupitre iluminado.",target:target(.63,.54,"Ver publicación","desk"),phone:"PUBLICACIÓN RECIENTE\nUna fotografía del curso acumula comentarios anónimos.",text:"Sobre un pupitre hay un teléfono con la pantalla encendida. La fotografía muestra a la compañera ausente; varios comentarios repiten frases de la cuenta de Masteo.",choices:[{t:"Abrir los comentarios",s:"Comprobar quién recibió los mensajes.",tone:"neutral",go:5,d:{responsibility:11}}]},
+ {key:"classroom",loc:"Colegio · Aula",title:"La verdad",obj:"Examina el historial de la cuenta.",target:target(.63,.54,"Comparar mensajes","desk"),phone:"HISTORIAL\nLos mensajes enviados desde @sin_nombre_2B coinciden con las capturas.",text:"Las fechas, las palabras y las reacciones coinciden. La silla vacía está frente a él. Masteo deja de mirar el contador de “me gusta”.",choices:[
+  {t:"Reconocer lo ocurrido",s:"Dejar de esconderlo detrás de una broma.",tone:"good",go:6,d:{control:-14,trust:-4,responsibility:19}},
+  {t:"Restarle importancia",s:"Decirse que solo eran mensajes.",tone:"bad",go:6,d:{control:9,trust:-7,responsibility:-8}}
+ ]},
+ {key:"patio",loc:"Colegio · Patio",title:"Una decisión",obj:"Acércate al banco y elige qué hará Masteo.",target:target(.50,.53,"Tomar decisión","bench"),phone:"@sin_nombre_2B\nLa cuenta continúa activa.\n[ CERRAR CUENTA ]",text:"En el patio, los grupos se forman lejos de Masteo. La cuenta sigue abierta en su mano y una nueva notificación aparece.",choices:[
+  {t:"Continuar con la cuenta",s:"Conservar el anonimato y el control.",tone:"bad",go:7,d:{control:18,trust:-18,responsibility:-14}},
+  {t:"Cerrar la cuenta",s:"Detener las publicaciones y asumir lo hecho.",tone:"good",go:9,d:{control:-18,trust:10,responsibility:22},flag:"closed"}
+ ]},
+ {key:"corridor",loc:"Colegio · Pasillo",title:"El silencio alrededor",obj:"Camina hasta el grupo de compañeros.",target:target(.68,.69,"Acercarse al grupo","people"),phone:"0 mensajes directos\n3 personas abandonaron la conversación.",text:"Al acercarse, el grupo se separa. Los casilleros se cierran y nadie sostiene la mirada. El teléfono vibra, pero no es un mensaje para él.",choices:[{t:"Mantener la cuenta",s:"Seguir ocultándose detrás del perfil.",tone:"bad",go:8,d:{control:8,trust:-22,responsibility:-8}}]},
+ {key:"patio",loc:"Colegio · Patio",title:"El banco vacío",obj:"Siéntate y observa el resultado.",target:target(.50,.53,"Sentarse","bench"),phone:"@sin_nombre_2B · activa\n0 conversaciones reales.",text:"Los demás comparten el recreo al otro lado del patio. Masteo conserva la cuenta, pero el banco a su alrededor queda vacío.",choices:[{t:"Ver el desenlace",s:"Las decisiones ya dejaron una consecuencia.",tone:"bad",end:false,d:{trust:-12}}]},
+ {key:"corridor",loc:"Colegio · Pasillo",title:"Cerrar no es suficiente",obj:"Acércate a su amiga y habla con honestidad.",target:target(.63,.69,"Hablar con ella","friend"),phone:"@sin_nombre_2B\nCUENTA CERRADA\nLas publicaciones dejaron de estar disponibles.",text:"La cuenta desaparece de la pantalla. Cerca del aula, su amiga espera en silencio; mantiene distancia y sostiene su mochila con ambas manos.",choices:[
+  {t:"Hablar con honestidad",s:"Reconocer lo que hizo sin justificarse.",tone:"good",go:10,d:{trust:12,responsibility:18},flag:"spoke"},
+  {t:"Pedir que lo olvide",s:"Buscar una solución rápida.",tone:"bad",go:10,d:{trust:-6,responsibility:-4}}
+ ]},
+ {key:"classroom",loc:"Colegio · Aula",title:"Una acción distinta",obj:"Acércate al grupo junto a la ventana.",target:target(.38,.69,"Escuchar conversación","people"),phone:"GRUPO 2°B\nAparece una nueva burla contra otro compañero.",text:"Un comentario anónimo aparece en el grupo. Esta vez Masteo reconoce el silencio que produce: un compañero guarda su teléfono y se aparta.",choices:[
+  {t:"Detener la burla y reportarla",s:"Apoyar al compañero delante del grupo.",tone:"good",go:11,d:{trust:16,responsibility:16},flag:"defended"},
+  {t:"Quedarse en silencio",s:"No repetir la burla, pero tampoco intervenir.",tone:"neutral",go:11,d:{trust:-3,responsibility:1}}
+ ]},
+ {key:"patio",loc:"Colegio · Patio",title:"Lo que cambia con acciones",obj:"Acércate al banco donde están los demás.",target:target(.57,.69,"Acercarse","people"),phone:"GRUPO 2°B\nLa conversación continúa sin nuevos ataques.",text:()=>flags.defended?"El compañero vuelve al grupo. La amiga de Masteo todavía necesita tiempo, pero ya no se aleja cuando él se aproxima.":"La cuenta está cerrada, aunque el silencio de Masteo dejó dudas. Su amiga observa si el cambio continuará fuera de la pantalla.",choices:[{t:"Ver el desenlace",s:"El resultado dependerá de todas tus decisiones.",tone:"good",end:true,d:{responsibility:4}}]}
+];
+
+function value(v){return typeof v==="function"?v():v}
+function clamp(n){return Math.max(0,Math.min(100,n))}
+function resize(){dpr=Math.min(devicePixelRatio||1,2);W=innerWidth;H=innerHeight;canvas.width=W*dpr;canvas.height=H*dpr;canvas.style.width=W+"px";canvas.style.height=H+"px";ctx.setTransform(dpr,0,0,dpr,0,0)}
+addEventListener("resize",resize);resize();
+
+function startGame(){
+ $("start").classList.add("hidden");$("ending").classList.add("hidden");
+ started=true;paused=false;ended=false;sceneIndex=0;stats={control:80,trust:50,responsibility:10};flags={posted:false,asked:false,closed:false,spoke:false,defended:false};
+ sound.startAmbient();renderScene(true);lastTime=performance.now();if(!raf)raf=requestAnimationFrame(loop)
+}
+function restart(){started=false;ended=false;keys.clear();startGame()}
+function setPause(v){if(!started||ended)return;paused=!!v;$("pause").classList.toggle("hidden",!paused);$("pauseButton").textContent=paused?"▶":"Ⅱ"}
+function togglePause(){setPause(!paused)}
+function toast(text){const t=$("toast");t.textContent=text;t.classList.add("show");clearTimeout(toast.timer);toast.timer=setTimeout(()=>t.classList.remove("show"),1500)}
+function transition(done){$("transition").classList.add("show");setTimeout(()=>{done();requestAnimationFrame(()=>$("transition").classList.remove("show"))},280)}
+
+function renderScene(first=false){
+ scene=scenes[sceneIndex];unlocked=false;nearTarget=false;$("phone").classList.remove("show");$("interact").classList.remove("show");
+ $("location").textContent=scene.loc;$("sceneTitle").textContent=scene.title;$("objective").textContent=scene.obj;
+ $("dialogText").textContent=value(scene.text);$("phoneText").textContent=value(scene.phone);$("reactions").textContent=sceneIndex<3?"♡ 18   ◯ 6   ↗ 2":"Actividad reciente · Red Escolar";
+ const dialogue=document.querySelector(".dialogue");dialogue.classList.add("locked");
+ const choices=$("choices");choices.innerHTML="";
+ scene.choices.forEach(c=>{const b=document.createElement("button");b.className="choice "+(c.tone||"neutral");b.type="button";b.innerHTML=`<b>${c.t}</b><small>${c.s}</small>`;b.addEventListener("click",()=>choose(c));choices.appendChild(b)});
+ const progress=$("sceneProgress");progress.innerHTML="";for(let i=0;i<12;i++){const dot=document.createElement("i");if(i<=sceneIndex)dot.className="done";progress.appendChild(dot)}
+ player.x=scene.key==="bedroom"?.28:.25;player.y=.69;updateStats();if(!first)toast(scene.loc)
+}
+function choose(c){if(!unlocked||paused||ended)return;sound.choice(c.tone==="good");for(const k in (c.d||{}))stats[k]=clamp(stats[k]+c.d[k]);if(c.flag)flags[c.flag]=true;updateStats();if("end" in c){finish(c.end);return}transition(()=>{sceneIndex=c.go;renderScene()})}
+function updateStats(){[["control","controlBar"],["trust","trustBar"],["responsibility","respBar"]].forEach(([a,b])=>{$(a==="responsibility"?"resp":a).textContent=stats[a]+"%";$(b).style.width=stats[a]+"%"})}
+
+function interact(){
+ if(!started||paused||ended)return;
+ if(!nearTarget){toast("Acércate al punto iluminado");return}
+ if(!unlocked){unlocked=true;document.querySelector(".dialogue").classList.remove("locked");$("phone").classList.add("show");sound.click();toast(scene.target.label)}else $("phone").classList.toggle("show")
+}
+
+$("startButton").addEventListener("click",startGame);$("pauseButton").addEventListener("click",togglePause);$("soundButton").addEventListener("click",()=>sound.toggle());
+$("resumeButton").addEventListener("click",()=>setPause(false));$("restartPause").addEventListener("click",restart);$("restartEnd").addEventListener("click",restart);$("mobileInteract").addEventListener("pointerdown",e=>{e.preventDefault();interact()});
+$("helpButton").addEventListener("click",()=>{const h=$("help");h.style.display=h.style.display==="none"?"block":"none"});
+document.addEventListener("keydown",e=>{const k=e.key.toLowerCase();if(["w","a","s","d","escape","e"," "].includes(k))e.preventDefault();if(k==="escape"&&started){togglePause();return}if(!started||paused||ended)return;if(["w","a","s","d"].includes(k)){keys.add(k);document.querySelector(`[data-key="${k}"]`)?.classList.add("active")}if(k==="e"||k===" ")interact()});
+document.addEventListener("keyup",e=>{const k=e.key.toLowerCase();keys.delete(k);document.querySelector(`[data-key="${k}"]`)?.classList.remove("active")});
+document.querySelectorAll("[data-move]").forEach(b=>{const k=b.dataset.move;const on=e=>{e.preventDefault();keys.add(k)};const off=e=>{e.preventDefault();keys.delete(k)};b.addEventListener("pointerdown",on);b.addEventListener("pointerup",off);b.addEventListener("pointercancel",off);b.addEventListener("pointerleave",off)});
+
+function loop(now){const dt=Math.min((now-lastTime)/1000,.05);lastTime=now;if(started&&!paused&&!ended)update(dt);draw();raf=requestAnimationFrame(loop)}
+function update(dt){let dx=0,dy=0;if(keys.has("w"))dy--;if(keys.has("s"))dy++;if(keys.has("a"))dx--;if(keys.has("d"))dx++;if(dx||dy){const len=Math.hypot(dx,dy);dx/=len;dy/=len;player.x=clampWorld(player.x+dx*player.speed*dt,.12,.88);player.y=clampWorld(player.y+dy*player.speed*dt,.34,.79);player.dir=dx<0?-1:dx>0?1:player.dir;player.bob+=dt*11}else player.bob*=.9;nearTarget=Math.hypot(player.x-scene.target.x,player.y-scene.target.y)<.12;$("interact").classList.toggle("show",nearTarget&&!unlocked)}
+function clampWorld(v,a,b){return Math.max(a,Math.min(b,v))}
+
+function rect(x,y,w,h,f,r=0){ctx.fillStyle=f;if(r){ctx.beginPath();ctx.roundRect(x,y,w,h,r);ctx.fill()}else ctx.fillRect(x,y,w,h)}
+function line(x1,y1,x2,y2,f,w=1){ctx.strokeStyle=f;ctx.lineWidth=w;ctx.beginPath();ctx.moveTo(x1,y1);ctx.lineTo(x2,y2);ctx.stroke()}
+function text(s,x,y,z,f="#fff",align="left",weight=600){ctx.fillStyle=f;ctx.font=`${weight} ${z}px Segoe UI,Arial`;ctx.textAlign=align;ctx.fillText(s,x,y)}
+function poly(points,f){ctx.fillStyle=f;ctx.beginPath();points.forEach((p,i)=>i?ctx.lineTo(p[0],p[1]):ctx.moveTo(p[0],p[1]));ctx.closePath();ctx.fill()}
+function gradient(y0,y1,a,b){const g=ctx.createLinearGradient(0,y0,0,y1);g.addColorStop(0,a);g.addColorStop(1,b);return g}
+function draw(){ctx.clearRect(0,0,W,H);if(!started){rect(0,0,W,H,"#05070c");return}if(scene.key==="bedroom")drawBedroom();else if(scene.key==="corridor")drawCorridor();else if(scene.key==="classroom")drawClassroom();else drawPatio();drawNPCs();drawTarget();drawPlayer();drawLighting()}
+
+function drawBedroom(){
+ rect(0,0,W,H,gradient(0,H,"#101c31","#080b13"));rect(0,H*.10,W,H*.51,"#172641");line(0,H*.61,W,H*.61,"#52617a",2);
+ const wx=W*.07,wy=H*.17,ww=W*.23,wh=H*.25;rect(wx-8,wy-8,ww+16,wh+16,"#34475f",5);rect(wx,wy,ww,wh,"#07131f");line(wx+ww/2,wy,wx+ww/2,wy+wh,"#4a5c70",3);line(wx,wy+wh/2,wx+ww,wy+wh/2,"#4a5c70",3);
+ ctx.fillStyle="#e7edc7";ctx.beginPath();ctx.arc(wx+ww*.72,wy+wh*.25,19,0,Math.PI*2);ctx.fill();for(let i=0;i<16;i++)rect(wx+12+(i*43)%ww,wy+wh*.72-(i%4)*9,4,4,"#dce8ef66");
+ poly([[W*.15,H*.58],[W*.70,H*.58],[W*.78,H*.70],[W*.22,H*.70]],"#76543b");rect(W*.20,H*.70,W*.035,H*.21,"#483326");rect(W*.70,H*.70,W*.035,H*.21,"#483326");
+ rect(W*.52,H*.35,W*.22,H*.20,"#090d14",7);rect(W*.535,H*.37,W*.19,H*.16,"#213c5e",3);rect(W*.615,H*.55,W*.03,H*.055,"#40526b");poly([[W*.53,H*.62],[W*.70,H*.62],[W*.67,H*.66],[W*.55,H*.66]],"#273342");
+ rect(W*.78,H*.44,W*.16,H*.19,"#293b52",10);rect(W*.76,H*.40,W*.19,H*.07,"#66758a",10);rect(0,H*.61,W,H*.39,"#1b2533");for(let i=0;i<8;i++)line(0,H*(.63+i*.045),W,H*(.63+i*.045),"#2c3949",1);
+ text("22:14 · DORMITORIO",W*.04,H*.92,11,"#8798ad");
+}
+function schoolBase(top="#b9c6ca",floor="#3c4853"){
+ rect(0,0,W,H,gradient(0,H,top,"#56636c"));rect(0,0,W,H*.14,"#e0e5e6");for(let x=20;x<W;x+=180)rect(x,H*.05,112,11,"#f9fbfa",5);rect(0,H*.14,W,H*.48,top);poly([[0,H*.62],[W,H*.62],[W,H],[0,H]],floor);for(let i=0;i<8;i++)line(0,H*(.64+i*.045),W,H*(.64+i*.045),"#65717a",1);for(let i=0;i<7;i++)line(W*.5,H*.62,(i/6)*W,H,"#68747d",1)
+}
+function drawCorridor(){schoolBase("#aebbc0","#3c4650");for(let i=0;i<8;i++){const x=W*(.03+i*.075);rect(x,H*.28,W*.058,H*.30,i%2?"#49677d":"#56758a",4);line(x+W*.029,H*.30,x+W*.029,H*.56,"#8ea2ae",1);rect(x+W*.012,H*.33,7,3,"#c0cbd0",2)}rect(W*.78,H*.18,W*.15,H*.12,"#f0ead1",3);text("CONVIVENCIA",W*.855,H*.235,11,"#426078","center",800);text("PASILLO",W*.04,H*.92,11,"#e6edf2")}
+function drawClassroom(){schoolBase("#d2cec2","#6f665d");rect(W*.08,H*.18,W*.30,H*.23,"#314850",5);line(W*.23,H*.18,W*.23,H*.41,"#acc1c5",3);line(W*.08,H*.295,W*.38,H*.295,"#acc1c5",3);rect(W*.66,H*.18,W*.24,H*.20,"#2e594a",4);text("RESPETO EN LÍNEA",W*.78,H*.28,14,"#d7eadf","center",800);for(let r=0;r<2;r++)for(let c=0;c<3;c++){const x=W*(.14+c*.25),y=H*(.50+r*.17);poly([[x,y],[x+W*.16,y],[x+W*.19,y+H*.055],[x+W*.02,y+H*.055]],"#815c3f");rect(x+W*.02,y+H*.055,W*.02,H*.08,"#503929");rect(x+W*.15,y+H*.055,W*.02,H*.08,"#503929")}text("AULA 2°B",W*.04,H*.92,11,"#f0f3f5")}
+function drawPatio(){rect(0,0,W,H,gradient(0,H,"#6fa9c2","#c9d9d0"));ctx.fillStyle="#f4df88";ctx.beginPath();ctx.arc(W*.82,H*.18,42,0,Math.PI*2);ctx.fill();rect(0,H*.47,W,H*.18,"#94a998");for(let i=0;i<7;i++){const x=W*(.05+i*.15);ctx.fillStyle="#426c52";ctx.beginPath();ctx.arc(x,H*.44,42,0,Math.PI*2);ctx.fill();rect(x-6,H*.44,12,H*.20,"#5e6047")}rect(0,H*.62,W,H*.38,"#788b72");for(let i=0;i<2;i++){const x=W*(.20+i*.42);rect(x,H*.61,W*.23,H*.035,"#775139",5);rect(x+W*.02,H*.645,W*.025,H*.11,"#4c3528");rect(x+W*.18,H*.645,W*.025,H*.11,"#4c3528")}text("PATIO",W*.04,H*.92,11,"#f1f8f2")}
+
+function drawPerson(x,y,scale=1,colors={skin:"#c88768",hair:"#17141b",shirt:"#304760"},mood="neutral"){
+ ctx.save();ctx.translate(x,y);ctx.scale(scale,scale);ctx.fillStyle="#0005";ctx.beginPath();ctx.ellipse(0,61,34,9,0,0,Math.PI*2);ctx.fill();rect(-20,20,14,46,"#202a37",5);rect(6,20,14,46,"#202a37",5);rect(-38,-26,76,65,colors.shirt,22);rect(-46,-14,14,55,colors.shirt,9);rect(32,-14,14,55,colors.shirt,9);rect(-8,-51,16,18,colors.skin,4);ctx.fillStyle=colors.skin;ctx.beginPath();ctx.ellipse(0,-72,27,34,0,0,Math.PI*2);ctx.fill();ctx.fillStyle=colors.hair;ctx.beginPath();ctx.ellipse(0,-94,34,27,0,0,Math.PI*2);ctx.fill();poly([[-29,-96],[-17,-116],[0,-104],[15,-118],[30,-96]],colors.hair);ctx.fillStyle="#20202a";ctx.beginPath();ctx.arc(-10,-72,2.5,0,Math.PI*2);ctx.arc(10,-72,2.5,0,Math.PI*2);ctx.fill();ctx.strokeStyle="#512e2f";ctx.lineWidth=1.5;ctx.beginPath();if(mood==="sad")ctx.arc(0,-54,7,Math.PI,Math.PI*2);else if(mood==="happy")ctx.arc(0,-62,7,0,Math.PI);else{ctx.moveTo(-5,-58);ctx.lineTo(5,-58)}ctx.stroke();ctx.restore()
+}
+function drawNPCs(){
+ if(scene.key==="bedroom")return;const distance=Math.max(0,(50-stats.trust)/50)*W*.06;
+ if(scene.key==="corridor"){drawPerson(W*.72+distance,H*.52,.72,{skin:"#d39b78",hair:"#5d3526",shirt:"#335f57"},sceneIndex===9?"sad":"neutral");drawPerson(W*.83+distance,H*.55,.66,{skin:"#b97862",hair:"#24202b",shirt:"#633f64"})}
+ if(scene.key==="classroom"){drawPerson(W*.35-distance,H*.53,.66,{skin:"#d29b7b",hair:"#6b3d26",shirt:"#355d54"},sceneIndex>=10?"sad":"neutral");drawPerson(W*.46-distance,H*.55,.62,{skin:"#b87860",hair:"#17151b",shirt:"#524873"})}
+ if(scene.key==="patio"){drawPerson(W*.69+distance,H*.55,.72,{skin:"#d39b78",hair:"#693b27",shirt:"#315f55"},flags.defended?"happy":"neutral");drawPerson(W*.79+distance,H*.57,.66,{skin:"#b97862",hair:"#211c25",shirt:"#68495e"})}
+}
+function drawTarget(){const x=scene.target.x*W,y=scene.target.y*H,p=1+Math.sin(performance.now()/260)*.15;ctx.save();ctx.strokeStyle=nearTarget?"#9af7ee":"#5ddbd0";ctx.lineWidth=3;ctx.globalAlpha=.75;ctx.beginPath();ctx.arc(x,y,32*p,0,Math.PI*2);ctx.stroke();ctx.globalAlpha=.12;ctx.fillStyle="#5ddbd0";ctx.beginPath();ctx.arc(x,y,54*p,0,Math.PI*2);ctx.fill();ctx.restore()}
+function drawPlayer(){const x=player.x*W,y=player.y*H,s=Math.min(W/1200,H/720),bob=Math.sin(player.bob)*2*s;ctx.save();ctx.translate(x,y+bob);ctx.scale(player.dir*s,s);drawPerson(0,0,1,{skin:"#c88768",hair:"#15131a",shirt:stats.responsibility>55?"#315d58":"#304760"},stats.responsibility>60?"neutral":"neutral");rect(-15,5,30,48,"#080b11",6);rect(-11,10,22,29,"#28415f",3);ctx.restore()}
+function drawLighting(){const x=player.x*W,y=player.y*H,g=ctx.createRadialGradient(x,y,30,x,y,Math.max(W,H)*.62);g.addColorStop(0,"transparent");g.addColorStop(.65,"#00000008");g.addColorStop(1,scene.key==="bedroom"?"#000000a8":"#00000070");ctx.fillStyle=g;ctx.fillRect(0,0,W,H);if(stats.trust<25){ctx.fillStyle="#24101b28";ctx.fillRect(0,0,W,H)}}
+
+function finish(requestedGood){
+ const good=requestedGood&&stats.responsibility>=55&&stats.trust>=45&&flags.closed;
+ ended=true;keys.clear();sound.choice(good);const card=document.querySelector(".endCard");card.classList.toggle("good",good);card.classList.toggle("bad",!good);$("ending").classList.remove("hidden");
+ $("endTag").textContent=good?"FINAL DE CAMBIO":"FINAL DE AISLAMIENTO";$("endTitle").textContent=good?"La confianza vuelve poco a poco":"Detrás de la pantalla, solo";
+ $("endText").textContent=good?"Masteo cerró la cuenta, reconoció sus acciones y comenzó a demostrar el cambio frente a los demás.":"Masteo conservó el anonimato o evitó asumir plenamente sus acciones. Las conversaciones continuaron, pero cada vez más lejos de él.";
+ $("endText2").textContent=good?"Su amiga todavía necesita tiempo. Un compañero le hace espacio en el banco: no es un perdón inmediato, sino una oportunidad construida mediante acciones.":"El teléfono sigue encendido. Al levantar la mirada, el banco está vacío y sus compañeros comparten el recreo a distancia.";
+ $("endStats").innerHTML=`<span>Control ${stats.control}%</span><span>Confianza ${stats.trust}%</span><span>Responsabilidad ${stats.responsibility}%</span>`;
+ const art=$("endArt");art.innerHTML="";const p=document.createElement("div");p.className="bigPerson endPerson";p.innerHTML='<div class="bigHair"></div><div class="bigHead"></div><div class="bigNeck"></div><div class="bigBody"></div><div class="bigArm ba1"></div><div class="bigArm ba2"></div><div class="bigPhone"></div>';art.appendChild(p);if(good){const f=document.createElement("div");f.className="friend";f.innerHTML='<div class="bigHair"></div><div class="bigHead"></div><div class="bigNeck"></div><div class="bigBody"></div><div class="bigArm ba1"></div><div class="bigArm ba2"></div>';art.appendChild(f);art.insertAdjacentHTML("beforeend",'<div class="heart">◆</div>')}
+}
+
+/* Render 2.5D mejorado: materiales, volumen, luces y personajes detallados. */
+function ellipse(x,y,rx,ry,fill,shadow="transparent",blur=0){ctx.save();ctx.fillStyle=fill;ctx.shadowColor=shadow;ctx.shadowBlur=blur;ctx.beginPath();ctx.ellipse(x,y,rx,ry,0,0,Math.PI*2);ctx.fill();ctx.restore()}
+function panel3d(x,y,w,h,front,side,top,depth=10,r=4){ctx.save();ctx.shadowColor="#0008";ctx.shadowBlur=18;ctx.shadowOffsetY=9;rect(x,y,w,h,front,r);ctx.restore();poly([[x+w,y+depth],[x+w+depth,y],[x+w+depth,y+h-depth],[x+w,y+h]],side);poly([[x+depth,y-depth],[x+w+depth,y-depth],[x+w,y],[x,y]],top)}
+function floorPerspective(horizon,base,a,b){poly([[0,horizon],[W,horizon],[W,H],[0,H]],base);for(let i=0;i<11;i++){const t=i/10,y=horizon+(H-horizon)*t*t;line(0,y,W,y,i%2?a:b,1)}for(let i=0;i<11;i++)line(W/2,horizon,(i/10)*W,H,b,1)}
+function wallGlow(x,y,r,color){const g=ctx.createRadialGradient(x,y,0,x,y,r);g.addColorStop(0,color);g.addColorStop(1,"transparent");ctx.fillStyle=g;ctx.fillRect(x-r,y-r,r*2,r*2)}
+
+function drawBedroom(){
+ rect(0,0,W,H,gradient(0,H,"#111c31","#070b12"));
+ poly([[0,H*.10],[W,H*.10],[W,H*.61],[0,H*.61]],"#182943");poly([[0,H*.10],[W*.07,H*.16],[W*.07,H*.58],[0,H*.61]],"#0d192b");poly([[W,H*.10],[W*.94,H*.16],[W*.94,H*.58],[W,H*.61]],"#0a1423");
+ line(0,H*.61,W,H*.61,"#64738b",3);floorPerspective(H*.61,"#182331","#2c3948","#111a25");
+ const wx=W*.07,wy=H*.17,ww=W*.23,wh=H*.25;ctx.save();ctx.shadowColor="#000b";ctx.shadowBlur=25;ctx.shadowOffsetY=12;rect(wx-10,wy-10,ww+20,wh+20,"#27384f",6);ctx.restore();rect(wx,wy,ww,wh,gradient(wy,wy+wh,"#09182a","#02070d"),2);line(wx+ww/2,wy,wx+ww/2,wy+wh,"#53667d",4);line(wx,wy+wh/2,wx+ww,wy+wh/2,"#53667d",4);
+ ellipse(wx+ww*.72,wy+wh*.25,19,19,"#e9efc7","#dbe8c4",20);for(let i=0;i<20;i++)rect(wx+9+(i*47)%ww,wy+wh*.77-(i%5)*8,4,4,i%3?"#d6e6ef88":"#ffd98f88",1);
+ wallGlow(W*.63,H*.46,W*.28,"#4a7fb02d");
+ ctx.save();ctx.shadowColor="#000b";ctx.shadowBlur=26;ctx.shadowOffsetY=18;poly([[W*.14,H*.57],[W*.69,H*.57],[W*.78,H*.69],[W*.22,H*.69]],"#78543a");ctx.restore();poly([[W*.14,H*.57],[W*.69,H*.57],[W*.68,H*.595],[W*.16,H*.595]],"#a87850");poly([[W*.22,H*.69],[W*.78,H*.69],[W*.76,H*.715],[W*.23,H*.715]],"#4a3022");rect(W*.20,H*.69,W*.035,H*.22,gradient(H*.69,H*.91,"#593c29","#2e1d17"),2);rect(W*.70,H*.69,W*.035,H*.22,gradient(H*.69,H*.91,"#593c29","#2e1d17"),2);
+ panel3d(W*.515,H*.34,W*.225,H*.205,"#0a0e15","#020407","#334154",9,8);rect(W*.529,H*.36,W*.195,H*.165,gradient(H*.36,H*.525,"#294967","#15283f"),3);wallGlow(W*.625,H*.45,W*.18,"#4e8bc332");rect(W*.612,H*.545,W*.032,H*.055,"#43566d",2);ellipse(W*.628,H*.604,W*.06,H*.012,"#273448");
+ poly([[W*.515,H*.615],[W*.70,H*.615],[W*.67,H*.655],[W*.54,H*.655]],"#252f3c");for(let r=0;r<3;r++)for(let c=0;c<10;c++)rect(W*(.535+c*.0135),H*(.621+r*.009),W*.009,H*.005,"#65768b",1);
+ panel3d(W*.79,H*.44,W*.15,H*.19,"#2b3d54","#172536","#687991",8,12);rect(W*.77,H*.40,W*.19,H*.07,gradient(H*.40,H*.47,"#8290a2","#4e5c70"),12);rect(W*.795,H*.49,W*.06,H*.015,"#425269",5);
+ line(W*.42,H*.43,W*.42,H*.57,"#798aa0",7);ellipse(W*.42,H*.40,28,19,"#e3c66d","#f5d87c",18);ellipse(W*.42,H*.575,30,8,"#2a3444");
+ text("22:14 · DORMITORIO",W*.04,H*.92,11,"#94a7bd");
+}
+function schoolBase(top="#b9c6ca",floor="#3c4853"){
+ rect(0,0,W,H,gradient(0,H,"#dce6e8","#78858c"));poly([[0,0],[W,0],[W,H*.14],[0,H*.11]],"#e7ecec");for(let x=20;x<W;x+=185){ctx.save();ctx.shadowColor="#fff";ctx.shadowBlur=16;rect(x,H*.045,116,12,"#fbfff9",6);ctx.restore()}rect(0,H*.13,W,H*.49,gradient(H*.13,H*.62,top,"#88969b"));for(let x=0;x<W;x+=W*.12)line(x,H*.13,x,H*.62,"#ffffff18",1);line(0,H*.61,W,H*.61,"#59666c",4);floorPerspective(H*.62,floor,"#75808755","#202a31aa")
+}
+function drawCorridor(){
+ schoolBase("#aebcc1","#3a4650");wallGlow(W*.50,H*.33,W*.28,"#ffffff18");
+ for(let i=0;i<9;i++){const x=W*(.025+i*.071),w=W*.055;ctx.save();ctx.shadowColor="#14263077";ctx.shadowBlur=10;ctx.shadowOffsetY=7;rect(x,H*.265,w,H*.305,i%2?"#4c6d82":"#58798e",5);ctx.restore();poly([[x+w,H*.265],[x+w+5,H*.275],[x+w+5,H*.555],[x+w,H*.57]],"#2b4b5e");rect(x+4,H*.275,w-9,4,"#9eb1bc88",2);line(x+w*.5,H*.285,x+w*.5,H*.55,"#9db1bc77",1);rect(x+w*.16,H*.33,9,3,"#d1d9dc",2);for(let v=0;v<3;v++)line(x+w*.69,H*(.34+v*.018),x+w*.84,H*(.34+v*.018),"#294454",1)}
+ panel3d(W*.78,H*.18,W*.155,H*.125,"#f1ead3","#a89e84","#fff9e7",6,3);text("CONVIVENCIA",W*.858,H*.235,11,"#3e6077","center",800);text("RESPETO DIGITAL",W*.858,H*.262,8,"#687b83","center",600);
+ panel3d(W*.895,H*.33,W*.09,H*.28,"#586e79","#344852","#8ca0a8",8,3);rect(W*.925,H*.45,8,8,"#d9c16e",4);text("PASILLO",W*.04,H*.92,11,"#e9f0f4")
+}
+function drawClassroom(){
+ schoolBase("#d6d1c5","#675f59");
+ const wx=W*.07,wy=H*.18,ww=W*.31,wh=H*.23;ctx.save();ctx.shadowColor="#345b6f88";ctx.shadowBlur=22;rect(wx-7,wy-7,ww+14,wh+14,"#64747c",5);ctx.restore();rect(wx,wy,ww,wh,gradient(wy,wy+wh,"#79a9bd","#d5e8e9"),2);line(wx+ww/2,wy,wx+ww/2,wy+wh,"#dbe6e7",4);line(wx,wy+wh/2,wx+ww,wy+wh/2,"#dbe6e7",4);ellipse(wx+ww*.78,wy+wh*.24,20,20,"#f3db83","#fff2ad",18);
+ panel3d(W*.64,H*.18,W*.27,H*.205,"#285344","#183b32","#466f61",7,5);rect(W*.66,H*.205,W*.23,H*.145,"#315f4e",2);for(let i=0;i<5;i++)line(W*.68,H*(.225+i*.024),W*.87,H*(.225+i*.024),"#d6eadf26",1);text("RESPETO EN LÍNEA",W*.775,H*.285,14,"#e3f2e8","center",800);
+ for(let r=0;r<2;r++)for(let c=0;c<3;c++){const x=W*(.12+c*.255),y=H*(.49+r*.175),dw=W*.17;ctx.save();ctx.shadowColor="#1119";ctx.shadowBlur=15;ctx.shadowOffsetY=10;poly([[x,y],[x+dw,y],[x+dw+W*.018,y+H*.055],[x+W*.018,y+H*.055]],"#835b3c");ctx.restore();poly([[x,y],[x+dw,y],[x+dw-W*.004,y+H*.012],[x+W*.004,y+H*.012]],"#b88157");rect(x+W*.022,y+H*.052,W*.018,H*.095,gradient(y,y+H*.14,"#63452f","#34251d"),2);rect(x+dw-W*.025,y+H*.052,W*.018,H*.095,gradient(y,y+H*.14,"#63452f","#34251d"),2)}
+ text("AULA 2°B",W*.04,H*.92,11,"#f1f4f5")
+}
+function drawPatio(){
+ rect(0,0,W,H,gradient(0,H,"#5599bd","#dbe8dc"));wallGlow(W*.82,H*.17,120,"#fff2a455");ellipse(W*.82,H*.17,42,42,"#f4d879","#fff0a2",28);
+ for(let i=0;i<5;i++){const x=W*(.08+i*.21),y=H*(.16+(i%2)*.055);ellipse(x,y,55,16,"#ffffffb8");ellipse(x+35,y+3,42,13,"#ffffffa8")}
+ poly([[0,H*.33],[W*.18,H*.29],[W*.39,H*.35],[W*.60,H*.27],[W*.81,H*.34],[W,H*.30],[W,H*.55],[0,H*.55]],"#75958a");rect(0,H*.43,W,H*.20,gradient(H*.43,H*.63,"#9fb4a2","#6f8a73"));
+ for(let i=0;i<8;i++){const x=W*(.03+i*.14);ctx.save();ctx.shadowColor="#173b2766";ctx.shadowBlur=16;rect(x-7,H*.43,14,H*.20,gradient(H*.43,H*.63,"#745f45","#3d362b"),4);ctx.restore();ellipse(x,H*.39,43,40,gradient(H*.34,H*.44,"#4f8a61","#265d40"));ellipse(x-22,H*.38,25,23,"#4d825b");ellipse(x+22,H*.37,28,26,"#3f7551")}
+ floorPerspective(H*.62,"#788a73","#a1ad9166","#53634faa");
+ for(let i=0;i<2;i++){const x=W*(.19+i*.43);ctx.save();ctx.shadowColor="#1a251a99";ctx.shadowBlur=18;ctx.shadowOffsetY=12;rect(x,H*.605,W*.24,H*.035,gradient(H*.605,H*.64,"#a2724d","#69452f"),5);ctx.restore();rect(x,H*.645,W*.24,H*.02,"#513827",3);rect(x+W*.025,H*.66,W*.022,H*.105,"#473228",2);rect(x+W*.195,H*.66,W*.022,H*.105,"#473228",2)}
+ text("PATIO",W*.04,H*.92,11,"#f6fbf6")
+}
+
+function drawPerson(x,y,scale=1,colors={skin:"#c88768",hair:"#17141b",shirt:"#304760"},mood="neutral"){
+ ctx.save();ctx.translate(x,y);ctx.scale(scale,scale);
+ ctx.save();ctx.shadowColor="#000a";ctx.shadowBlur=14;ellipse(0,67,38,10,"#00000066");ctx.restore();
+ rect(-24,18,18,50,gradient(18,68,"#263649","#121b28"),6);rect(6,18,18,50,gradient(18,68,"#263649","#121b28"),6);rect(-29,60,25,11,"#080b11",5);rect(4,60,27,11,"#080b11",5);line(-25,62,-6,62,"#53606d",1);line(8,62,29,62,"#53606d",1);
+ ctx.save();ctx.shadowColor="#0008";ctx.shadowBlur=13;rect(-40,-29,80,70,gradient(-29,41,colors.shirt,"#172638"),23);ctx.restore();rect(-31,12,62,20,"#20344a",10);line(-29,12,29,12,"#6d849533",1);line(0,-26,0,10,"#91a5b333",1);
+ rect(-49,-16,16,56,gradient(-16,40,colors.shirt,"#1b2b3e"),10);rect(33,-16,16,56,gradient(-16,40,colors.shirt,"#1b2b3e"),10);ellipse(-42,39,8,8,colors.skin);ellipse(42,39,8,8,colors.skin);
+ rect(-9,-54,18,21,gradient(-54,-33,colors.skin,"#9f5d4c"),5);ellipse(-29,-75,7,12,"#a96351");ellipse(29,-75,7,12,"#a96351");
+ ctx.save();ctx.shadowColor="#0006";ctx.shadowBlur=12;ellipse(0,-76,29,36,gradient(-112,-40,"#dc9b77","#a76250"));ctx.restore();ellipse(-8,-84,8,12,"#e7b08d55");
+ ctx.fillStyle=colors.hair;ctx.beginPath();ctx.ellipse(0,-101,36,28,0,0,Math.PI*2);ctx.fill();poly([[-32,-104],[-23,-122],[-8,-113],[4,-126],[15,-113],[29,-121],[34,-99]],colors.hair);for(let i=0;i<5;i++)line(-25+i*12,-109,-18+i*10,-98,"#ffffff10",2);
+ ctx.strokeStyle="#2a1d20";ctx.lineWidth=2;line(-17,-84,-6,-86,"#2a1d20",2);line(6,-86,17,-84,"#2a1d20",2);ellipse(-11,-77,3,2.3,"#171820");ellipse(11,-77,3,2.3,"#171820");ellipse(-10,-78,1,1,"#edf6ff");ellipse(12,-78,1,1,"#edf6ff");line(0,-76,-2,-64,"#8c4d42",1);line(-2,-64,3,-63,"#8c4d42",1);
+ ctx.strokeStyle="#643a3e";ctx.lineWidth=1.8;ctx.beginPath();if(mood==="sad")ctx.arc(0,-52,8,Math.PI,Math.PI*2);else if(mood==="happy")ctx.arc(0,-61,8,0,Math.PI);else{ctx.moveTo(-6,-56);ctx.quadraticCurveTo(0,-54,6,-56)}ctx.stroke();
+ ctx.restore()
+}
+function drawTarget(){const x=scene.target.x*W,y=scene.target.y*H,p=1+Math.sin(performance.now()/270)*.12;ctx.save();ctx.shadowColor="#48dfd2";ctx.shadowBlur=18;ctx.strokeStyle=nearTarget?"#d0fff9":"#5ee0d4";ctx.lineWidth=2.5;ctx.globalAlpha=.85;ctx.beginPath();ctx.ellipse(x,y+18,36*p,13*p,0,0,Math.PI*2);ctx.stroke();ctx.globalAlpha=.16;ctx.fillStyle="#61e4d8";ctx.beginPath();ctx.ellipse(x,y+18,56*p,22*p,0,0,Math.PI*2);ctx.fill();ctx.restore()}
+function drawPlayer(){const x=player.x*W,y=player.y*H,s=Math.min(W/1180,H/700),bob=Math.sin(player.bob)*2.3*s;ctx.save();ctx.translate(x,y+bob);ctx.scale(player.dir,1);drawPerson(0,0,s,{skin:"#c88768",hair:"#15131a",shirt:stats.responsibility>55?"#35675f":"#3b5877"},stats.responsibility>70?"happy":"neutral");ctx.scale(s,s);ctx.save();ctx.shadowColor="#000b";ctx.shadowBlur=9;rect(-17,1,34,52,gradient(1,53,"#26354a","#04070b"),7);ctx.restore();rect(-12,8,24,30,gradient(8,38,"#315779","#162a43"),3);rect(-6,43,12,3,"#7c8a9b",2);ctx.restore()}
+function drawLighting(){const x=player.x*W,y=player.y*H,g=ctx.createRadialGradient(x,y,35,x,y,Math.max(W,H)*.64);g.addColorStop(0,"transparent");g.addColorStop(.58,"#00000004");g.addColorStop(1,scene.key==="bedroom"?"#000000a9":"#06101878");ctx.fillStyle=g;ctx.fillRect(0,0,W,H);const vignette=ctx.createRadialGradient(W/2,H/2,Math.min(W,H)*.28,W/2,H/2,Math.max(W,H)*.72);vignette.addColorStop(0,"transparent");vignette.addColorStop(1,"#00000070");ctx.fillStyle=vignette;ctx.fillRect(0,0,W,H);if(stats.trust<25){ctx.fillStyle="#30101c24";ctx.fillRect(0,0,W,H)}}
+
+function drawLimb(x,y,w,h,angle,fill,r=8){ctx.save();ctx.translate(x,y);ctx.rotate(angle);rect(-w/2,0,w,h,fill,r);ctx.restore()}
+function humanGradient(a,b,x1=0,y1=-160,x2=0,y2=10){const g=ctx.createLinearGradient(x1,y1,x2,y2);g.addColorStop(0,a);g.addColorStop(1,b);return g}
+
+function drawPerson(x,y,scale=1,colors={skin:"#c88768",hair:"#17141b",shirt:"#304760"},mood="neutral",pose="idle"){
+ ctx.save();ctx.translate(x,y);ctx.scale(scale,scale);
+ // La coordenada y representa el piso: sombra y zapatos comparten la misma base.
+ ctx.save();ctx.filter="blur(5px)";ellipse(0,2,37,9,"#00000070");ctx.restore();
+ const step=pose==="walk"?Math.sin(player.bob)*.10:0;
+ // Piernas con articulación y calzado apoyado.
+ drawLimb(-15,-66,18,54,-step,humanGradient("#26384d","#111b28",0,-70,0,0),8);
+ drawLimb(15,-66,18,54,step,humanGradient("#26384d","#111b28",0,-70,0,0),8);
+ ctx.save();ctx.shadowColor="#0008";ctx.shadowBlur=5;rect(-28,-13,31,13,"#090c12",6);rect(4,-13,32,13,"#090c12",6);ctx.restore();
+ rect(-24,-11,25,3,"#637080",2);rect(7,-11,26,3,"#637080",2);
+ // Torso más estrecho en la cintura y con hombros naturales.
+ ctx.save();ctx.shadowColor="#0008";ctx.shadowBlur=12;ctx.shadowOffsetY=7;ctx.fillStyle=humanGradient(colors.shirt,"#172638",0,-142,0,-60);ctx.beginPath();ctx.moveTo(-35,-139);ctx.quadraticCurveTo(-47,-132,-43,-109);ctx.lineTo(-34,-60);ctx.quadraticCurveTo(0,-52,34,-60);ctx.lineTo(43,-109);ctx.quadraticCurveTo(47,-132,35,-139);ctx.quadraticCurveTo(0,-151,-35,-139);ctx.fill();ctx.restore();
+ // Capucha, cierre y bolsillo aportan volumen a la prenda.
+ ctx.strokeStyle="#a4b8c32e";ctx.lineWidth=2;ctx.beginPath();ctx.arc(0,-137,25,.1,Math.PI-.1);ctx.stroke();line(0,-132,0,-66,"#a9bcc32e",2);ctx.fillStyle="#0c182522";ctx.beginPath();ctx.roundRect(-24,-89,48,22,9);ctx.fill();ctx.strokeStyle="#8398aa2b";ctx.stroke();
+ // Brazos separados del torso, con antebrazos y manos.
+ const armSwing=pose==="walk"?Math.sin(player.bob)*.18:0;
+ drawLimb(-39,-130,15,43,.10+armSwing,humanGradient(colors.shirt,"#1a2a3d",0,-45,0,10),8);
+ drawLimb(-43,-91,14,35,-.05+armSwing*.4,humanGradient(colors.shirt,"#172638",0,-35,0,5),8);
+ drawLimb(39,-130,15,43,-.10-armSwing,humanGradient(colors.shirt,"#1a2a3d",0,-45,0,10),8);
+ drawLimb(43,-91,14,35,.05-armSwing*.4,humanGradient(colors.shirt,"#172638",0,-35,0,5),8);
+ ellipse(-44,-58,7,8,colors.skin);ellipse(44,-58,7,8,colors.skin);
+ // Cuello, orejas y cabeza con iluminación lateral.
+ rect(-9,-158,18,23,humanGradient("#d28a69","#995747",0,-25,0,5),6);
+ ellipse(-30,-185,7,12,"#ad6753");ellipse(30,-185,7,12,"#ad6753");
+ ctx.save();ctx.shadowColor="#0006";ctx.shadowBlur=11;ellipse(0,-188,31,39,humanGradient("#e0a17d","#a6604e",-20,-220,24,-155));ctx.restore();
+ ellipse(-10,-199,9,15,"#f0b99342");
+ // Cabello con silueta menos circular y mechones.
+ ctx.fillStyle=colors.hair;ctx.beginPath();ctx.moveTo(-31,-203);ctx.quadraticCurveTo(-35,-232,-9,-235);ctx.quadraticCurveTo(19,-245,34,-218);ctx.lineTo(29,-198);ctx.quadraticCurveTo(20,-215,11,-218);ctx.quadraticCurveTo(0,-205,-8,-221);ctx.quadraticCurveTo(-17,-206,-31,-203);ctx.fill();
+ for(let i=0;i<5;i++)line(-22+i*10,-224,-17+i*9,-210,"#ffffff12",2);
+ // Cejas, ojos con reflejo, nariz y expresión.
+ line(-19,-197,-7,-200,"#342229",2);line(7,-200,19,-197,"#342229",2);
+ ellipse(-12,-190,3.2,2.5,"#171820");ellipse(12,-190,3.2,2.5,"#171820");ellipse(-11,-191,1,1,"#f2f8ff");ellipse(13,-191,1,1,"#f2f8ff");
+ ctx.strokeStyle="#8f5044";ctx.lineWidth=1.4;ctx.beginPath();ctx.moveTo(1,-188);ctx.quadraticCurveTo(-2,-179,3,-177);ctx.stroke();
+ ctx.strokeStyle="#6b3d41";ctx.lineWidth=1.8;ctx.beginPath();if(mood==="sad")ctx.arc(0,-166,8,Math.PI,Math.PI*2);else if(mood==="happy")ctx.arc(0,-176,8,0,Math.PI);else{ctx.moveTo(-6,-170);ctx.quadraticCurveTo(0,-168,6,-170)}ctx.stroke();
+ ctx.restore()
+}
+function drawNPCs(){
+ if(scene.key==="bedroom")return;
+ const distance=Math.max(0,(50-stats.trust)/50)*W*.055;
+ // Todos los personajes comparten el mismo nivel de piso del escenario.
+ const ground=H*.745;
+ if(scene.key==="corridor"){
+  drawPerson(W*.72+distance,ground,.68,{skin:"#d39b78",hair:"#5d3526",shirt:"#35675f"},sceneIndex===9?"sad":"neutral");
+  drawPerson(W*.83+distance,ground,.64,{skin:"#b97862",hair:"#24202b",shirt:"#674968"},"neutral");
+ }
+ if(scene.key==="classroom"){
+  drawPerson(W*.35-distance,ground,.65,{skin:"#d29b7b",hair:"#6b3d26",shirt:"#38665d"},sceneIndex>=10?"sad":"neutral");
+  drawPerson(W*.46-distance,ground,.61,{skin:"#b87860",hair:"#17151b",shirt:"#554b78"},"neutral");
+ }
+ if(scene.key==="patio"){
+  drawPerson(W*.69+distance,ground,.68,{skin:"#d39b78",hair:"#693b27",shirt:"#35685d"},flags.defended?"happy":"neutral");
+  drawPerson(W*.79+distance,ground,.63,{skin:"#b97862",hair:"#211c25",shirt:"#6a4c62"},flags.defended?"happy":"neutral");
+ }
+}
+function drawPlayer(){
+ const x=player.x*W,y=player.y*H,s=Math.min(W/1350,H/780),bob=Math.sin(player.bob)*1.4*s;
+ ctx.save();ctx.translate(x,y+bob);ctx.scale(player.dir,1);
+ drawPerson(0,0,s,{skin:"#c88768",hair:"#15131a",shirt:stats.responsibility>55?"#35675f":"#3d5d7d"},stats.responsibility>72?"happy":"neutral",Math.abs(player.bob)>.05?"walk":"idle");
+ // Teléfono sujeto a la altura de la mano, no flotando frente al cuerpo.
+ ctx.scale(s,s);ctx.save();ctx.shadowColor="#000a";ctx.shadowBlur=8;ctx.translate(31,-91);ctx.rotate(-.12);rect(-12,-22,24,39,humanGradient("#2c3c51","#030609",0,-22,0,20),6);rect(-8,-17,16,25,humanGradient("#315d80","#14283f",0,-17,0,8),3);ellipse(0,12,2,2,"#8191a3");ctx.restore();ctx.restore()
+}
+</script>
+</body>
+</html>
