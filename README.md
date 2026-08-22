@@ -77,6 +77,103 @@ Los seis proyectos también reflejan diferentes formas de utilizar un videojuego
 
 ---
 
-## Galería de videojuegos
+---
 
-*En la siguiente etapa se incorporarán las tarjetas, imágenes y enlaces de los seis proyectos.*
+<a id="videojuegos"></a>
+
+## 🎮 Galería de videojuegos
+
+Cada proyecto explora una forma diferente de utilizar el videojuego como herramienta de aprendizaje. Puedes ejecutarlos directamente desde el navegador o consultar su código fuente.
+
+<table>
+<tr>
+<td width="50%" valign="top">
+
+### 🧮 EduMundo
+
+**Aventura matemática de plataformas**
+
+Supera desafíos, resuelve operaciones y avanza por escenarios que aumentan progresivamente su dificultad.
+
+**Conceptos:** matemáticas, plataformas, niveles y progresión.
+
+[▶️ Jugar ahora](https://katfipol.github.io/game-development-portfolio/juegos/edumundo/) · [💻 Ver código](juegos/edumundo/index.html)
+
+</td>
+<td width="50%" valign="top">
+
+### ♻️ EcoFest
+
+**Clasifica y recicla**
+
+Juego arcade donde el jugador debe identificar residuos y atraparlos con el contenedor correspondiente.
+
+**Conceptos:** reciclaje, clasificación, puntuación y reflejos.
+
+[▶️ Jugar ahora](https://katfipol.github.io/game-development-portfolio/juegos/ecofest/) · [💻 Ver código](juegos/ecofest/index.html)
+
+</td>
+</tr>
+
+<tr>
+<td width="50%" valign="top">
+
+### 🥦 NutriFest
+
+**Aventura saludable**
+
+Auto-runner educativo en el que se recolectan alimentos saludables, se evitan obstáculos y se administra la energía.
+
+**Conceptos:** alimentación, movimiento, energía y toma de decisiones.
+
+[▶️ Jugar ahora](https://katfipol.github.io/game-development-portfolio/juegos/nutrifest/) · [💻 Ver código](juegos/nutrifest/index.html)
+
+</td>
+<td width="50%" valign="top">
+
+### 💧 WaterFest
+
+**Desafíos para cuidar el agua**
+
+Colección de actividades interactivas sobre el ahorro de agua, la identificación de fugas y el consumo responsable.
+
+**Conceptos:** sostenibilidad, minijuegos, progresión y recompensas.
+
+[▶️ Jugar ahora](https://katfipol.github.io/game-development-portfolio/juegos/waterfest/) · [💻 Ver código](juegos/waterfest/index.html)
+
+</td>
+</tr>
+
+<tr>
+<td width="50%" valign="top">
+
+### 📱 Detrás de la Pantalla
+
+**Historia interactiva sobre el ciberbullying**
+
+Experiencia narrativa donde las decisiones del jugador modifican las relaciones, las consecuencias y el desenlace de la historia.
+
+**Conceptos:** storytelling, decisiones, convivencia digital y finales alternativos.
+
+[▶️ Jugar ahora](https://katfipol.github.io/game-development-portfolio/juegos/detras-de-la-pantalla/) · [💻 Ver código](juegos/detras-de-la-pantalla/index.html)
+
+</td>
+<td width="50%" valign="top">
+
+### 🪙 MyEconomy
+
+**Semana financiera**
+
+Simulación de siete días en la que el jugador administra ingresos, gastos obligatorios, ahorro y decisiones personales.
+
+**Conceptos:** educación financiera, economía, administración y evaluación final.
+
+[▶️ Jugar ahora](https://katfipol.github.io/game-development-portfolio/juegos/myeconomy/) · [💻 Ver código](juegos/myeconomy/index.html)
+
+</td>
+</tr>
+</table>
+
+<p align="center">
+  <em>Seis videojuegos, seis formas de transformar el aprendizaje en una experiencia interactiva.</em>
+</p>
